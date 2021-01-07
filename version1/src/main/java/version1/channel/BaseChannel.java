@@ -16,9 +16,9 @@ public abstract class BaseChannel {
     protected int pid;
     protected NetworkFunction nf;
 
-    public BaseChannel(Channel channel, OperationManager operationManager) {
+    public BaseChannel(Channel channel) {
         this.channel = channel;
-        this.operationManager = operationManager;
+        //this.operationManager = operationManager;
         host = null;
     }
 
@@ -45,7 +45,7 @@ public abstract class BaseChannel {
         return this.host+"."+this.pid+":"+localPort;
     }
 
-    protected abstract void processMessage(String line) ;
+    protected abstract void processMessage(Object msg) ;
     public abstract void sendMessage(Object msg) ;
 }
 

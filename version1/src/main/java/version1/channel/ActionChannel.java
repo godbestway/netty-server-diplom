@@ -11,13 +11,14 @@ import version1.OperationManager;
 public class ActionChannel extends BaseChannel{
 
 
-    public ActionChannel(Channel channel, OperationManager operationManager) {
-        super(channel, operationManager);
+    public ActionChannel(Channel channel) {
+        super(channel);
     }
 
-    protected void processMessage(String line) {
+    protected void processMessage(Object msg) {
 
     }
+
 
     public void sendMessage(Object msg) {
 

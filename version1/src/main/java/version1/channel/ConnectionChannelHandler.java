@@ -2,6 +2,8 @@ package version1.channel;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.Attribute;
+import version1.OperationManager;
 import version1.proto.object.InformationProto;
 import version1.proto.object.PersonProto;
 
@@ -12,31 +14,17 @@ import version1.proto.object.PersonProto;
  */
 public class ConnectionChannelHandler extends BaseChannelHandler{
 
+    /*public ConnectionChannelHandler(OperationManager operationManager) {
+        super(operationManager);
+    }*/
+
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //新建立连接时触发的动作
         Channel incoming=ctx.channel();
+        ConnectionChannel connChannel = new ConnectionChannel(incoming);
+        //新建立连接时触发的动作
+        Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
+        attr.setIfAbsent(connChannel);
         System.out.println("客户端："+incoming.remoteAddress()+"已连接上来");
-    }
-
-
-    public void channelRead(ChannelHandlerContext ctx, Object msg)  throws Exception
-    {
-        if(msg instanceof InformationProto.Information){
-            InformationProto.Information info = (InformationProto.Information)msg;
-            System.out.println("具体内容:"+info.getContent());
-            System.out.println("具体personnum:"+info.getPersonnum());
-        }
-        else if(msg instanceof  PersonProto.Person){
-            PersonProto.Person person = (PersonProto.Person)msg;
-            System.out.println("person name:"+person.getName());
-            System.out.println("person age:"+person.getAge());
-        }
-
-        /*System.out.println(msg.toString());
-        InformationProto.Information information=(InformationProto.Information)msg;
-        System.out.println("具体数据内容:"+information.getContent());*/
-
-
     }
 
 
