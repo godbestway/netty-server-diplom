@@ -41,7 +41,7 @@ public class AppServerPB {
                     .localAddress(new InetSocketAddress(port))//设置监听端口
                     .option(ChannelOption.SO_BACKLOG,128)//最大保持连接数128，option主要是针对boss线程组
                     .childOption(ChannelOption.SO_KEEPALIVE,true)//启用心跳保活机制，childOption主要是针对worker线程组
-                    .childHandler(new InitializerServerPB(this.operationManager));
+                    .childHandler(new InitializerServerConn(this.operationManager));
 
             //绑定服务器，该实例将提供有关IO操作的结果或状态的信息
             ChannelFuture channelFuture= b.bind().sync();

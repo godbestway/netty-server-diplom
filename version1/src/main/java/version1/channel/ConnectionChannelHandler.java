@@ -24,7 +24,7 @@ public class ConnectionChannelHandler extends BaseChannelHandler{
         //新建立连接时触发的动作
         Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
         attr.setIfAbsent(connChannel);
-        System.out.println("客户端："+incoming.remoteAddress()+"已连接上来");
+        System.out.println("客户端："+incoming.remoteAddress()+"已连接上Connection来");
     }
 
 

@@ -1,8 +1,6 @@
 package version1;
-import javax.annotation.PreDestroy;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -43,7 +41,7 @@ public class NettyServer{
                     .localAddress(new InetSocketAddress(port1))//设置监听端口
                     .option(ChannelOption.SO_BACKLOG,128)//最大保持连接数128，option主要是针对boss线程组
                     .childOption(ChannelOption.SO_KEEPALIVE,true)//启用心跳保活机制，childOption主要是针对worker线程组
-                    .childHandler(new InitializerServerPB(this.operationManager));
+                    .childHandler(new InitializerServerConn(this.operationManager));
 
             //绑定服务器，该实例将提供有关IO操作的结果或状态的信息
             ChannelFuture firstChannelFuture= first.bind();
@@ -55,7 +53,7 @@ public class NettyServer{
                     .localAddress(new InetSocketAddress(port2))//设置监听端口
                     .option(ChannelOption.SO_BACKLOG,128)//最大保持连接数128，option主要是针对boss线程组
                     .childOption(ChannelOption.SO_KEEPALIVE,true)//启用心跳保活机制，childOption主要是针对worker线程组
-                    .childHandler(new InitializerServerPB(this.operationManager));
+                    .childHandler(new InitializerServerAction(this.operationManager));
 
             //绑定服务器，该实例将提供有关IO操作的结果或状态的信息
             //ChannelFuture secondChannelFuture=second.bind();

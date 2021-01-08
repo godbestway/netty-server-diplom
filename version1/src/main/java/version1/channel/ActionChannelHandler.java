@@ -2,6 +2,7 @@ package version1.channel;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.Attribute;
 import version1.OperationManager;
 import version1.proto.object.InformationProto;
 import version1.proto.object.PersonProto;
@@ -18,27 +19,14 @@ public class ActionChannelHandler extends BaseChannelHandler {
         super(operationManager);
     }
 
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if(msg instanceof InformationProto.Information){
-            InformationProto.Information info = (InformationProto.Information)msg;
-            System.out.println("具体内容:"+info.getContent());
-            System.out.println("具体personnum:"+info.getPersonnum());
-        }
-        else if(msg instanceof  PersonProto.Person){
-            PersonProto.Person person = (PersonProto.Person)msg;
-            System.out.println("person name:"+person.getName());
-            System.out.println("person age:"+person.getAge());
-        }
-
-        /*System.out.println(msg.toString());
-        InformationProto.Information information=(InformationProto.Information)msg;
-        System.out.println("具体数据内容:"+information.getContent());*/
-    }
-
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         //新建立连接时触发的动作
         Channel incoming=ctx.channel();
-        System.out.println("客户端："+incoming.remoteAddress()+"已连接上来");
+        ActionChannel actionChannel = new ActionChannel(incoming , this.operationManager);
+        //新建立连接时触发的动作
+        Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
+        attr.setIfAbsent(actionChannel);
+        System.out.println("客户端："+incoming.remoteAddress()+"已连接上Action来");
     }
 
     @Override

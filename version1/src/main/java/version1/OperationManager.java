@@ -45,6 +45,7 @@ public class OperationManager {
                 nf.setConnectionChannel((ConnectionChannel) channel);
             }
             else if(channel instanceof ActionChannel){
+                System.out.println("try to set a action channel");
                 nf.setActionChannel((ActionChannel)channel);
             }
 
