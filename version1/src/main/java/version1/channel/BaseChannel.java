@@ -16,9 +16,9 @@ public abstract class BaseChannel {
     protected int pid;
     protected NetworkFunction nf;
 
-    public BaseChannel(Channel channel) {
+    public BaseChannel(Channel channel, OperationManager operationManager) {
         this.channel = channel;
-        //this.operationManager = operationManager;
+        this.operationManager = operationManager;
         host = null;
     }
 

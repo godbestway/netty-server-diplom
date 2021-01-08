@@ -12,21 +12,21 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.net.InetSocketAddress;
 
 
-/**
- * Created by zhangkai on 2018/6/11.
- * NioEventLoopGroup → EpollEventLoopGroup
- NioEventLoop → EpollEventLoop
- NioServerSocketChannel → EpollServerSocketChannel
- NioSocketChannel → EpollSocketChannel
- @Component
- */
 public class NettyServer{
     public int port1;
     public int port2;
 
+    private OperationManager operationManager;
+
     public NettyServer(int port1, int port2) {
         this.port1 = port1;
         this.port2 = port2;
+    }
+
+    public NettyServer(int port1, int port2, OperationManager operationManager) {
+        this.port1 = port1;
+        this.port2 = port2;
+        this.operationManager = operationManager;
     }
 
     public void run() throws Exception
@@ -43,7 +43,7 @@ public class NettyServer{
                     .localAddress(new InetSocketAddress(port1))//设置监听端口
                     .option(ChannelOption.SO_BACKLOG,128)//最大保持连接数128，option主要是针对boss线程组
                     .childOption(ChannelOption.SO_KEEPALIVE,true)//启用心跳保活机制，childOption主要是针对worker线程组
-                    .childHandler(new InitializerServerPB());
+                    .childHandler(new InitializerServerPB(this.operationManager));
 
             //绑定服务器，该实例将提供有关IO操作的结果或状态的信息
             ChannelFuture firstChannelFuture= first.bind();
@@ -55,7 +55,7 @@ public class NettyServer{
                     .localAddress(new InetSocketAddress(port2))//设置监听端口
                     .option(ChannelOption.SO_BACKLOG,128)//最大保持连接数128，option主要是针对boss线程组
                     .childOption(ChannelOption.SO_KEEPALIVE,true)//启用心跳保活机制，childOption主要是针对worker线程组
-                    .childHandler(new InitializerServerPB());
+                    .childHandler(new InitializerServerPB(this.operationManager));
 
             //绑定服务器，该实例将提供有关IO操作的结果或状态的信息
             //ChannelFuture secondChannelFuture=second.bind();
@@ -77,7 +77,8 @@ public class NettyServer{
 
     public static void main(String[] args)  throws Exception
     {
-        new NettyServer(18080,  18081).run();
+        OperationManager operationManager = new OperationManager();
+        new NettyServer(18080,  18081, operationManager).run();
         //new AppServerPB(10000).run();
     }
 

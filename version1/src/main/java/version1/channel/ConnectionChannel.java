@@ -4,6 +4,7 @@ import io.netty.channel.Channel;
 import version1.OperationManager;
 import version1.proto.object.InformationProto;
 import version1.proto.object.PersonProto;
+import version1.proto.object.SynProto;
 
 /**
  * @Author: Chenglin Ding
@@ -13,8 +14,8 @@ import version1.proto.object.PersonProto;
 public class ConnectionChannel extends BaseChannel {
 
 
-    public ConnectionChannel(Channel channel) {
-        super(channel);
+    public ConnectionChannel(Channel channel, OperationManager operationManager) {
+        super(channel, operationManager);
     }
 
     protected void processMessage(Object msg) {
@@ -27,6 +28,12 @@ public class ConnectionChannel extends BaseChannel {
             PersonProto.Person person = (PersonProto.Person)msg;
             System.out.println("person name:"+person.getName());
             System.out.println("person age:"+person.getAge());
+        }else if(msg instanceof SynProto.Syn){
+            System.out.println("syn message comes");
+            SynProto.Syn syn = (SynProto.Syn) msg;
+            this.host = syn.getHost() ;
+            this.pid = syn.getPid();
+            operationManager.channelConnected(this);
         }
 
         /*System.out.println(msg.toString());

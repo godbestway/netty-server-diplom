@@ -6,6 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import version1.proto.object.InformationProto;
 import version1.proto.object.PersonProto;
+import version1.proto.object.SynProto;
 
 import java.util.List;
 
@@ -70,6 +71,8 @@ public class ServerDecoder extends ByteToMessageDecoder {
             return InformationProto.Information.getDefaultInstance().
                     getParserForType().parseFrom(array, offset, length);
 
+        }else if(dataType == 0x02){
+            return SynProto.Syn.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         }
         return null;
 

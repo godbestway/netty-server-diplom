@@ -14,13 +14,13 @@ import version1.proto.object.PersonProto;
  */
 public class ConnectionChannelHandler extends BaseChannelHandler{
 
-    /*public ConnectionChannelHandler(OperationManager operationManager) {
+    public ConnectionChannelHandler(OperationManager operationManager) {
         super(operationManager);
-    }*/
+    }
 
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         Channel incoming=ctx.channel();
-        ConnectionChannel connChannel = new ConnectionChannel(incoming);
+        ConnectionChannel connChannel = new ConnectionChannel(incoming, this.operationManager);
         //新建立连接时触发的动作
         Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
         attr.setIfAbsent(connChannel);

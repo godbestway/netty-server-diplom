@@ -16,11 +16,11 @@ import version1.proto.object.PersonProto;
  * @Description:
  */
 public abstract class BaseChannelHandler extends ChannelInboundHandlerAdapter{
-    //protected OperationManager operationManager;
+    protected OperationManager operationManager;
 
-    /*public BaseChannelHandler(OperationManager operationManager){
+    public BaseChannelHandler(OperationManager operationManager){
         this.operationManager =operationManager;
-    }*/
+    }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)  throws Exception{

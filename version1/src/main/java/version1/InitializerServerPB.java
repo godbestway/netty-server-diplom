@@ -14,6 +14,11 @@ import version1.coder.ServerDecoder;
 import version1.coder.ServerEncoder;
 
 public class InitializerServerPB extends ChannelInitializer<SocketChannel>{
+    private OperationManager operationManager;
+
+    public InitializerServerPB(OperationManager operationManager) {
+        this.operationManager = operationManager;
+    }
 
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception
@@ -21,6 +26,6 @@ public class InitializerServerPB extends ChannelInitializer<SocketChannel>{
         ChannelPipeline pipeline=socketChannel.pipeline();
         pipeline.addLast("Protobuf decoder", new ServerDecoder());//设置我们的proto文件生成的实例，其实就是我们的目标Java类
         pipeline.addLast("Protobuf encoder",new ServerEncoder());//protobuf编码器
-        pipeline.addLast("handler", new ConnectionChannelHandler());
+        pipeline.addLast("handler", new ConnectionChannelHandler(this.operationManager));
     }
 }

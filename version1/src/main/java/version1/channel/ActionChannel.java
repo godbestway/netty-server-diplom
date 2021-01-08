@@ -11,8 +11,8 @@ import version1.OperationManager;
 public class ActionChannel extends BaseChannel{
 
 
-    public ActionChannel(Channel channel) {
-        super(channel);
+    public ActionChannel(Channel channel, OperationManager operationManager) {
+        super(channel, operationManager);
     }
 
     protected void processMessage(Object msg) {
