@@ -4,8 +4,10 @@ import com.google.protobuf.MessageLite;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+import version1.proto.object.GetPerflowProto;
 import version1.proto.object.InformationProto;
 import version1.proto.object.PersonProto;
+import version1.proto.object.SynProto;
 
 /**
  * @Author: Chenglin Ding
@@ -44,6 +46,11 @@ public class ServerEncoder extends MessageToByteEncoder<MessageLite> {
         } else if (msg instanceof InformationProto.Information) {
             System.out.println("information");
             messageType = 0x01;
+        } else if(msg instanceof SynProto.Syn){
+            System.out.println("syn message");
+            messageType = 0x02;
+        }else if(msg instanceof GetPerflowProto.GetPerflowMsg){
+            messageType = 0x03;
         }
 
         byte[] header = new byte[4];

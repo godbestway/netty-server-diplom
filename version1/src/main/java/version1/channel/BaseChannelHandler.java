@@ -1,14 +1,9 @@
 package version1.channel;
 
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.Attribute;
-
-import io.netty.util.AttributeKey;
-import version1.OperationManager;
-import version1.proto.object.InformationProto;
-import version1.proto.object.PersonProto;
+import version1.zcore.OperationManager;
 
 /**
  * @Author: Chenglin Ding
@@ -31,7 +26,7 @@ public abstract class BaseChannelHandler extends ChannelInboundHandlerAdapter{
             baseChannel.processMessage(msg);
 
         }catch (Exception e ){
-            System.out.println("something went wrong"+e);
+            e.printStackTrace();
         }
     }
 

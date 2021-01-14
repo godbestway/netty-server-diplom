@@ -3,8 +3,7 @@ package version1.channel;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.Attribute;
-import version1.OperationManager;
-import version1.proto.object.InformationProto;
+import version1.zcore.OperationManager;
 import version1.proto.object.PersonProto;
 
 /**
@@ -25,6 +24,7 @@ public class ConnectionChannelHandler extends BaseChannelHandler{
         Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
         attr.setIfAbsent(connChannel);
         System.out.println("客户端："+incoming.remoteAddress()+"已连接上Connection来");
+
     }
 
 

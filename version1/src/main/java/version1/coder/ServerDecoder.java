@@ -4,9 +4,7 @@ import com.google.protobuf.MessageLite;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-import version1.proto.object.InformationProto;
-import version1.proto.object.PersonProto;
-import version1.proto.object.SynProto;
+import version1.proto.object.*;
 
 import java.util.List;
 
@@ -19,7 +17,6 @@ public class ServerDecoder extends ByteToMessageDecoder {
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
 
         while (in.readableBytes() > 4) { // 如果可读长度小于包头长度，退出。
-            System.out.println("11111111111111111111111111");
             in.markReaderIndex();
 
             // 获取包头中的body长度
@@ -33,7 +30,7 @@ public class ServerDecoder extends ByteToMessageDecoder {
             // 获取包头中的protobuf类型
             in.readByte();
             byte dataType = in.readByte();
-            System.out.printf("data::::::  %x\n",dataType);
+            System.out.printf("datatype  %x\n",dataType);
             // 如果可读长度小于body长度，恢复读指针，退出。
             if (in.readableBytes() < length) {
                 in.resetReaderIndex();
@@ -55,7 +52,6 @@ public class ServerDecoder extends ByteToMessageDecoder {
                 bodyByteBuf.getBytes(bodyByteBuf.readerIndex(), array, 0, readableLen);
                 offset = 0;
             }
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             //反序列化
             MessageLite result = decodeBody(dataType, array, offset, readableLen);
             out.add(result);
@@ -73,7 +69,12 @@ public class ServerDecoder extends ByteToMessageDecoder {
 
         }else if(dataType == 0x02){
             return SynProto.Syn.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        }else if(dataType == 0x11){
+            return FlowStateProto.FlowState.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         }
+
+
+
         return null;
 
 

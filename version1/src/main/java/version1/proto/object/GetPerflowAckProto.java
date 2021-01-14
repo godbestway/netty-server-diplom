@@ -18,21 +18,15 @@ public final class GetPerflowAckProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string count = 1;</code>
+     * <code>required fixed32 count = 1;</code>
      * @return Whether the count field is set.
      */
     boolean hasCount();
     /**
-     * <code>required string count = 1;</code>
+     * <code>required fixed32 count = 1;</code>
      * @return The count.
      */
-    java.lang.String getCount();
-    /**
-     * <code>required string count = 1;</code>
-     * @return The bytes for count.
-     */
-    com.google.protobuf.ByteString
-        getCountBytes();
+    int getCount();
   }
   /**
    * Protobuf type {@code GetPerflowAckMsg}
@@ -47,7 +41,6 @@ public final class GetPerflowAckProto {
       super(builder);
     }
     private GetPerflowAckMsg() {
-      count_ = "";
     }
 
     @java.lang.Override
@@ -81,10 +74,9 @@ public final class GetPerflowAckProto {
             case 0:
               done = true;
               break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 13: {
               bitField0_ |= 0x00000001;
-              count_ = bs;
+              count_ = input.readFixed32();
               break;
             }
             default: {
@@ -121,9 +113,9 @@ public final class GetPerflowAckProto {
 
     private int bitField0_;
     public static final int COUNT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object count_;
+    private int count_;
     /**
-     * <code>required string count = 1;</code>
+     * <code>required fixed32 count = 1;</code>
      * @return Whether the count field is set.
      */
     @java.lang.Override
@@ -131,41 +123,12 @@ public final class GetPerflowAckProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required string count = 1;</code>
+     * <code>required fixed32 count = 1;</code>
      * @return The count.
      */
     @java.lang.Override
-    public java.lang.String getCount() {
-      java.lang.Object ref = count_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          count_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string count = 1;</code>
-     * @return The bytes for count.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCountBytes() {
-      java.lang.Object ref = count_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        count_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getCount() {
+      return count_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -187,7 +150,7 @@ public final class GetPerflowAckProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, count_);
+        output.writeFixed32(1, count_);
       }
       unknownFields.writeTo(output);
     }
@@ -199,7 +162,8 @@ public final class GetPerflowAckProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, count_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(1, count_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -218,8 +182,8 @@ public final class GetPerflowAckProto {
 
       if (hasCount() != other.hasCount()) return false;
       if (hasCount()) {
-        if (!getCount()
-            .equals(other.getCount())) return false;
+        if (getCount()
+            != other.getCount()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -234,7 +198,7 @@ public final class GetPerflowAckProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCount()) {
         hash = (37 * hash) + COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getCount().hashCode();
+        hash = (53 * hash) + getCount();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -369,7 +333,7 @@ public final class GetPerflowAckProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        count_ = "";
+        count_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -400,9 +364,9 @@ public final class GetPerflowAckProto {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.count_ = count_;
           to_bitField0_ |= 0x00000001;
         }
-        result.count_ = count_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -453,9 +417,7 @@ public final class GetPerflowAckProto {
       public Builder mergeFrom(GetPerflowAckProto.GetPerflowAckMsg other) {
         if (other == GetPerflowAckProto.GetPerflowAckMsg.getDefaultInstance()) return this;
         if (other.hasCount()) {
-          bitField0_ |= 0x00000001;
-          count_ = other.count_;
-          onChanged();
+          setCount(other.getCount());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -490,86 +452,41 @@ public final class GetPerflowAckProto {
       }
       private int bitField0_;
 
-      private java.lang.Object count_ = "";
+      private int count_ ;
       /**
-       * <code>required string count = 1;</code>
+       * <code>required fixed32 count = 1;</code>
        * @return Whether the count field is set.
        */
+      @java.lang.Override
       public boolean hasCount() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required string count = 1;</code>
+       * <code>required fixed32 count = 1;</code>
        * @return The count.
        */
-      public java.lang.String getCount() {
-        java.lang.Object ref = count_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            count_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getCount() {
+        return count_;
       }
       /**
-       * <code>required string count = 1;</code>
-       * @return The bytes for count.
-       */
-      public com.google.protobuf.ByteString
-          getCountBytes() {
-        java.lang.Object ref = count_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          count_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string count = 1;</code>
+       * <code>required fixed32 count = 1;</code>
        * @param value The count to set.
        * @return This builder for chaining.
        */
-      public Builder setCount(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      public Builder setCount(int value) {
+        bitField0_ |= 0x00000001;
         count_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string count = 1;</code>
+       * <code>required fixed32 count = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearCount() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        count_ = getDefaultInstance().getCount();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string count = 1;</code>
-       * @param value The bytes for count to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCountBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        count_ = value;
+        count_ = 0;
         onChanged();
         return this;
       }
@@ -641,7 +558,7 @@ public final class GetPerflowAckProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\026getPerflowAckMsg.proto\"!\n\020GetPerflowAc" +
-      "kMsg\022\r\n\005count\030\001 \002(\tB\024B\022GetPerflowAckProt" +
+      "kMsg\022\r\n\005count\030\001 \002(\007B\024B\022GetPerflowAckProt" +
       "o"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

@@ -3,8 +3,7 @@ package version1.channel;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.Attribute;
-import version1.OperationManager;
-import version1.proto.object.InformationProto;
+import version1.zcore.OperationManager;
 import version1.proto.object.PersonProto;
 
 /**

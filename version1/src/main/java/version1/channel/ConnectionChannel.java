@@ -1,10 +1,9 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
-import version1.OperationManager;
-import version1.proto.object.InformationProto;
-import version1.proto.object.PersonProto;
-import version1.proto.object.SynProto;
+import version1.zcore.ConnMsgProcessor;
+import version1.zcore.OperationManager;
+import version1.proto.object.*;
 
 /**
  * @Author: Chenglin Ding
@@ -15,10 +14,14 @@ public class ConnectionChannel extends BaseChannel {
 
 
     public ConnectionChannel(Channel channel, OperationManager operationManager) {
+
         super(channel, operationManager);
     }
 
+
     protected void processMessage(Object msg) {
+        ConnMsgProcessor connMsgProcess = (ConnMsgProcessor) operationManager.getConnMsgProcessors();
+
         if(msg instanceof InformationProto.Information){
             InformationProto.Information info = (InformationProto.Information)msg;
             System.out.println("具体内容:"+info.getContent());
@@ -34,6 +37,10 @@ public class ConnectionChannel extends BaseChannel {
             this.host = syn.getHost() ;
             this.pid = syn.getPid();
             operationManager.channelConnected(this);
+        }else if(msg instanceof FlowStateProto.FlowState){
+            connMsgProcess.receiveStatePerflow((FlowStateProto.FlowState)msg);
+        }else if(msg instanceof GetPerflowAckProto.GetPerflowAckMsg){
+            connMsgProcess.getPerflowAck((GetPerflowAckProto.GetPerflowAckMsg) msg);
         }
 
         /*System.out.println(msg.toString());
@@ -42,6 +49,9 @@ public class ConnectionChannel extends BaseChannel {
     }
 
     public void sendMessage(Object msg) {
+        /*GetPerflowProto.GetPerflowMsg getPerflowMsg = GetPerflowProto.GetPerflowMsg.newBuilder()
+                .setKey("all").build();*/
 
+        channel.writeAndFlush(msg);
     }
 }

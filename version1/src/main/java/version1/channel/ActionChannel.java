@@ -1,8 +1,10 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
-import version1.OperationManager;
+import version1.zcore.ActionMsgProcessor;
+import version1.zcore.OperationManager;
 import version1.proto.object.InformationProto;
+import version1.proto.object.MultiflowStateProto;
 import version1.proto.object.PersonProto;
 import version1.proto.object.SynProto;
 
@@ -19,6 +21,8 @@ public class ActionChannel extends BaseChannel{
     }
 
     protected void processMessage(Object msg) {
+        ActionMsgProcessor actionMsgProcessor = (ActionMsgProcessor) operationManager.getActionMsgProcessors();
+
         if(msg instanceof InformationProto.Information){
             InformationProto.Information info = (InformationProto.Information)msg;
             System.out.println("具体内容:"+info.getContent());
@@ -34,11 +38,13 @@ public class ActionChannel extends BaseChannel{
             this.host = syn.getHost() ;
             this.pid = syn.getPid();
             operationManager.channelConnected(this);
+        }else if(msg instanceof MultiflowStateProto.MultiflowState){
+            actionMsgProcessor.receiveStateMultiflow((MultiflowStateProto.MultiflowState)msg);
         }
     }
 
 
     public void sendMessage(Object msg) {
-
+        channel.writeAndFlush(msg);
     }
 }
