@@ -18,20 +18,20 @@ public class ConnMsgProcessor extends ProcessPerflow {
     private volatile int totalnum ;
     private ConnStateStorage connStateStorage;
     private ExecutorService threadPool;
-    private ConcurrentLinkedQueue<StateChunk> statesList;
+    private ConcurrentLinkedQueue<ConnStateChunk> statesList;
 
     public ConnMsgProcessor(){
         this.threadPool = Executors.newCachedThreadPool();
-        this.statesList = new ConcurrentLinkedQueue<StateChunk>();
+        this.statesList = new ConcurrentLinkedQueue<ConnStateChunk>();
     }
 
     public void receiveStatePerflow(FlowStateProto.FlowState flowState) {
-        System.out.println("receive a state, data="+flowState.getData());
+        System.out.println("connection receive a state, data="+flowState.getData());
         connStateStorage.getStatesList().add(flowState);
-        StateChunk stateChunk = null;
+        ConnStateChunk connStateChunk = null;
 
-        stateChunk = new StateChunk(connStateStorage.getDst() , flowState,flowState.getData());
-        threadPool.submit(stateChunk);
+        connStateChunk = new ConnStateChunk(connStateStorage.getDst() , flowState,flowState.getData());
+        threadPool.submit(connStateChunk);
     }
 
 
@@ -45,19 +45,19 @@ public class ConnMsgProcessor extends ProcessPerflow {
 
     public void getPerflowAck(GetPerflowAckProto.GetPerflowAckMsg msg) {
         totalnum = msg.getCount();
-        System.out.println("totalnum:"+ totalnum);
+        System.out.println("connection totalnum:"+ totalnum);
     }
 
     public void putPerflowAck(PutPerflowAckMsgProto.PutPerflowAckMsg msg) {
         count++;
-        System.out.println("put perflow count"+count);
-        /*if(count == totalnum){
+        System.out.println("connection put perflow count"+count);
+        if(count == totalnum){
             setConnStateStorageAck();
-        }*/
+        }
     }
 
     public void sendGetPerflow(NetworkFunction nf, String key) {
-        System.out.println("发送了getperflow");
+        System.out.println("发送了connection getperflow");
         GetPerflowProto.GetPerflowMsg getPerflowMsg = GetPerflowProto.GetPerflowMsg.newBuilder()
                 .setKey(key).build();
         nf.getConnectionChannel().sendMessage(getPerflowMsg);
@@ -65,18 +65,18 @@ public class ConnMsgProcessor extends ProcessPerflow {
     }
 
     public void addConnStateStorage(ConnStateStorage connStateStorage){
-        System.out.println("添加了conn storage");
+        System.out.println("添加了connection storage");
         this.connStateStorage = connStateStorage;
     }
 
     public void testSendPutFlow(){
         System.out.println("test send putperflow");
-        StateChunk stateChunk = null;
+        ConnStateChunk connStateChunk = null;
         for(int i = 1; i <= 5;i++){
             FlowStateProto.FlowState flowState = FlowStateProto.FlowState.newBuilder()
                     .setData(i).build();
-            stateChunk = new StateChunk(connStateStorage.getDst() , flowState,i);
-            threadPool.submit(stateChunk);
+            connStateChunk = new ConnStateChunk(connStateStorage.getDst() , flowState,i);
+            threadPool.submit(connStateChunk);
         }
     }
 

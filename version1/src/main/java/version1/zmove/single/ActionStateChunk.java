@@ -8,21 +8,21 @@ import java.util.concurrent.Callable;
 
 /**
  * @Author: Chenglin Ding
- * @Date: 14.01.2021 14:42
+ * @Date: 16.01.2021 18:15
  * @Description:
  */
-public class StateChunk implements Callable<Boolean>{
+public class ActionStateChunk implements Callable<Boolean> {
     private NetworkFunction dst;
     //Todo for Multiflow
     private FlowStateProto.FlowState flowState;
     private int stateCount;
 
-    public StateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState) {
+    public ActionStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState) {
         this.dst = dst;
         this.flowState = flowState;
     }
 
-    public StateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState, int stateCount) {
+    public ActionStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState, int stateCount) {
         this.dst = dst;
         this.flowState = flowState;
         this.stateCount = stateCount;
@@ -34,19 +34,9 @@ public class StateChunk implements Callable<Boolean>{
                 .setCount(this.stateCount)
                 .build();
         System.out.println("send putperflow");
-        this.dst.getConnectionChannel().sendMessage(putPerflowMsg);
+        this.dst.getActionChannel().sendMessage(putPerflowMsg);
 
         return true;
     }
 
-    /*public void run() {
-        PutPerflowProto.PutPerflowMsg putPerflowMsg = PutPerflowProto.PutPerflowMsg.newBuilder()
-                .setState(this.flowState)
-                .setCount(this.stateCount)
-                .build();
-        System.out.println("send putperflow");
-        this.dst.getConnectionChannel().sendMessage(putPerflowMsg);
-
-
-    }*/
 }

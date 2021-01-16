@@ -1,12 +1,9 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
+import version1.proto.object.*;
 import version1.zmove.single.ActionMsgProcessor;
 import version1.zmove.single.OperationManager;
-import version1.proto.object.InformationProto;
-import version1.proto.object.MultiflowStateProto;
-import version1.proto.object.PersonProto;
-import version1.proto.object.SynProto;
 
 /**
  * @Author: Chenglin Ding
@@ -38,8 +35,12 @@ public class ActionChannel extends BaseChannel{
             this.host = syn.getHost() ;
             this.pid = syn.getPid();
             operationManager.channelConnected(this);
-        }else if(msg instanceof MultiflowStateProto.MultiflowState){
-            actionMsgProcessor.receiveStateMultiflow((MultiflowStateProto.MultiflowState)msg);
+        }else if(msg instanceof FlowStateProto.FlowState){
+            actionMsgProcessor.receiveStatePerflow((FlowStateProto.FlowState)msg);
+        }else if(msg instanceof GetPerflowAckProto.GetPerflowAckMsg){
+            actionMsgProcessor.getPerflowAck((GetPerflowAckProto.GetPerflowAckMsg) msg);
+        }else if(msg instanceof  PutPerflowAckMsgProto.PutPerflowAckMsg){
+            actionMsgProcessor.putPerflowAck((PutPerflowAckMsgProto.PutPerflowAckMsg)msg);
         }
     }
 

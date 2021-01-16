@@ -1,5 +1,6 @@
 package version1.zmove.single;
 
+import version1.channel.ActionChannel;
 import version1.interfaces.NetworkFunction;
 import version1.interfaces.msgprocessors.perflow.ProcessPerflow;
 import version1.proto.object.FlowStateProto;
@@ -21,20 +22,20 @@ public class ActionMsgProcessor extends ProcessPerflow{
     private volatile int count ;
     private volatile int totalnum ;
     private ExecutorService threadPool;
-    private ConcurrentLinkedQueue<StateChunk> statesList;
+    private ConcurrentLinkedQueue<ActionStateChunk> statesList;
 
     public ActionMsgProcessor(){
         this.threadPool = Executors.newCachedThreadPool();
-        this.statesList = new ConcurrentLinkedQueue<StateChunk>();
+        this.statesList = new ConcurrentLinkedQueue<ActionStateChunk>();
     }
 
     public void receiveStatePerflow(FlowStateProto.FlowState flowState) {
-        System.out.println("receive a state, data="+flowState.getData());
+        System.out.println("action receive a state, data="+flowState.getData());
         //actionStateStorage.getStatesMap().get(0).add(flowState);
-        StateChunk stateChunk = null;
+        ActionStateChunk actionStateChunk = null;
 
-        stateChunk = new StateChunk(actionStateStorage.getDst() , flowState,flowState.getData());
-        threadPool.submit(stateChunk);
+        actionStateChunk = new ActionStateChunk(actionStateStorage.getDst() , flowState,flowState.getData());
+        threadPool.submit(actionStateChunk);
     }
 
 
@@ -48,26 +49,26 @@ public class ActionMsgProcessor extends ProcessPerflow{
 
     public void getPerflowAck(GetPerflowAckProto.GetPerflowAckMsg msg) {
         totalnum = msg.getCount();
-        System.out.println("totalnum:"+ totalnum);
+        System.out.println("action totalnum:"+ totalnum);
     }
 
     public void putPerflowAck(PutPerflowAckMsgProto.PutPerflowAckMsg msg) {
         count++;
-        System.out.println("put perflow count"+count);
+        System.out.println("action put perflow count"+count);
         if(count == totalnum){
             setActionStateStorageAck();
         }
     }
 
     public void sendGetPerflow(NetworkFunction nf, String key) {
-        System.out.println("发送了getperflow");
+        System.out.println("发送了action getperflow");
         GetPerflowProto.GetPerflowMsg getPerflowMsg = GetPerflowProto.GetPerflowMsg.newBuilder()
                 .setKey(key).build();
-        nf.getConnectionChannel().sendMessage(getPerflowMsg);
+        nf.getActionChannel().sendMessage(getPerflowMsg);
 
     }
     public void addActionStateStorage(ActionStateStorage actionStateStorage){
-        System.out.println("添加了conn storage");
+        System.out.println("添加了action storage");
         this.actionStateStorage = actionStateStorage;
     }
     public void setActionStateStorageAck(){

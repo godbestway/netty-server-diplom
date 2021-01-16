@@ -7,10 +7,7 @@ import version1.interfaces.stepControl.ProcessControl;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 
 /**
@@ -26,6 +23,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public static long movestart;
     //public static long movestart2;
     private CountDownLatch latch;
+    private static CyclicBarrier cyclicBarrier;
 
     public MoveProcessControl(OperationManager operationManager){
         runNFs = new HashMap<String, NetworkFunction>();
@@ -33,7 +31,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         this.movestart = -1;
         //this.movestart2 = -1;
         latch = new CountDownLatch(2);
-
+        cyclicBarrier = new CyclicBarrier(2);
     }
 
 
@@ -69,8 +67,33 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         //movestart = System.currentTimeMillis();
         //receiveDoubleAck();
 
-        operationManager.getConnMsgProcessors().sendGetPerflow(runNFs.get("nf1"), "all");
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    cyclicBarrier.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+                operationManager.getConnMsgProcessors().sendGetPerflow(runNFs.get("nf1"), "all");
+            }
+        }).start();
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    cyclicBarrier.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+                operationManager.getActionMsgProcessors().sendGetPerflow(runNFs.get("nf1"), "all");
+            }
+        }).start();
+
         //operationManager.getConnMsgProcessors().testSendPutFlow();
+        receiveDoubleAck();
     }
 
 
