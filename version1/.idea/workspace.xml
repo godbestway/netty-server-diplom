@@ -42,26 +42,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.OperationManager">
-    <configuration name="AppClientPB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="version1.client.AppClientPB" />
+  <component name="RunManager" selected="Application.OperationManager (1)">
+    <configuration name="ConditionSampe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="learnthread.ConditionSampe" />
       <module name="version1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="version1.coder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppServerPB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="version1.test.AppServerPB" />
-      <module name="version1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="version1.coder.*" />
+          <option name="PATTERN" value="learnthread.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -75,6 +62,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="version1.channel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationManager (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="version1.zmove.single.OperationManager" />
+      <module name="version1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="version1.zmove.single.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,7 +96,7 @@
       </method>
     </configuration>
     <configuration name="PortServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="version1.test.PortServer" />
+      <option name="MAIN_CLASS_NAME" value="test.testOthers.PortServer" />
       <module name="version1" />
       <extension name="coverage">
         <pattern>
@@ -110,11 +110,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OperationManager (1)" />
         <item itemvalue="Application.OperationManager" />
+        <item itemvalue="Application.ConditionSampe" />
         <item itemvalue="Application.NettyServer" />
         <item itemvalue="Application.PortServer" />
-        <item itemvalue="Application.AppServerPB" />
-        <item itemvalue="Application.AppClientPB" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609753623701</updated>
-      <workItem from="1609753628447" duration="132038000" />
+      <workItem from="1609753628447" duration="178483000" />
     </task>
     <servers />
   </component>

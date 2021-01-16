@@ -1,8 +1,8 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
-import version1.zcore.ConnMsgProcessor;
-import version1.zcore.OperationManager;
+import version1.zmove.single.ConnMsgProcessor;
+import version1.zmove.single.OperationManager;
 import version1.proto.object.*;
 
 /**
@@ -41,6 +41,8 @@ public class ConnectionChannel extends BaseChannel {
             connMsgProcess.receiveStatePerflow((FlowStateProto.FlowState)msg);
         }else if(msg instanceof GetPerflowAckProto.GetPerflowAckMsg){
             connMsgProcess.getPerflowAck((GetPerflowAckProto.GetPerflowAckMsg) msg);
+        }else if(msg instanceof  PutPerflowAckMsgProto.PutPerflowAckMsg){
+            connMsgProcess.putPerflowAck((PutPerflowAckMsgProto.PutPerflowAckMsg)msg);
         }
 
         /*System.out.println(msg.toString());

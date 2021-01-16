@@ -1,8 +1,8 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
-import version1.zcore.NetworkFunction;
-import version1.zcore.OperationManager;
+import version1.interfaces.NetworkFunction;
+import version1.zmove.single.OperationManager;
 
 /**
  * @Author: Chenglin Ding

@@ -4,10 +4,7 @@ import com.google.protobuf.MessageLite;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-import version1.proto.object.GetPerflowProto;
-import version1.proto.object.InformationProto;
-import version1.proto.object.PersonProto;
-import version1.proto.object.SynProto;
+import version1.proto.object.*;
 
 /**
  * @Author: Chenglin Ding
@@ -51,6 +48,8 @@ public class ServerEncoder extends MessageToByteEncoder<MessageLite> {
             messageType = 0x02;
         }else if(msg instanceof GetPerflowProto.GetPerflowMsg){
             messageType = 0x03;
+        }else if(msg instanceof PutPerflowProto.PutPerflowMsg){
+            messageType = 0x04;
         }
 
         byte[] header = new byte[4];

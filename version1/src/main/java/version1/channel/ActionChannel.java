@@ -1,8 +1,8 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
-import version1.zcore.ActionMsgProcessor;
-import version1.zcore.OperationManager;
+import version1.zmove.single.ActionMsgProcessor;
+import version1.zmove.single.OperationManager;
 import version1.proto.object.InformationProto;
 import version1.proto.object.MultiflowStateProto;
 import version1.proto.object.PersonProto;

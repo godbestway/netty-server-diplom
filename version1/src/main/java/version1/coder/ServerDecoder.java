@@ -69,7 +69,13 @@ public class ServerDecoder extends ByteToMessageDecoder {
 
         }else if(dataType == 0x02){
             return SynProto.Syn.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
-        }else if(dataType == 0x11){
+        }else if(dataType == 0x05){
+            return PutPerflowAckMsgProto.PutPerflowAckMsg.getDefaultInstance().getParserForType()
+                    .parseFrom(array, offset, length);
+        } else if(dataType == 0x06){
+            return GetPerflowAckProto.GetPerflowAckMsg.getDefaultInstance().getParserForType()
+                    .parseFrom(array, offset, length);
+        } else if(dataType == 0x11){
             return FlowStateProto.FlowState.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         }
 
