@@ -1,5 +1,7 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.interfaces.NetworkFunction;
 import version1.proto.object.StateMsgProto;
 
@@ -17,6 +19,7 @@ public class ActionStateStorage {
     private NetworkFunction dst;
     private boolean ack;
     private  MoveProcessControl moveProcessControl;
+    protected static Logger logger = LoggerFactory.getLogger(ActionStateStorage.class);
 
     private ActionStateStorage(){
         statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<StateMsgProto.StateMsg>>();
@@ -71,9 +74,11 @@ public class ActionStateStorage {
     }*/
 
     public void setAck(){
+        logger.info("set a action stateStorage ack");
         try {
             this.ack = true;
-            this.moveProcessControl.getLatch().countDown();
+            //this.moveProcessControl.getLatch().countDown();
+            this.moveProcessControl.changeForwarding();
         }
         catch (Exception e){
             e.printStackTrace();

@@ -1,8 +1,9 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.interfaces.NetworkFunction;
-import version1.proto.object.FlowStateProto;
-import version1.proto.object.PutPerflowProto;
+import version1.proto.object.*;
 
 import java.util.concurrent.Callable;
 
@@ -14,27 +15,24 @@ import java.util.concurrent.Callable;
 public class ActionStateChunk implements Callable<Boolean> {
     private NetworkFunction dst;
     //Todo for Multiflow
-    private FlowStateProto.FlowState flowState;
-    private int stateCount;
+    private ActionStateProto.ActionState actionState;
 
-    public ActionStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState) {
+    protected static Logger logger = LoggerFactory.getLogger(ActionStateChunk.class);
+
+    public ActionStateChunk(NetworkFunction dst,ActionStateProto.ActionState actionState ) {
         this.dst = dst;
-        this.flowState = flowState;
+        this.actionState = actionState;
     }
 
-    public ActionStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState, int stateCount) {
-        this.dst = dst;
-        this.flowState = flowState;
-        this.stateCount = stateCount;
-    }
 
     public Boolean call() throws Exception {
-        PutPerflowProto.PutPerflowMsg putPerflowMsg = PutPerflowProto.PutPerflowMsg.newBuilder()
-                .setState(this.flowState)
-                .setCount(this.stateCount)
-                .build();
-        System.out.println("send putperflow");
-        this.dst.getActionChannel().sendMessage(putPerflowMsg);
+        logger.info("ActionStateChuck call"+System.currentTimeMillis()+" actionState"+actionState.getData());
+        ActionPutPerflowProto.ActionPutPerflowMsg actionPutPerflowMsg = ActionPutPerflowProto.ActionPutPerflowMsg
+                .newBuilder().setState(this.actionState).build();
+
+        //System.out.println("send putperflow");
+        logger.info("send a action putPerflowMsg actionState"+actionState.getData());
+        this.dst.getActionChannel().sendMessage(actionPutPerflowMsg);
 
         return true;
     }

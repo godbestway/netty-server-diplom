@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="version1:jar2">
+    <output-path>$PROJECT_DIR$/../../jarFiles</output-path>
+    <root id="archive" name="version1.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../../jarFiles/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="version1" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/org/msgpack/msgpack/0.6.12/msgpack-0.6.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.50.Final/netty-all-4.1.50.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/3.14.0/protobuf-java-3.14.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

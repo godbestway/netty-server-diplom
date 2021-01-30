@@ -1,0 +1,252 @@
+2021-01-25 22:42:36,157 [nioEventLoopGroup-2-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18080
+2021-01-25 22:42:36,208 [nioEventLoopGroup-4-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18081
+2021-01-25 22:42:36,208 [main] INFO  v.zmove.single.OperationManager [OperationManager.java : 242] - netty server is set up
+2021-01-25 22:42:36,208 [Thread-0] INFO  v.zmove.single.OperationManager [OperationManager.java : 204] - a new condition is added
+2021-01-25 22:49:05,480 [nioEventLoopGroup-2-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18080
+2021-01-25 22:49:05,529 [nioEventLoopGroup-4-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18081
+2021-01-25 22:49:05,530 [main] INFO  v.zmove.single.OperationManager [OperationManager.java : 242] - netty server is set up
+2021-01-25 22:49:05,529 [Thread-0] INFO  v.zmove.single.OperationManager [OperationManager.java : 204] - a new condition is added
+2021-01-25 22:51:46,604 [nioEventLoopGroup-2-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18080
+2021-01-25 22:51:46,654 [nioEventLoopGroup-4-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18081
+2021-01-25 22:51:46,655 [main] INFO  v.zmove.single.OperationManager [OperationManager.java : 242] - netty server is set up
+2021-01-25 22:51:46,654 [Thread-0] INFO  v.zmove.single.OperationManager [OperationManager.java : 204] - a new condition is added
+2021-01-25 22:51:49,819 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 29] - 客户端：/192.168.5.185:60741已连接上Connection来
+2021-01-25 22:51:49,820 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 31] - 客户端：/192.168.5.185:39778已连接上Action来
+2021-01-25 22:51:49,820 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 57] - 客户端：/192.168.5.185:39778在线
+2021-01-25 22:51:49,820 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 57] - 客户端：/192.168.5.185:60741在线
+2021-01-25 22:51:49,863 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 22] - receive a  action object1611611509863
+2021-01-25 22:51:49,863 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611611509863
+2021-01-25 22:51:49,869 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 38] - datatype2
+2021-01-25 22:51:49,870 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype2
+2021-01-25 22:51:49,901 [nioEventLoopGroup-5-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 22:51:49,901 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 22:51:49,901 [nioEventLoopGroup-5-1] INFO  version2.channel.ActionChannel [ActionChannel.java : 28] - syn message comes
+2021-01-25 22:51:49,901 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 22:51:49,901 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 30] - syn message comes
+2021-01-25 22:51:49,907 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 22:51:49,907 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 22:51:49,908 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 22:51:49,908 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 22:51:49,908 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 152] - set a NF successful
+2021-01-25 22:51:49,908 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 167] - try to set a connection channel
+2021-01-25 22:51:49,908 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 187] - connection channel has connected
+2021-01-25 22:51:49,908 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 172] - try to set a action channel
+2021-01-25 22:51:49,909 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 182] - xiaolin-virtual-machine.47341has already fully connected
+2021-01-25 22:52:56,368 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 74] - 客户端：/192.168.5.185:60741掉线
+2021-01-25 22:52:56,368 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 74] - 客户端：/192.168.5.185:39778掉线
+2021-01-25 22:52:56,368 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 48] - 客户端：/192.168.5.185:60741已断开
+2021-01-25 22:52:56,368 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 48] - 客户端：/192.168.5.185:39778已断开
+2021-01-25 23:08:08,847 [nioEventLoopGroup-2-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18080
+2021-01-25 23:08:08,902 [nioEventLoopGroup-4-1] INFO  version2.server.ServerListener [ServerListener.java : 35] - bind success at port:18081
+2021-01-25 23:08:08,902 [main] INFO  v.zmove.single.OperationManager [OperationManager.java : 242] - netty server is set up
+2021-01-25 23:08:08,902 [Thread-0] INFO  v.zmove.single.OperationManager [OperationManager.java : 204] - a new condition is added
+2021-01-25 23:08:12,189 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 29] - 客户端：/192.168.5.185:60751已连接上Connection来
+2021-01-25 23:08:12,189 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 31] - 客户端：/192.168.5.185:39788已连接上Action来
+2021-01-25 23:08:12,190 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 57] - 客户端：/192.168.5.185:60751在线
+2021-01-25 23:08:12,190 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 57] - 客户端：/192.168.5.185:39788在线
+2021-01-25 23:08:12,222 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 22] - receive a  action object1611612492222
+2021-01-25 23:08:12,222 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612492222
+2021-01-25 23:08:12,226 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype2
+2021-01-25 23:08:12,226 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 38] - datatype2
+2021-01-25 23:08:12,266 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:12,266 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:12,267 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 30] - syn message comes
+2021-01-25 23:08:12,266 [nioEventLoopGroup-5-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:12,267 [nioEventLoopGroup-5-1] INFO  version2.channel.ActionChannel [ActionChannel.java : 28] - syn message comes
+2021-01-25 23:08:12,274 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 23:08:12,274 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 23:08:12,275 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 23:08:12,275 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 152] - set a NF successful
+2021-01-25 23:08:12,275 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 23:08:12,275 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 167] - try to set a connection channel
+2021-01-25 23:08:12,275 [nioEventLoopGroup-3-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 187] - connection channel has connected
+2021-01-25 23:08:12,275 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 172] - try to set a action channel
+2021-01-25 23:08:12,276 [nioEventLoopGroup-5-1] INFO  v.zmove.single.OperationManager [OperationManager.java : 182] - xiaolin-virtual-machine.47621has already fully connected
+2021-01-25 23:08:34,816 [nioEventLoopGroup-3-2] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 29] - 客户端：/192.168.5.182:58774已连接上Connection来
+2021-01-25 23:08:34,817 [nioEventLoopGroup-3-2] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 57] - 客户端：/192.168.5.182:58774在线
+2021-01-25 23:08:34,820 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612514819
+2021-01-25 23:08:34,821 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype2
+2021-01-25 23:08:34,822 [nioEventLoopGroup-3-2] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:34,822 [nioEventLoopGroup-3-2] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:34,823 [nioEventLoopGroup-3-2] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 30] - syn message comes
+2021-01-25 23:08:34,823 [nioEventLoopGroup-5-2] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 31] - 客户端：/192.168.5.182:42026已连接上Action来
+2021-01-25 23:08:34,823 [nioEventLoopGroup-3-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 23:08:34,824 [nioEventLoopGroup-5-2] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 57] - 客户端：/192.168.5.182:42026在线
+2021-01-25 23:08:34,824 [nioEventLoopGroup-3-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 23:08:34,824 [nioEventLoopGroup-3-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 152] - set a NF successful
+2021-01-25 23:08:34,824 [nioEventLoopGroup-3-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 167] - try to set a connection channel
+2021-01-25 23:08:34,824 [nioEventLoopGroup-3-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 187] - connection channel has connected
+2021-01-25 23:08:34,825 [nioEventLoopGroup-5-2] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 22] - receive a  action object1611612514825
+2021-01-25 23:08:34,825 [nioEventLoopGroup-5-2] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 38] - datatype2
+2021-01-25 23:08:34,826 [nioEventLoopGroup-5-2] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:34,826 [nioEventLoopGroup-5-2] INFO  version2.channel.ActionChannel [ActionChannel.java : 28] - syn message comes
+2021-01-25 23:08:34,826 [nioEventLoopGroup-5-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 160] - channel try to connect
+2021-01-25 23:08:34,826 [nioEventLoopGroup-5-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 142] - a new NF is found
+2021-01-25 23:08:34,827 [nioEventLoopGroup-5-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 172] - try to set a action channel
+2021-01-25 23:08:34,827 [nioEventLoopGroup-5-2] INFO  v.zmove.single.OperationManager [OperationManager.java : 182] - godbestway.3891has already fully connected
+2021-01-25 23:08:39,838 [pool-3-thread-1] INFO  v.zmove.single.MoveProcessControl [MoveProcessControl.java : 123] - a simulation of move start
+2021-01-25 23:08:39,847 [pool-3-thread-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 78] - 添加了connection storage
+2021-01-25 23:08:39,848 [pool-3-thread-1] INFO  v.zmove.single.ActionMsgProcessor [ActionMsgProcessor.java : 77] - 添加了action storage
+2021-01-25 23:08:39,850 [Thread-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 67] - 发送了connection getperflow
+2021-01-25 23:08:39,850 [Thread-2] INFO  v.zmove.single.ActionMsgProcessor [ActionMsgProcessor.java : 69] - 发送了action getperflow
+2021-01-25 23:08:39,863 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerEncoder [ActionServerEncoder.java : 23] - begin encode1611612519863
+2021-01-25 23:08:39,863 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519863
+2021-01-25 23:08:39,875 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerEncoder [ActionServerEncoder.java : 38] - finish encode1611612519875
+2021-01-25 23:08:39,876 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519876
+2021-01-25 23:08:39,878 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 22] - receive a  action object1611612519878
+2021-01-25 23:08:39,879 [nioEventLoopGroup-5-1] INFO  version2.coder.ActionServerDecoder [ActionServerDecoder.java : 38] - datatype18
+2021-01-25 23:08:39,883 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519883
+2021-01-25 23:08:39,884 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,892 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,892 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,892 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519892
+2021-01-25 23:08:39,892 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519892 data=0
+2021-01-25 23:08:39,893 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519893
+2021-01-25 23:08:39,894 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,894 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,895 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,895 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,896 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,896 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,896 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519897
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519897 data=0
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,897 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519898
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519898 data=0
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519898
+2021-01-25 23:08:39,898 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519898 data=0
+2021-01-25 23:08:39,899 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,899 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,899 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519899
+2021-01-25 23:08:39,899 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519899 data=0
+2021-01-25 23:08:39,899 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,900 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,900 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519900
+2021-01-25 23:08:39,900 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519900 data=0
+2021-01-25 23:08:39,900 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,900 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,901 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519901
+2021-01-25 23:08:39,901 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519901 data=0
+2021-01-25 23:08:39,901 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519901
+2021-01-25 23:08:39,901 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,902 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519902
+2021-01-25 23:08:39,902 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,902 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,903 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,903 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519903
+2021-01-25 23:08:39,903 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519903 data=0
+2021-01-25 23:08:39,904 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519904
+2021-01-25 23:08:39,905 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,905 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,905 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,906 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519905
+2021-01-25 23:08:39,906 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519906 data=0
+2021-01-25 23:08:39,906 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519906
+2021-01-25 23:08:39,907 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,907 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,907 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,907 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519907
+2021-01-25 23:08:39,907 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519907 data=0
+2021-01-25 23:08:39,913 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519913
+2021-01-25 23:08:39,913 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,914 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,914 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,914 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519914
+2021-01-25 23:08:39,914 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519914 data=0
+2021-01-25 23:08:39,920 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519920
+2021-01-25 23:08:39,920 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,920 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,921 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,921 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519921
+2021-01-25 23:08:39,921 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519921 data=0
+2021-01-25 23:08:39,923 [pool-1-thread-1] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519923connState 0
+2021-01-25 23:08:39,925 [pool-1-thread-2] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519925connState 0
+2021-01-25 23:08:39,926 [pool-1-thread-8] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519926connState 0
+2021-01-25 23:08:39,926 [pool-1-thread-11] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519926connState 0
+2021-01-25 23:08:39,926 [pool-1-thread-7] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519926connState 0
+2021-01-25 23:08:39,926 [pool-1-thread-12] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519926connState 0
+2021-01-25 23:08:39,927 [pool-1-thread-10] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519926connState 0
+2021-01-25 23:08:39,927 [pool-1-thread-6] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519927connState 0
+2021-01-25 23:08:39,927 [pool-1-thread-5] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519927connState 0
+2021-01-25 23:08:39,936 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 22] - receive a object1611612519936
+2021-01-25 23:08:39,927 [pool-1-thread-4] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519927connState 0
+2021-01-25 23:08:39,942 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,936 [pool-1-thread-3] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519935connState 0
+2021-01-25 23:08:39,942 [nioEventLoopGroup-3-1] INFO  version2.coder.ConnServerDecoder [ConnServerDecoder.java : 38] - datatype17
+2021-01-25 23:08:39,943 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,943 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,943 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519943
+2021-01-25 23:08:39,943 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519943 data=0
+2021-01-25 23:08:39,943 [nioEventLoopGroup-3-1] INFO  version2.channel.BaseChannelHandler [BaseChannelHandler.java : 30] - channel read
+2021-01-25 23:08:39,944 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 25] - process message begin
+2021-01-25 23:08:39,944 [nioEventLoopGroup-3-1] INFO  version2.channel.ConnectionChannel [ConnectionChannel.java : 36] - receive a connstate1611612519944
+2021-01-25 23:08:39,936 [pool-1-thread-9] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519927connState 0
+2021-01-25 23:08:39,944 [nioEventLoopGroup-3-1] INFO  v.zmove.single.ConnMsgProcessor [ConnMsgProcessor.java : 32] - conn receive state current time 1611612519944 data=0
+2021-01-25 23:08:39,944 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 74] - 客户端：/192.168.5.185:39788掉线
+2021-01-25 23:08:39,944 [nioEventLoopGroup-5-1] INFO  v.channel.ActionChannelHandler [ActionChannelHandler.java : 48] - 客户端：/192.168.5.185:39788已断开
+2021-01-25 23:08:39,949 [pool-1-thread-13] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519945connState 0
+2021-01-25 23:08:39,949 [pool-1-thread-7] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,949 [pool-1-thread-14] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 31] - ConnstateChuck call before build1611612519945connState 0
+2021-01-25 23:08:39,949 [pool-1-thread-13] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,949 [pool-1-thread-14] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,949 [pool-1-thread-13] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,949 [pool-1-thread-14] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,949 [pool-1-thread-7] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,949 [pool-1-thread-2] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,950 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519950
+2021-01-25 23:08:39,950 [pool-1-thread-2] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,949 [pool-1-thread-1] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,950 [pool-1-thread-8] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,950 [pool-1-thread-1] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,950 [pool-1-thread-8] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,950 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519950
+2021-01-25 23:08:39,950 [pool-1-thread-10] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,950 [pool-1-thread-12] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,950 [pool-1-thread-10] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,950 [pool-1-thread-12] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,950 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519950
+2021-01-25 23:08:39,950 [pool-1-thread-6] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519951
+2021-01-25 23:08:39,951 [pool-1-thread-5] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [pool-1-thread-4] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [pool-1-thread-5] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,951 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519951
+2021-01-25 23:08:39,951 [pool-1-thread-3] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519951
+2021-01-25 23:08:39,951 [pool-1-thread-3] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,951 [pool-1-thread-6] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,951 [pool-1-thread-11] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519951
+2021-01-25 23:08:39,951 [pool-1-thread-9] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 35] - send a connection putPerFlowMsg after build0
+2021-01-25 23:08:39,951 [pool-1-thread-4] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,951 [pool-1-thread-11] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,952 [pool-1-thread-9] INFO  version2.zmove.single.ConnStateChunk [ConnStateChunk.java : 37] - send a connection putPerFlowMsg send finish0
+2021-01-25 23:08:39,952 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519952
+2021-01-25 23:08:39,952 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519952
+2021-01-25 23:08:39,952 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519952
+2021-01-25 23:08:39,952 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519952
+2021-01-25 23:08:39,953 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519953
+2021-01-25 23:08:39,953 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519953
+2021-01-25 23:08:39,953 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519953
+2021-01-25 23:08:39,954 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519954
+2021-01-25 23:08:39,954 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519954
+2021-01-25 23:08:39,954 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519954
+2021-01-25 23:08:39,954 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519954
+2021-01-25 23:08:39,955 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519955
+2021-01-25 23:08:39,955 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519955
+2021-01-25 23:08:39,955 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519955
+2021-01-25 23:08:39,955 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519955
+2021-01-25 23:08:39,958 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519958
+2021-01-25 23:08:39,958 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519958
+2021-01-25 23:08:39,959 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519959
+2021-01-25 23:08:39,959 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519959
+2021-01-25 23:08:39,959 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 23] - begin encode1611612519959
+2021-01-25 23:08:39,959 [nioEventLoopGroup-3-2] INFO  version2.coder.ConnServerEncoder [ConnServerEncoder.java : 38] - finish encode1611612519959
+2021-01-25 23:08:39,988 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 74] - 客户端：/192.168.5.185:60751掉线
+2021-01-25 23:08:39,988 [nioEventLoopGroup-3-1] INFO  v.channel.ConnectionChannelHandler [ConnectionChannelHandler.java : 48] - 客户端：/192.168.5.185:60751已断开

@@ -1,5 +1,7 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.interfaces.NetworkFunction;
 import version1.interfaces.StateStorage;
 import version1.proto.object.FlowStateProto;
@@ -17,6 +19,7 @@ public class ConnStateStorage {
     private NetworkFunction dst;
     private boolean ack;
     private MoveProcessControl moveProcessControl;
+    protected static Logger logger = LoggerFactory.getLogger(ConnStateStorage.class);
 
 
     private ConnStateStorage(){
@@ -78,9 +81,11 @@ public class ConnStateStorage {
     }*/
 
     public void setAck(){
+        logger.info("set a conn stateStorage ack");
         try {
             this.ack = true;
-            this.moveProcessControl.getLatch().countDown();
+            //this.moveProcessControl.getLatch().countDown();
+            this.moveProcessControl.receiveDoubleAck();
         }
         catch (Exception e){
             e.printStackTrace();

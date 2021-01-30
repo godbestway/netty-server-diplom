@@ -1,12 +1,11 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.channel.ActionChannel;
 import version1.interfaces.NetworkFunction;
-import version1.interfaces.msgprocessors.perflow.ProcessPerflow;
-import version1.proto.object.FlowStateProto;
-import version1.proto.object.GetPerflowAckProto;
-import version1.proto.object.GetPerflowProto;
-import version1.proto.object.PutPerflowAckMsgProto;
+import version1.interfaces.msgprocessors.perflow.ActionProcessPerflow;
+import version1.proto.object.*;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -17,25 +16,28 @@ import java.util.concurrent.Executors;
  * @Date: 12.01.2021 19:43
  * @Description:
  */
-public class ActionMsgProcessor extends ProcessPerflow{
+public class ActionMsgProcessor extends ActionProcessPerflow {
     private ActionStateStorage actionStateStorage;
     private volatile int count ;
     private volatile int totalnum ;
     private ExecutorService threadPool;
     private ConcurrentLinkedQueue<ActionStateChunk> statesList;
+    protected static Logger logger = LoggerFactory.getLogger(ActionMsgProcessor.class);
 
     public ActionMsgProcessor(){
         this.threadPool = Executors.newCachedThreadPool();
         this.statesList = new ConcurrentLinkedQueue<ActionStateChunk>();
     }
 
-    public void receiveStatePerflow(FlowStateProto.FlowState flowState) {
-        System.out.println("action receive a state, data="+flowState.getData());
-        //actionStateStorage.getStatesMap().get(0).add(flowState);
-        ActionStateChunk actionStateChunk = null;
+    public void receiveActionStatePerflow(ActionStateProto.ActionState actionState) {
 
-        actionStateChunk = new ActionStateChunk(actionStateStorage.getDst() , flowState,flowState.getData());
+        logger.info("action receive state current time"+System.currentTimeMillis()+" data= "+actionState.getData());
+
+        ActionStateChunk actionStateChunk = null;
+        actionStateChunk = new ActionStateChunk(actionStateStorage.getDst() ,actionState);
+        logger.info("before send action state"+System.currentTimeMillis());
         threadPool.submit(actionStateChunk);
+        logger.info("after send action state"+System.currentTimeMillis());
     }
 
 
@@ -47,32 +49,39 @@ public class ActionMsgProcessor extends ProcessPerflow{
         }
     }
 
-    public void getPerflowAck(GetPerflowAckProto.GetPerflowAckMsg msg) {
+    public void getActionPerflowAck(ActionGetPerflowAckMsgProto.ActionGetPerflowAckMsg msg) {
         totalnum = msg.getCount();
-        System.out.println("action totalnum:"+ totalnum);
+        //System.out.println("action totalnum:"+ totalnum);
+        logger.info("action totalnum:"+ totalnum);
     }
 
-    public void putPerflowAck(PutPerflowAckMsgProto.PutPerflowAckMsg msg) {
+    public void putActionPerflowAck(ActionPutPerflowAckMsgProto.ActionPutPerflowAckMsg msg) {
         count++;
-        System.out.println("action put perflow count"+count);
+        //System.out.println("action put perflow count"+count);
+        logger.info("action put perflow current time"+System.currentTimeMillis());
+        logger.info("action put perflow count"+count);
+        logger.info("action put perflow totalnum"+totalnum);
         if(count == totalnum){
             setActionStateStorageAck();
         }
     }
 
-    public void sendGetPerflow(NetworkFunction nf, String key) {
-        System.out.println("发送了action getperflow");
-        GetPerflowProto.GetPerflowMsg getPerflowMsg = GetPerflowProto.GetPerflowMsg.newBuilder()
-                .setKey(key).build();
-        nf.getActionChannel().sendMessage(getPerflowMsg);
+    public void sendActionGetPerflow(NetworkFunction nf, String key) {
+        //System.out.println("发送了action getperflow");
+        logger.info("发送了action getperflow");
+        ActionGetPerflowMsgProto.ActionGetPerflowMsg actionGetPerflowMsg = ActionGetPerflowMsgProto.ActionGetPerflowMsg
+                .newBuilder().setKey(key).build();
+        nf.getActionChannel().sendMessage(actionGetPerflowMsg);
 
     }
     public void addActionStateStorage(ActionStateStorage actionStateStorage){
-        System.out.println("添加了action storage");
+        //System.out.println("添加了action storage");
+        logger.info("添加了action storage");
         this.actionStateStorage = actionStateStorage;
     }
     public void setActionStateStorageAck(){
-        System.out.println("test receive ack process");
+        //System.out.println("test receive ack process");
+        logger.info("test receive ack process");
         this.actionStateStorage.setAck();
     }
 

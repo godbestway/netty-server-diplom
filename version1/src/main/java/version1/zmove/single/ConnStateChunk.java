@@ -1,6 +1,10 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.interfaces.NetworkFunction;
+import version1.proto.object.ConnPutPerflowMsgProto;
+import version1.proto.object.ConnStateProto;
 import version1.proto.object.FlowStateProto;
 import version1.proto.object.PutPerflowProto;
 
@@ -14,27 +18,25 @@ import java.util.concurrent.Callable;
 public class ConnStateChunk implements Callable<Boolean>{
     private NetworkFunction dst;
     //Todo for Multiflow
-    private FlowStateProto.FlowState flowState;
+    private ConnStateProto.ConnState connState;
     private int stateCount;
+    protected static Logger logger = LoggerFactory.getLogger(ConnStateChunk.class);
 
-    public ConnStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState) {
+    public ConnStateChunk(NetworkFunction dst,  ConnStateProto.ConnState connState) {
         this.dst = dst;
-        this.flowState = flowState;
+        this.connState = connState;
     }
 
-    public ConnStateChunk(NetworkFunction dst, FlowStateProto.FlowState flowState, int stateCount) {
-        this.dst = dst;
-        this.flowState = flowState;
-        this.stateCount = stateCount;
-    }
+
 
     public Boolean call() throws Exception {
-        PutPerflowProto.PutPerflowMsg putPerflowMsg = PutPerflowProto.PutPerflowMsg.newBuilder()
-                .setState(this.flowState)
-                .setCount(this.stateCount)
-                .build();
-        System.out.println("send putperflow");
-        this.dst.getConnectionChannel().sendMessage(putPerflowMsg);
+        logger.info("ConnstateChuck call before build"+System.currentTimeMillis()+"connState "+connState.getData());
+        ConnPutPerflowMsgProto.ConnPutPerflowMsg connPutPerflowMsg = ConnPutPerflowMsgProto.ConnPutPerflowMsg
+                .newBuilder().setState(this.connState).build();
+
+        logger.info("send a connection putPerFlowMsg after build"+connState.getData());
+        this.dst.getConnectionChannel().sendMessage(connPutPerflowMsg);
+        logger.info("send a connection putPerFlowMsg send finish"+connState.getData());
 
         return true;
     }

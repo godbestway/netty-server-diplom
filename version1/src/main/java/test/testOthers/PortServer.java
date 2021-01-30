@@ -6,7 +6,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import version1.zmove.single.OperationManager;
+import version1.server.OperationManager;
 import version1.server.InitializerServerConn;
 
 import java.net.InetSocketAddress;

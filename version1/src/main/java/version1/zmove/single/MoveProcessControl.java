@@ -1,9 +1,12 @@
 package version1.zmove.single;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.interfaces.NetworkFunction;
 import version1.interfaces.stepControl.NextStepTask;
 import version1.interfaces.stepControl.ProcessCondition;
 import version1.interfaces.stepControl.ProcessControl;
+import version1.server.OperationManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,14 +27,15 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     //public static long movestart2;
     private CountDownLatch latch;
     private static CyclicBarrier cyclicBarrier;
+    protected static Logger logger = LoggerFactory.getLogger(MoveProcessControl.class);
 
     public MoveProcessControl(OperationManager operationManager){
         runNFs = new HashMap<String, NetworkFunction>();
         this.operationManager = operationManager;
         this.movestart = -1;
         //this.movestart2 = -1;
-        latch = new CountDownLatch(2);
-        cyclicBarrier = new CyclicBarrier(2);
+        //latch = new CountDownLatch(2);
+        //cyclicBarrier = new CyclicBarrier(2);
     }
 
 
@@ -69,42 +73,44 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
 
         new Thread(new Runnable() {
             public void run() {
-                try {
+                /*try {
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
-                }
-                operationManager.getConnMsgProcessors().sendGetPerflow(runNFs.get("nf1"), "all");
+                }*/
+                operationManager.getConnMsgProcessors().sendConnGetPerflow(runNFs.get("nf1"), "all");
             }
         }).start();
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             public void run() {
-                try {
+               try {
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-                operationManager.getActionMsgProcessors().sendGetPerflow(runNFs.get("nf1"), "all");
+                operationManager.getActionMsgProcessors().sendActionGetPerflow(runNFs.get("nf1"), "all");
             }
-        }).start();
-
+        }).start();*/
+        this.movestart = System.currentTimeMillis();
         //operationManager.getConnMsgProcessors().testSendPutFlow();
-        receiveDoubleAck();
+        //receiveDoubleAck();
     }
 
 
     public void receiveDoubleAck(){
-        try {
+        /*try {
             latch.await();
+            logger.info("receive double ack"+System.currentTimeMillis());
             changeForwarding();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
+        changeForwarding();
     }
 
     public void executeStep(int step) {
@@ -115,7 +121,8 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 startNextAfter = 5;
                 break;
             case 1:
-                System.out.println("线程开始了");
+                //System.out.println("线程开始了");
+                logger.info("a simulation of move start");
                 startMove();
             default:
                 return;
@@ -126,10 +133,15 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
 
 
     public void changeForwarding() {
-        //long stateMovetime2 = System.currentTimeMillis() - this.movestart2;
-        long stateMovetime = System.currentTimeMillis() - this.movestart;
-        System.out.println("begin to change forward direction");
-        System.out.println("stateMove time"+stateMovetime);
+        long endMovetime = System.currentTimeMillis();
+        long movetime = System.currentTimeMillis() - this.movestart;
+
+
+        logger.info("begin to change forward direction");
+        //System.out.println("begin to change forward direction");
+        logger.info("end move time"+endMovetime);
+        logger.info("total move time"+movetime);
+        //System.out.println("stateMove time"+stateMovetime);
         //System.out.println("stateMove time"+stateMovetime2);
     }
 

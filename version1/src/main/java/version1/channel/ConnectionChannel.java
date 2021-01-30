@@ -1,8 +1,10 @@
 package version1.channel;
 
 import io.netty.channel.Channel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import version1.zmove.single.ConnMsgProcessor;
-import version1.zmove.single.OperationManager;
+import version1.server.OperationManager;
 import version1.proto.object.*;
 
 /**
@@ -11,7 +13,7 @@ import version1.proto.object.*;
  * @Description:
  */
 public class ConnectionChannel extends BaseChannel {
-
+    protected static Logger logger = LoggerFactory.getLogger(ConnectionChannel.class);
 
     public ConnectionChannel(Channel channel, OperationManager operationManager) {
 
@@ -20,29 +22,26 @@ public class ConnectionChannel extends BaseChannel {
 
 
     protected void processMessage(Object msg) {
+        logger.info("process message begin");
         ConnMsgProcessor connMsgProcess = (ConnMsgProcessor) operationManager.getConnMsgProcessors();
 
-        if(msg instanceof InformationProto.Information){
-            InformationProto.Information info = (InformationProto.Information)msg;
-            System.out.println("具体内容:"+info.getContent());
-            System.out.println("具体personnum:"+info.getPersonnum());
-        }
-        else if(msg instanceof  PersonProto.Person){
-            PersonProto.Person person = (PersonProto.Person)msg;
-            System.out.println("person name:"+person.getName());
-            System.out.println("person age:"+person.getAge());
-        }else if(msg instanceof SynProto.Syn){
-            System.out.println("syn message comes");
+      if(msg instanceof SynProto.Syn){
+            //System.out.println("syn message comes");
+            logger.info("syn message comes");
             SynProto.Syn syn = (SynProto.Syn) msg;
             this.host = syn.getHost() ;
             this.pid = syn.getPid();
             operationManager.channelConnected(this);
-        }else if(msg instanceof FlowStateProto.FlowState){
-            connMsgProcess.receiveStatePerflow((FlowStateProto.FlowState)msg);
-        }else if(msg instanceof GetPerflowAckProto.GetPerflowAckMsg){
-            connMsgProcess.getPerflowAck((GetPerflowAckProto.GetPerflowAckMsg) msg);
-        }else if(msg instanceof  PutPerflowAckMsgProto.PutPerflowAckMsg){
-            connMsgProcess.putPerflowAck((PutPerflowAckMsgProto.PutPerflowAckMsg)msg);
+        }else if(msg instanceof ConnStateProto.ConnState){
+            logger.info("receive a connstate"+System.currentTimeMillis());
+            connMsgProcess.receiveConnStatePerflow((ConnStateProto.ConnState)msg);
+
+        }else if(msg instanceof ConnGetPerflowAckMsgProto.ConnGetPerflowAckMsg){
+            logger.info("receive a  conn getAck"+System.currentTimeMillis());
+            connMsgProcess.getConnPerflowAck((ConnGetPerflowAckMsgProto.ConnGetPerflowAckMsg) msg);
+        }else if(msg instanceof ConnPutPerflowAckMsgProto.ConnPutPerflowAckMsg){
+            logger.info("receive a conn putAck"+System.currentTimeMillis());
+            connMsgProcess.putConnPerflowAck((ConnPutPerflowAckMsgProto.ConnPutPerflowAckMsg)msg);
         }
 
         /*System.out.println(msg.toString());

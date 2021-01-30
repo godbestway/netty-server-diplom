@@ -1,10 +1,7 @@
 package version1.interfaces.msgprocessors;
 
 import version1.interfaces.NetworkFunction;
-import version1.proto.object.FlowStateProto;
-import version1.proto.object.GetPerflowAckProto;
-import version1.proto.object.MultiflowStateProto;
-import version1.proto.object.PutPerflowAckMsgProto;
+import version1.proto.object.*;
 
 /**
  * @Author: Chenglin Ding
@@ -12,17 +9,22 @@ import version1.proto.object.PutPerflowAckMsgProto;
  * @Description:
  */
 public interface ProcessReceiveMsg {
-    void receiveStatePerflow(FlowStateProto.FlowState flowState);
-    void receiveStateMultiflow(MultiflowStateProto.MultiflowState multiflowState);
+    void receiveConnStatePerflow(ConnStateProto.ConnState connState);
+    void receiveActionStatePerflow(ActionStateProto.ActionState actionState);
+    void receiveStateMultiflow();
     void receiveStateConfig();
-    void getPerflowAck(GetPerflowAckProto.GetPerflowAckMsg getPerflowAckMsg);
+    void getConnPerflowAck(ConnGetPerflowAckMsgProto.ConnGetPerflowAckMsg connGetPerflowAckMsg);
+    void getActionPerflowAck(ActionGetPerflowAckMsgProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg);
+
     void getMultiflowAck();
     void getAllflowAck();
     void getConfigAck();
-    void putPerflowAck(PutPerflowAckMsgProto.PutPerflowAckMsg putPerflowAckMsg);
+    void putConnPerflowAck(ConnPutPerflowAckMsgProto.ConnPutPerflowAckMsg connPutPerflowAckMsg);
+    void putActionPerflowAck(ActionPutPerflowAckMsgProto.ActionPutPerflowAckMsg actionPutPerflowAckMsg);
     void putMultiflowAck();
     void putAllflowAck();
     void putConfigAck();
-    void sendGetPerflow(NetworkFunction nf, String key);
+    void sendConnGetPerflow(NetworkFunction nf, String key);
+    void sendActionGetPerflow(NetworkFunction nf, String key);
 
 }
