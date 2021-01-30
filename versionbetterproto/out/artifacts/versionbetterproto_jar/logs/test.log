@@ -1,0 +1,4 @@
+2021-01-29 15:58:29,291 [nioEventLoopGroup-2-1] INFO  Server.ServerListener [ServerListener.java : 34] - bind success at port:18080
+2021-01-29 15:58:29,328 [Thread-0] INFO  Server.OperationManager [OperationManager.java : 214] - a new condition is added
+2021-01-29 15:58:29,329 [nioEventLoopGroup-4-1] INFO  Server.ServerListener [ServerListener.java : 34] - bind success at port:18081
+2021-01-29 15:58:29,330 [main] INFO  Server.OperationManager [OperationManager.java : 257] - netty server is set up
