@@ -3,8 +3,6 @@ package channel;
 import Server.OperationManager;
 import interfaces.NetworkFunction;
 import io.netty.channel.Channel;
-import proto.InformationProto;
-import proto.MyMessageProto;
 
 
 /**
@@ -48,6 +46,6 @@ public abstract class BaseChannel {
         return this.host+"."+this.pid+":"+localPort;
     }
 
-    protected abstract void processMessage(MyMessageProto.MyMessage myMessage) ;
+    protected abstract void processMessage(Object msg) ;
     public abstract void sendMessage(Object msg) ;
 }

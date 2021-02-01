@@ -34,7 +34,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         this.movestart = -1;
         //this.movestart2 = -1;
         latch = new CountDownLatch(2);
-        cyclicBarrier = new CyclicBarrier(2);
+        cyclicBarrier = new CyclicBarrier(1);
     }
 
 
@@ -82,7 +82,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 operationManager.getConnMsgProcessors().sendConnGetPerflow(runNFs.get("nf1"), "all");
             }
         }).start();
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             public void run() {
                 try {
                     cyclicBarrier.await();
@@ -94,7 +94,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 logger.info("send a getperflow");
                 operationManager.getActionMsgProcessors().sendActionGetPerflow(runNFs.get("nf1"), "all");
             }
-        }).start();
+        }).start();*/
         this.movestart = System.currentTimeMillis();
         receiveDoubleAck();
         //operationManager.getConnMsgProcessors().testSendPutFlow();
@@ -128,7 +128,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         switch(step)
         {
             case 0:
-                startNextAfter = 5;
+                startNextAfter = 2;
                 break;
             case 1:
                 //System.out.println("线程开始了");

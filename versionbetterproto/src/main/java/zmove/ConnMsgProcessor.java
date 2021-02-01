@@ -1,10 +1,13 @@
 package zmove;
 
+import interfaces.HwProtoParameters;
 import interfaces.NetworkFunction;
+import interfaces.ProtoParameters;
 import interfaces.msgprocessors.Perflow.ConnProcessPerflow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.MyMessageProto;
+import proto.MyConnMessageProto;
+
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +21,7 @@ import java.util.concurrent.Executors;
 
 public class ConnMsgProcessor extends ConnProcessPerflow{
     private volatile int count ;
-    private volatile int totalnum ;
+    public static volatile int totalnum ;
     private ConnStateStorage connStateStorage;
     private ExecutorService threadPool;
     //private ConcurrentLinkedQueue<ConnStateChunk> statesList;
@@ -30,24 +33,26 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
     }
 
 
-    public void receiveConnStatePerflow(MyMessageProto.ConnState connState) {
-        //logger.info("conn receive state current time "+System.currentTimeMillis()+" data="+connState.getData());
+    public void receiveConnStatePerflow(MyConnMessageProto.ConnState connState) {
+        logger.info("conn receive state current time "+System.currentTimeMillis()+" data="+connState.getCxid());
         ConnStateChunk connStateChunk = null;
+        //int cxid = (int)connState.getCxid();
+        //logger.info("connstate cxid "+connState.getCxid());
         connStateChunk = new ConnStateChunk(connStateStorage.getDst(), connState);
         threadPool.submit(connStateChunk);
     }
 
-    public void getConnPerflowAck(MyMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg) {
+    public void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg) {
         totalnum = connGetPerflowAckMsg.getCount();
-        logger.info("connection totalnum:"+ totalnum);
+        logger.info("connection getperflow totalnum:"+ totalnum);
     }
 
-    public void putConnPerflowAck(MyMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg) {
+    public void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg) {
         count++;
         //System.out.println("connection put perflow count"+count);
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
-        //logger.info("connection put perflow count"+count);
-        //logger.info("connection put perflow totalnum"+totalnum);
+        logger.info("connection put perflow count"+count);
+        logger.info("connection put perflow totalnum"+totalnum);
         if(count == totalnum){
             setConnStateStorageAck();
         }
@@ -56,10 +61,11 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
     public void sendConnGetPerflow(NetworkFunction nf, String key) {
         logger.info("发送了connection getperflow");
-        MyMessageProto.MyMessage myMessage = MyMessageProto.MyMessage.newBuilder()
-                .setDataType(MyMessageProto.MyMessage.DataType.ConnGetPerflowMsgType)
-                .setConnGetPerflowMsg(MyMessageProto.ConnGetPerflowMsg.newBuilder()
-                        .setKey(key).build())
+        MyConnMessageProto.MyConnMessage myMessage = MyConnMessageProto.MyConnMessage.newBuilder()
+                .setDataType(MyConnMessageProto.MyConnMessage.DataType.ConnGetPerflowMsgType)
+                .setConnGetPerflowMsg(MyConnMessageProto.ConnGetPerflowMsg.newBuilder()
+                        .setHwProto(HwProtoParameters.TYPE_IPv4)
+                        .setProto(ProtoParameters.PROTOCOL_TCP).build())
                 .build();
 
         nf.getConnectionChannel().sendMessage(myMessage);

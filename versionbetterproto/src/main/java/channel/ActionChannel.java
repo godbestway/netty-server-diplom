@@ -5,8 +5,8 @@ import interfaces.msgprocessors.Perflow.ActionProcessPerflow;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.InformationProto;
-import proto.MyMessageProto;
+import proto.MyActionMessageProto;
+import proto.MyConnMessageProto;
 import zmove.ConnMsgProcessor;
 
 /**
@@ -22,31 +22,27 @@ public class ActionChannel extends BaseChannel{
         super(channel, operationManager);
     }
 
-    protected void processMessage(MyMessageProto.MyMessage myMessage) {
+    protected void processMessage(Object msg) {
         ActionProcessPerflow actionMsgProcess = operationManager.getActionMsgProcessors();
-        MyMessageProto.MyMessage.DataType dataType = myMessage.getDataType();
-        if(dataType == MyMessageProto.MyMessage.DataType.PersonType){
-            MyMessageProto.Person person = myMessage.getPerson();
-            System.out.println("name "+person.getName());
-            System.out.println("address "+person.getAddress());
-            System.out.println("age "+ person.getAge());
-        }
-        else if(dataType == MyMessageProto.MyMessage.DataType.SynType){
+        MyActionMessageProto.MyActionMessage myMessage = (MyActionMessageProto.MyActionMessage)msg;
+
+        MyActionMessageProto.MyActionMessage.DataType dataType = myMessage.getDataType();
+        if(dataType == MyActionMessageProto.MyActionMessage.DataType.SynType){
             logger.info("syn message comes");
-            MyMessageProto.Syn syn = myMessage.getSyn();
+            MyActionMessageProto.ActionSyn syn = myMessage.getActionsyn();
             this.host = syn.getHost() ;
             logger.info("host: "+this.host);
             this.pid = syn.getPid();
             logger.info("pid: "+this.pid);
             operationManager.channelConnected(this);
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ActionStateType){
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionGetPerflowAckMsgType){
+            //logger.info("receive a  conn getAck"+System.currentTimeMillis());
+            actionMsgProcess.getActionPerflowAck(myMessage.getActionGetPerflowAckMsg());
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionStateType){
             //logger.info("receive a connstate"+System.currentTimeMillis());
             actionMsgProcess.receiveActionStatePerflow(myMessage.getActionState());
 
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ActionGetPerflowAckMsgType){
-            //logger.info("receive a  conn getAck"+System.currentTimeMillis());
-            actionMsgProcess.getActionPerflowAck(myMessage.getActionGetPerflowAckMsg());
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ActionPutPerflowAckMsgType){
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowAckMsgType){
             //logger.info("receive a conn putAck"+System.currentTimeMillis());
             actionMsgProcess.putActionPerflowAck(myMessage.getActionPutPerflowAckMsg());
         }

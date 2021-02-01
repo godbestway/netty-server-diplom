@@ -3,7 +3,7 @@ package zmove;
 import interfaces.NetworkFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.MyMessageProto;
+import proto.MyActionMessageProto;
 
 import java.util.concurrent.Callable;
 
@@ -15,11 +15,11 @@ import java.util.concurrent.Callable;
 public class ActionStateChunk implements Callable<Boolean> {
     private NetworkFunction dst;
     //Todo for Multiflow
-    private MyMessageProto.ActionState actionState;
+    private MyActionMessageProto.ActionState actionState;
 
     protected static Logger logger = LoggerFactory.getLogger(ActionStateChunk.class);
 
-    public ActionStateChunk(NetworkFunction dst,MyMessageProto.ActionState actionState ) {
+    public ActionStateChunk(NetworkFunction dst,MyActionMessageProto.ActionState actionState ) {
         this.dst = dst;
         this.actionState = actionState;
     }
@@ -27,10 +27,10 @@ public class ActionStateChunk implements Callable<Boolean> {
 
     public Boolean call() throws Exception {
         //logger.info("ActionStateChuck call"+System.currentTimeMillis()+" actionState"+actionState.getData());
-        MyMessageProto.MyMessage putPerflowMessage = null;
-        putPerflowMessage = MyMessageProto.MyMessage.newBuilder()
-                .setDataType(MyMessageProto.MyMessage.DataType.ActionPutPerflowMsgType)
-                .setActionPutPerflowMsg(MyMessageProto.ActionPutPerflowMsg.
+        MyActionMessageProto.MyActionMessage putPerflowMessage = null;
+        putPerflowMessage = MyActionMessageProto.MyActionMessage.newBuilder()
+                .setDataType(MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowMsgType)
+                .setActionPutPerflowMsg(MyActionMessageProto.ActionPutPerflowMsg.
                         newBuilder().setState(this.actionState).build())
                 .build();
 

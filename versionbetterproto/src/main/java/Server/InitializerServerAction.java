@@ -2,6 +2,8 @@ package Server;
 
 import channel.ActionChannelHandler;
 import channel.ConnectionChannelHandler;
+import coder.MyDepender;
+import coder.MyPerpender;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -9,7 +11,7 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
-import proto.MyMessageProto;
+import proto.MyActionMessageProto;
 
 /**
  * @Author: Chenglin Ding
@@ -28,8 +30,8 @@ public class InitializerServerAction extends ChannelInitializer<SocketChannel> {
     {
         ChannelPipeline pipeline=socketChannel.pipeline();
         pipeline.addLast("seperate data head",new ProtobufVarint32FrameDecoder());
-        pipeline.addLast("proto decoder",  new ProtobufDecoder(MyMessageProto.MyMessage.getDefaultInstance()));
-        pipeline.addLast("add data head",new ProtobufVarint32LengthFieldPrepender());
+        pipeline.addLast("proto decoder",  new ProtobufDecoder(MyActionMessageProto.MyActionMessage.getDefaultInstance()));
+        pipeline.addLast("add data head",new MyPerpender());
         pipeline.addLast("proto encoder",new ProtobufEncoder());
         pipeline.addLast("handler", new ActionChannelHandler(this.operationManager));
 

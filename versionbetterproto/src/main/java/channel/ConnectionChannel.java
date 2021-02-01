@@ -4,7 +4,7 @@ import Server.OperationManager;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.MyMessageProto;
+import proto.MyConnMessageProto;
 import zmove.ConnMsgProcessor;
 
 
@@ -20,29 +20,24 @@ public class ConnectionChannel extends BaseChannel{
         super(channel, operationManager);
     }
 
-    protected void processMessage(MyMessageProto.MyMessage myMessage) {
+    protected void processMessage(Object msg) {
         ConnMsgProcessor connMsgProcess = operationManager.getConnMsgProcessors();
 
-       MyMessageProto.MyMessage.DataType dataType = myMessage.getDataType();
-        if(dataType == MyMessageProto.MyMessage.DataType.PersonType){
-            MyMessageProto.Person person = myMessage.getPerson();
-            System.out.println("name "+person.getName());
-            System.out.println("address "+person.getAddress());
-            System.out.println("age "+ person.getAge());
-        }
-        else if(dataType == MyMessageProto.MyMessage.DataType.SynType){
-            MyMessageProto.Syn syn = myMessage.getSyn();
+        MyConnMessageProto.MyConnMessage myMessage = (MyConnMessageProto.MyConnMessage)msg;
+        MyConnMessageProto.MyConnMessage.DataType dataType = myMessage.getDataType();
+        if(dataType == MyConnMessageProto.MyConnMessage.DataType.SynType){
+            MyConnMessageProto.ConnSyn syn = myMessage.getConnsyn();
             this.host = syn.getHost() ;
             this.pid = syn.getPid();
             operationManager.channelConnected(this);
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ConnStateType){
+        }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnStateType){
             //logger.info("receive a connstate"+System.currentTimeMillis());
             connMsgProcess.receiveConnStatePerflow(myMessage.getConnState());
 
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ConnGetPerflowAckMsgType){
+        }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnGetPerflowAckMsgType){
             //logger.info("receive a  conn getAck"+System.currentTimeMillis());
             connMsgProcess.getConnPerflowAck(myMessage.getConnGetPerflowAckMsg());
-        }else if(dataType == MyMessageProto.MyMessage.DataType.ConnPutPerflowAckMsgType){
+        }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnPutPerflowAckMsgType){
             //logger.info("receive a  putAck"+System.currentTimeMillis());
             connMsgProcess.putConnPerflowAck(myMessage.getConnPutPerflowAckMsg());
         }

@@ -7,8 +7,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.Attribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.InformationProto;
-import proto.MyMessageProto;
 
 
 /**
@@ -60,18 +58,6 @@ public class ConnectionChannelHandler  extends BaseChannelHandler{
         Channel incoming=ctx.channel();
         //System.out.println("客户端："+incoming.remoteAddress()+"在线");
         logger.info("客户端："+incoming.remoteAddress()+"在线");
-
-        MyMessageProto.MyMessage myMessage = null;
-        myMessage = MyMessageProto.MyMessage.newBuilder()
-                .setDataType(MyMessageProto.MyMessage.DataType.PersonType)
-                .setPerson(MyMessageProto.Person.newBuilder()
-                        .setName("xiaolin")
-                        .setAddress("haydn")
-                        .setAge(20).build())
-                .build();
-
-        ctx.writeAndFlush(myMessage);
-
 
 
     }

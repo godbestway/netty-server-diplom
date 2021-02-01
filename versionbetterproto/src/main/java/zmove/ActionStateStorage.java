@@ -3,7 +3,7 @@ package zmove;
 import interfaces.NetworkFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proto.MyMessageProto;
+import proto.MyActionMessageProto;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -15,21 +15,21 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class ActionStateStorage {
     private static volatile ActionStateStorage actionStateStorage;
-    private ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyMessageProto.ActionState>> statesMap;
+    private ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>> statesMap;
     private NetworkFunction dst;
     private boolean ack;
     private  MoveProcessControl moveProcessControl;
     protected static Logger logger = LoggerFactory.getLogger(ActionStateStorage.class);
 
     private ActionStateStorage(){
-        statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyMessageProto.ActionState>>();
+        statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
     }
 
     private ActionStateStorage(NetworkFunction dst, MoveProcessControl moveProcessControl){
         this.moveProcessControl = moveProcessControl;
         this.dst = dst;
         this.ack = false;
-        statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyMessageProto.ActionState>>();
+        statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
     }
 
     public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl){
@@ -43,11 +43,11 @@ public class ActionStateStorage {
         return actionStateStorage;
     }
 
-    public ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyMessageProto.ActionState>> getStatesMap() {
+    public ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>> getStatesMap() {
         return statesMap;
     }
 
-    public void setStatesMap(ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyMessageProto.ActionState>> statesMap) {
+    public void setStatesMap(ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>> statesMap) {
         this.statesMap = statesMap;
     }
 
@@ -64,9 +64,11 @@ public class ActionStateStorage {
     public void setAck(){
         logger.info("set a action stateStorage ack");
         try {
-            this.ack = true;
-            this.moveProcessControl.getLatch().countDown();
-
+            if(!this.ack)
+            {
+                this.ack = true;
+                this.moveProcessControl.getLatch().countDown();
+            }
         }
         catch (Exception e){
             e.printStackTrace();

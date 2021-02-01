@@ -5,7 +5,6 @@ import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import proto.InformationProto;
-import proto.MyMessageProto;
 
 
 /**
@@ -39,17 +38,7 @@ public class HandlerClientPB extends SimpleChannelInboundHandler<InformationProt
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception
     {
-        MyMessageProto.MyMessage myMessage = null;
-        myMessage = MyMessageProto.MyMessage.newBuilder()
-                .setDataType(MyMessageProto.MyMessage.DataType.PersonType)
-                .setPerson(MyMessageProto.Person.newBuilder()
-                        .setName("xiaolin")
-                        .setAddress("haydn")
-                        .setAge(20).build())
-                .build();
 
-
-        ctx.writeAndFlush(myMessage);
 
     }
 

@@ -2,7 +2,7 @@ package interfaces.msgprocessors.Perflow;
 
 import interfaces.NetworkFunction;
 import interfaces.msgprocessors.ProcessReceiveMsg;
-import proto.MyMessageProto;
+import proto.MyConnMessageProto;
 
 /**
  * @Author: Chenglin Ding
@@ -10,17 +10,14 @@ import proto.MyMessageProto;
  * @Description:
  */
 public abstract  class ActionProcessPerflow implements ProcessReceiveMsg {
-    public void receiveConnStatePerflow(MyMessageProto.ConnState connState){}
 
-    public void getConnPerflowAck(MyMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg){}
+    public void receiveConnStatePerflow(MyConnMessageProto.ConnState connState){}
 
-    public void putConnPerflowAck(MyMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg){}
+    public void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg){}
+
+    public void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg){}
 
     public void sendConnGetPerflow(NetworkFunction nf, String key) {}
-
-    public void putConnPerflowAck(){}
-
-    public void sendConnGetPerflow(){}
 
     public void receiveStateMultiflow() {}
 
