@@ -60,7 +60,9 @@ public class ActionStateStorage {
     }
 
 
-
+    /**
+     * the number of putAcks is equal to the total nums
+     */
     public void setAck(){
         logger.info("set a action stateStorage ack");
         try {

@@ -24,7 +24,9 @@ public class ActionStateChunk implements Callable<Boolean> {
         this.actionState = actionState;
     }
 
-
+    /**
+     * Use the putPerflow send the state to the destination
+     */
     public Boolean call() throws Exception {
         //logger.info("ActionStateChuck call"+System.currentTimeMillis()+" actionState"+actionState.getData());
         MyActionMessageProto.MyActionMessage putPerflowMessage = null;

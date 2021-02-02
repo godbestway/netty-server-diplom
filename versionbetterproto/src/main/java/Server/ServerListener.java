@@ -28,6 +28,11 @@ public class ServerListener implements ChannelFutureListener {
     }
 
 
+    /**
+     * check whether two ports is ready to listen
+     * @param channelFuture
+     * @throws Exception
+     */
     public void operationComplete(ChannelFuture channelFuture) throws Exception {
         if (channelFuture.isSuccess()) {
             //System.out.println("bind success at port: " + this.port);

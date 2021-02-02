@@ -7,9 +7,13 @@ import interfaces.stepControl.ProcessCondition;
 import interfaces.stepControl.ProcessControl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import test.traceload.TraceLoad;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.*;
 
 /**
@@ -25,8 +29,21 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public static long movestart;
     //public static long movestart2;
     private CountDownLatch latch;
-    private static CyclicBarrier cyclicBarrier;
+    //private static CyclicBarrier cyclicBarrier;
     protected static Logger logger = LoggerFactory.getLogger(MoveProcessControl.class);
+    private TraceLoad traceLoad;
+    protected short traceSwitchPort;
+    private String traceHost;
+    private short tracePort;
+    private String traceFile;
+    private int traceRate;
+    private int traceNumPkts;
+    private int operationDelay;
+    private int stopDelay;
+
+    public MoveProcessControl() {
+        parseConfigFile();
+    }
 
     public MoveProcessControl(OperationManager operationManager){
         runNFs = new HashMap<String, NetworkFunction>();
@@ -34,10 +51,32 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         this.movestart = -1;
         //this.movestart2 = -1;
         latch = new CountDownLatch(2);
-        cyclicBarrier = new CyclicBarrier(1);
+        //cyclicBarrier = new CyclicBarrier(1);
+        parseConfigFile();
     }
 
+    public void parseConfigFile(){
+        Properties prop = new Properties();
+        try {
+            FileInputStream fileInputStream = new FileInputStream("D:/java/realwork/versionbetterproto/src/main/java/test/config/config.properties");
+            prop.load(fileInputStream);
+            this.traceSwitchPort = Short.parseShort(prop.getProperty("TraceReplaySwitchPort"));
+            this.traceHost = prop.getProperty("TraceReplayHost");
+            this.traceFile = prop.getProperty("TraceReplayFile");
+            this.traceRate = Short.parseShort(prop.getProperty("TraceReplayRate"));
+            this.traceNumPkts  = Integer.parseInt(prop.getProperty("TraceReplayNumPkts"));
+            System.out.println("traceNumPkts"+traceNumPkts);
+            this.operationDelay= Integer.parseInt(prop.getProperty("OperationDelay"));
+            this.stopDelay= Integer.parseInt(prop.getProperty("StopDelay"));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     * The NF will be added by operation manager, if we got enough number of NF, execute the move operation
+     * @param nf
+     */
     private synchronized void addNetworkFunction(NetworkFunction nf){
         if (this.runNFs.containsValue(nf))
         { return; }
@@ -56,6 +95,10 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         { this.executeStep(0); }
     }
 
+    /**
+     * The NF will be added by operation manager
+     * @param nf
+     */
     public void NFConnected(NetworkFunction nf) {
         if(!this.runNFs.containsValue(nf)){
             this.addNetworkFunction(nf);
@@ -72,13 +115,13 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
 
         new Thread(new Runnable() {
             public void run() {
-                try {
+                /*try {
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
-                }
+                }*/
                 operationManager.getConnMsgProcessors().sendConnGetPerflow(runNFs.get("nf1"), "all");
             }
         }).start();
@@ -124,7 +167,8 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
 
 
     public void executeStep(int step) {
-        int startNextAfter = 0;
+        this.traceLoad = new TraceLoad(this.traceHost, this.traceRate , this.traceNumPkts);
+        int startNextAfter;
         switch(step)
         {
             case 0:
@@ -133,7 +177,13 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
             case 1:
                 //System.out.println("线程开始了");
                 logger.info("a simulation of move start");
-                startMove();
+                //startMove();
+                boolean started = this.traceLoad.startTrace(this.traceFile);
+                if (started)
+                { logger.info("Started replaying trace"); }
+                else
+                { logger.error("Failed to start replaying trace"); }
+                startNextAfter = this.operationDelay;
             default:
                 return;
         }

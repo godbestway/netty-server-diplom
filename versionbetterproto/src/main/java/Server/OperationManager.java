@@ -53,15 +53,7 @@ public class OperationManager {
         nfs = new ConcurrentHashMap<String, NetworkFunction>();
     }
 
-    public OperationManager(ConnMsgProcessor connMsgProcessors, ActionMsgProcessor actionMsgProcessors,
-                            ProcessCondition processCondition) {
-        this.connMsgProcessors = connMsgProcessors;
-        this.actionMsgProcessors = actionMsgProcessors;
-        this.processCondition = processCondition;
-        port1 = 18080;
-        port2 = 18081;
-        nfs = new ConcurrentHashMap<String, NetworkFunction>();
-    }
+
 
     public void run1() throws Exception
     {
@@ -165,6 +157,12 @@ public class OperationManager {
         return nf;
     }
 
+    /**
+     * use syn message to check whether two channels are connected
+     * if the coming NF is fully connected(receive the syn messages from the conn and action channel )
+     * tell the process, a new NF is added
+     * @param channel
+     */
     public void channelConnected(BaseChannel channel){
         //System.out.println("channel try to connect");
         logger.info("channel try to connect");
@@ -208,6 +206,7 @@ public class OperationManager {
 
     }
 
+    //Prcoess will use this function to add itself
     public void addProcessCondition(ProcessCondition processCondition){
         this.processCondition = processCondition;
         //System.out.println("a new condition is added");
@@ -230,32 +229,5 @@ public class OperationManager {
         this.actionMsgProcessors = actionMsgProcessors;
     }
 
-    public static void main(String[] args) {
-        ConnMsgProcessor connMsgProcessors = new ConnMsgProcessor();
-        ActionMsgProcessor actionMsgProcessors = new ActionMsgProcessor();
-        OperationManager operationManager = new OperationManager(connMsgProcessors,actionMsgProcessors);
 
-        try {
-            operationManager.run1();
-            //operationManager.run2();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        ProcessCondition moveProcessControl = new MoveProcessControl(operationManager);
-        new Thread((Runnable) moveProcessControl).start();
-
-        synchronized (operationManager){
-            while(OperationManager.serverSet != 2){
-                try {
-                    operationManager.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            //System.out.println("netty server is set up");
-            logger.info("netty server is set up");
-        }
-
-    }
 }

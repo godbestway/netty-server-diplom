@@ -34,7 +34,7 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
 
     public void receiveConnStatePerflow(MyConnMessageProto.ConnState connState) {
-        logger.info("conn receive state current time "+System.currentTimeMillis()+" data="+connState.getCxid());
+        //logger.info("conn receive state current time "+System.currentTimeMillis()+" data="+connState.getCxid());
         ConnStateChunk connStateChunk = null;
         //int cxid = (int)connState.getCxid();
         //logger.info("connstate cxid "+connState.getCxid());
@@ -44,15 +44,15 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
     public void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg) {
         totalnum = connGetPerflowAckMsg.getCount();
-        logger.info("connection getperflow totalnum:"+ totalnum);
+        //logger.info("connection getperflow totalnum:"+ totalnum);
     }
 
     public void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg) {
         count++;
         //System.out.println("connection put perflow count"+count);
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
-        logger.info("connection put perflow count"+count);
-        logger.info("connection put perflow totalnum"+totalnum);
+        //logger.info("connection put perflow count"+count);
+        //logger.info("connection put perflow totalnum"+totalnum);
         if(count == totalnum){
             setConnStateStorageAck();
         }
