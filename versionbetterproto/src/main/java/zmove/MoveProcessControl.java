@@ -67,6 +67,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
             this.traceNumPkts  = Integer.parseInt(prop.getProperty("TraceReplayNumPkts"));
             System.out.println("traceNumPkts"+traceNumPkts);
             this.operationDelay= Integer.parseInt(prop.getProperty("OperationDelay"));
+            System.out.println("operationdelay"+operationDelay);
             this.stopDelay= Integer.parseInt(prop.getProperty("StopDelay"));
         }catch (IOException e){
             e.printStackTrace();
@@ -175,15 +176,17 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 startNextAfter = 2;
                 break;
             case 1:
-                //System.out.println("线程开始了");
-                logger.info("a simulation of move start");
-                //startMove();
                 boolean started = this.traceLoad.startTrace(this.traceFile);
                 if (started)
                 { logger.info("Started replaying trace"); }
                 else
                 { logger.error("Failed to start replaying trace"); }
                 startNextAfter = this.operationDelay;
+                break;
+            case 2:
+                //System.out.println("线程开始了");
+                logger.info("a simulation of move start");
+                startMove();
             default:
                 return;
         }

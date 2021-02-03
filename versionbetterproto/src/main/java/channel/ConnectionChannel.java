@@ -35,7 +35,7 @@ public class ConnectionChannel extends BaseChannel{
             connMsgProcess.receiveConnStatePerflow(myMessage.getConnState());
 
         }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnGetPerflowAckMsgType){
-            //logger.info("receive a  conn getAck"+System.currentTimeMillis());
+            logger.info("receive a  conn getAck"+System.currentTimeMillis());
             connMsgProcess.getConnPerflowAck(myMessage.getConnGetPerflowAckMsg());
         }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnPutPerflowAckMsgType){
             //logger.info("receive a  putAck"+System.currentTimeMillis());

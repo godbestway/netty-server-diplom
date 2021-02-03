@@ -3985,34 +3985,155 @@ public final class MyActionMessageProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 data = 1;</code>
-     * @return Whether the data field is set.
+     * <code>optional fixed64 start_time = 1;</code>
+     * @return Whether the startTime field is set.
      */
-    boolean hasData();
+    boolean hasStartTime();
     /**
-     * <code>optional int32 data = 1;</code>
-     * @return The data.
+     * <code>optional fixed64 start_time = 1;</code>
+     * @return The startTime.
      */
-    int getData();
+    long getStartTime();
 
     /**
-     * <code>optional fixed64 cxid = 2;</code>
+     * <code>optional fixed64 last_pkt_time = 2;</code>
+     * @return Whether the lastPktTime field is set.
+     */
+    boolean hasLastPktTime();
+    /**
+     * <code>optional fixed64 last_pkt_time = 2;</code>
+     * @return The lastPktTime.
+     */
+    long getLastPktTime();
+
+    /**
+     * <code>optional fixed64 cxid = 3;</code>
      * @return Whether the cxid field is set.
      */
     boolean hasCxid();
     /**
-     * <code>optional fixed64 cxid = 2;</code>
+     * <code>optional fixed64 cxid = 3;</code>
      * @return The cxid.
      */
     long getCxid();
 
     /**
-     * <code>optional int32 hash = 3;</code>
+     * <code>optional uint32 reversed = 4;</code>
+     * @return Whether the reversed field is set.
+     */
+    boolean hasReversed();
+    /**
+     * <code>optional uint32 reversed = 4;</code>
+     * @return The reversed.
+     */
+    int getReversed();
+
+    /**
+     * <code>optional fixed32 af = 5;</code>
+     * @return Whether the af field is set.
+     */
+    boolean hasAf();
+    /**
+     * <code>optional fixed32 af = 5;</code>
+     * @return The af.
+     */
+    int getAf();
+
+    /**
+     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * @return Whether the sTotalPkts field is set.
+     */
+    boolean hasSTotalPkts();
+    /**
+     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * @return The sTotalPkts.
+     */
+    long getSTotalPkts();
+
+    /**
+     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * @return Whether the sTotalBytes field is set.
+     */
+    boolean hasSTotalBytes();
+    /**
+     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * @return The sTotalBytes.
+     */
+    long getSTotalBytes();
+
+    /**
+     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * @return Whether the dTotalPkts field is set.
+     */
+    boolean hasDTotalPkts();
+    /**
+     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * @return The dTotalPkts.
+     */
+    long getDTotalPkts();
+
+    /**
+     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * @return Whether the dTotalBytes field is set.
+     */
+    boolean hasDTotalBytes();
+    /**
+     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * @return The dTotalBytes.
+     */
+    long getDTotalBytes();
+
+    /**
+     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * @return Whether the sTcpFlags field is set.
+     */
+    boolean hasSTcpFlags();
+    /**
+     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * @return The sTcpFlags.
+     */
+    int getSTcpFlags();
+
+    /**
+     * <code>optional uint32 pad = 13;</code>
+     * @return Whether the pad field is set.
+     */
+    boolean hasPad();
+    /**
+     * <code>optional uint32 pad = 13;</code>
+     * @return The pad.
+     */
+    int getPad();
+
+    /**
+     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * @return Whether the dTcpFlags field is set.
+     */
+    boolean hasDTcpFlags();
+    /**
+     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * @return The dTcpFlags.
+     */
+    int getDTcpFlags();
+
+    /**
+     * <code>optional uint32 check = 15;</code>
+     * @return Whether the check field is set.
+     */
+    boolean hasCheck();
+    /**
+     * <code>optional uint32 check = 15;</code>
+     * @return The check.
+     */
+    int getCheck();
+
+    /**
+     * <code>optional fixed32 hash = 16;</code>
      * @return Whether the hash field is set.
      */
     boolean hasHash();
     /**
-     * <code>optional int32 hash = 3;</code>
+     * <code>optional fixed32 hash = 16;</code>
      * @return The hash.
      */
     int getHash();
@@ -4063,19 +4184,74 @@ public final class MyActionMessageProto {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 9: {
               bitField0_ |= 0x00000001;
-              data_ = input.readInt32();
+              startTime_ = input.readFixed64();
               break;
             }
             case 17: {
               bitField0_ |= 0x00000002;
+              lastPktTime_ = input.readFixed64();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
               cxid_ = input.readFixed64();
               break;
             }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              hash_ = input.readInt32();
+            case 32: {
+              bitField0_ |= 0x00000008;
+              reversed_ = input.readUInt32();
+              break;
+            }
+            case 45: {
+              bitField0_ |= 0x00000010;
+              af_ = input.readFixed32();
+              break;
+            }
+            case 65: {
+              bitField0_ |= 0x00000020;
+              sTotalPkts_ = input.readFixed64();
+              break;
+            }
+            case 73: {
+              bitField0_ |= 0x00000040;
+              sTotalBytes_ = input.readFixed64();
+              break;
+            }
+            case 81: {
+              bitField0_ |= 0x00000080;
+              dTotalPkts_ = input.readFixed64();
+              break;
+            }
+            case 89: {
+              bitField0_ |= 0x00000100;
+              dTotalBytes_ = input.readFixed64();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000200;
+              sTcpFlags_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00000400;
+              pad_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00000800;
+              dTcpFlags_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+              bitField0_ |= 0x00001000;
+              check_ = input.readUInt32();
+              break;
+            }
+            case 133: {
+              bitField0_ |= 0x00002000;
+              hash_ = input.readFixed32();
               break;
             }
             default: {
@@ -4111,37 +4287,56 @@ public final class MyActionMessageProto {
     }
 
     private int bitField0_;
-    public static final int DATA_FIELD_NUMBER = 1;
-    private int data_;
+    public static final int START_TIME_FIELD_NUMBER = 1;
+    private long startTime_;
     /**
-     * <code>optional int32 data = 1;</code>
-     * @return Whether the data field is set.
+     * <code>optional fixed64 start_time = 1;</code>
+     * @return Whether the startTime field is set.
      */
     @java.lang.Override
-    public boolean hasData() {
+    public boolean hasStartTime() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int32 data = 1;</code>
-     * @return The data.
+     * <code>optional fixed64 start_time = 1;</code>
+     * @return The startTime.
      */
     @java.lang.Override
-    public int getData() {
-      return data_;
+    public long getStartTime() {
+      return startTime_;
     }
 
-    public static final int CXID_FIELD_NUMBER = 2;
+    public static final int LAST_PKT_TIME_FIELD_NUMBER = 2;
+    private long lastPktTime_;
+    /**
+     * <code>optional fixed64 last_pkt_time = 2;</code>
+     * @return Whether the lastPktTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastPktTime() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional fixed64 last_pkt_time = 2;</code>
+     * @return The lastPktTime.
+     */
+    @java.lang.Override
+    public long getLastPktTime() {
+      return lastPktTime_;
+    }
+
+    public static final int CXID_FIELD_NUMBER = 3;
     private long cxid_;
     /**
-     * <code>optional fixed64 cxid = 2;</code>
+     * <code>optional fixed64 cxid = 3;</code>
      * @return Whether the cxid field is set.
      */
     @java.lang.Override
     public boolean hasCxid() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional fixed64 cxid = 2;</code>
+     * <code>optional fixed64 cxid = 3;</code>
      * @return The cxid.
      */
     @java.lang.Override
@@ -4149,18 +4344,208 @@ public final class MyActionMessageProto {
       return cxid_;
     }
 
-    public static final int HASH_FIELD_NUMBER = 3;
+    public static final int REVERSED_FIELD_NUMBER = 4;
+    private int reversed_;
+    /**
+     * <code>optional uint32 reversed = 4;</code>
+     * @return Whether the reversed field is set.
+     */
+    @java.lang.Override
+    public boolean hasReversed() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional uint32 reversed = 4;</code>
+     * @return The reversed.
+     */
+    @java.lang.Override
+    public int getReversed() {
+      return reversed_;
+    }
+
+    public static final int AF_FIELD_NUMBER = 5;
+    private int af_;
+    /**
+     * <code>optional fixed32 af = 5;</code>
+     * @return Whether the af field is set.
+     */
+    @java.lang.Override
+    public boolean hasAf() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional fixed32 af = 5;</code>
+     * @return The af.
+     */
+    @java.lang.Override
+    public int getAf() {
+      return af_;
+    }
+
+    public static final int S_TOTAL_PKTS_FIELD_NUMBER = 8;
+    private long sTotalPkts_;
+    /**
+     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * @return Whether the sTotalPkts field is set.
+     */
+    @java.lang.Override
+    public boolean hasSTotalPkts() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * @return The sTotalPkts.
+     */
+    @java.lang.Override
+    public long getSTotalPkts() {
+      return sTotalPkts_;
+    }
+
+    public static final int S_TOTAL_BYTES_FIELD_NUMBER = 9;
+    private long sTotalBytes_;
+    /**
+     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * @return Whether the sTotalBytes field is set.
+     */
+    @java.lang.Override
+    public boolean hasSTotalBytes() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * @return The sTotalBytes.
+     */
+    @java.lang.Override
+    public long getSTotalBytes() {
+      return sTotalBytes_;
+    }
+
+    public static final int D_TOTAL_PKTS_FIELD_NUMBER = 10;
+    private long dTotalPkts_;
+    /**
+     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * @return Whether the dTotalPkts field is set.
+     */
+    @java.lang.Override
+    public boolean hasDTotalPkts() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * @return The dTotalPkts.
+     */
+    @java.lang.Override
+    public long getDTotalPkts() {
+      return dTotalPkts_;
+    }
+
+    public static final int D_TOTAL_BYTES_FIELD_NUMBER = 11;
+    private long dTotalBytes_;
+    /**
+     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * @return Whether the dTotalBytes field is set.
+     */
+    @java.lang.Override
+    public boolean hasDTotalBytes() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * @return The dTotalBytes.
+     */
+    @java.lang.Override
+    public long getDTotalBytes() {
+      return dTotalBytes_;
+    }
+
+    public static final int S_TCPFLAGS_FIELD_NUMBER = 12;
+    private int sTcpFlags_;
+    /**
+     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * @return Whether the sTcpFlags field is set.
+     */
+    @java.lang.Override
+    public boolean hasSTcpFlags() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * @return The sTcpFlags.
+     */
+    @java.lang.Override
+    public int getSTcpFlags() {
+      return sTcpFlags_;
+    }
+
+    public static final int PAD_FIELD_NUMBER = 13;
+    private int pad_;
+    /**
+     * <code>optional uint32 pad = 13;</code>
+     * @return Whether the pad field is set.
+     */
+    @java.lang.Override
+    public boolean hasPad() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional uint32 pad = 13;</code>
+     * @return The pad.
+     */
+    @java.lang.Override
+    public int getPad() {
+      return pad_;
+    }
+
+    public static final int D_TCPFLAGS_FIELD_NUMBER = 14;
+    private int dTcpFlags_;
+    /**
+     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * @return Whether the dTcpFlags field is set.
+     */
+    @java.lang.Override
+    public boolean hasDTcpFlags() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * @return The dTcpFlags.
+     */
+    @java.lang.Override
+    public int getDTcpFlags() {
+      return dTcpFlags_;
+    }
+
+    public static final int CHECK_FIELD_NUMBER = 15;
+    private int check_;
+    /**
+     * <code>optional uint32 check = 15;</code>
+     * @return Whether the check field is set.
+     */
+    @java.lang.Override
+    public boolean hasCheck() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>optional uint32 check = 15;</code>
+     * @return The check.
+     */
+    @java.lang.Override
+    public int getCheck() {
+      return check_;
+    }
+
+    public static final int HASH_FIELD_NUMBER = 16;
     private int hash_;
     /**
-     * <code>optional int32 hash = 3;</code>
+     * <code>optional fixed32 hash = 16;</code>
      * @return Whether the hash field is set.
      */
     @java.lang.Override
     public boolean hasHash() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
-     * <code>optional int32 hash = 3;</code>
+     * <code>optional fixed32 hash = 16;</code>
      * @return The hash.
      */
     @java.lang.Override
@@ -4183,13 +4568,46 @@ public final class MyActionMessageProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, data_);
+        output.writeFixed64(1, startTime_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeFixed64(2, cxid_);
+        output.writeFixed64(2, lastPktTime_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt32(3, hash_);
+        output.writeFixed64(3, cxid_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeUInt32(4, reversed_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeFixed32(5, af_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeFixed64(8, sTotalPkts_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeFixed64(9, sTotalBytes_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeFixed64(10, dTotalPkts_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        output.writeFixed64(11, dTotalBytes_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeUInt32(12, sTcpFlags_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeUInt32(13, pad_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeUInt32(14, dTcpFlags_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        output.writeUInt32(15, check_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        output.writeFixed32(16, hash_);
       }
       unknownFields.writeTo(output);
     }
@@ -4202,15 +4620,59 @@ public final class MyActionMessageProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, data_);
+          .computeFixed64Size(1, startTime_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(2, cxid_);
+          .computeFixed64Size(2, lastPktTime_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, hash_);
+          .computeFixed64Size(3, cxid_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, reversed_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(5, af_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(8, sTotalPkts_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(9, sTotalBytes_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(10, dTotalPkts_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(11, dTotalBytes_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(12, sTcpFlags_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(13, pad_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(14, dTcpFlags_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(15, check_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(16, hash_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4227,15 +4689,70 @@ public final class MyActionMessageProto {
       }
       MyActionMessageProto.ActionState other = (MyActionMessageProto.ActionState) obj;
 
-      if (hasData() != other.hasData()) return false;
-      if (hasData()) {
-        if (getData()
-            != other.getData()) return false;
+      if (hasStartTime() != other.hasStartTime()) return false;
+      if (hasStartTime()) {
+        if (getStartTime()
+            != other.getStartTime()) return false;
+      }
+      if (hasLastPktTime() != other.hasLastPktTime()) return false;
+      if (hasLastPktTime()) {
+        if (getLastPktTime()
+            != other.getLastPktTime()) return false;
       }
       if (hasCxid() != other.hasCxid()) return false;
       if (hasCxid()) {
         if (getCxid()
             != other.getCxid()) return false;
+      }
+      if (hasReversed() != other.hasReversed()) return false;
+      if (hasReversed()) {
+        if (getReversed()
+            != other.getReversed()) return false;
+      }
+      if (hasAf() != other.hasAf()) return false;
+      if (hasAf()) {
+        if (getAf()
+            != other.getAf()) return false;
+      }
+      if (hasSTotalPkts() != other.hasSTotalPkts()) return false;
+      if (hasSTotalPkts()) {
+        if (getSTotalPkts()
+            != other.getSTotalPkts()) return false;
+      }
+      if (hasSTotalBytes() != other.hasSTotalBytes()) return false;
+      if (hasSTotalBytes()) {
+        if (getSTotalBytes()
+            != other.getSTotalBytes()) return false;
+      }
+      if (hasDTotalPkts() != other.hasDTotalPkts()) return false;
+      if (hasDTotalPkts()) {
+        if (getDTotalPkts()
+            != other.getDTotalPkts()) return false;
+      }
+      if (hasDTotalBytes() != other.hasDTotalBytes()) return false;
+      if (hasDTotalBytes()) {
+        if (getDTotalBytes()
+            != other.getDTotalBytes()) return false;
+      }
+      if (hasSTcpFlags() != other.hasSTcpFlags()) return false;
+      if (hasSTcpFlags()) {
+        if (getSTcpFlags()
+            != other.getSTcpFlags()) return false;
+      }
+      if (hasPad() != other.hasPad()) return false;
+      if (hasPad()) {
+        if (getPad()
+            != other.getPad()) return false;
+      }
+      if (hasDTcpFlags() != other.hasDTcpFlags()) return false;
+      if (hasDTcpFlags()) {
+        if (getDTcpFlags()
+            != other.getDTcpFlags()) return false;
+      }
+      if (hasCheck() != other.hasCheck()) return false;
+      if (hasCheck()) {
+        if (getCheck()
+            != other.getCheck()) return false;
       }
       if (hasHash() != other.hasHash()) return false;
       if (hasHash()) {
@@ -4253,14 +4770,64 @@ public final class MyActionMessageProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasData()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getData();
+      if (hasStartTime()) {
+        hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartTime());
+      }
+      if (hasLastPktTime()) {
+        hash = (37 * hash) + LAST_PKT_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastPktTime());
       }
       if (hasCxid()) {
         hash = (37 * hash) + CXID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getCxid());
+      }
+      if (hasReversed()) {
+        hash = (37 * hash) + REVERSED_FIELD_NUMBER;
+        hash = (53 * hash) + getReversed();
+      }
+      if (hasAf()) {
+        hash = (37 * hash) + AF_FIELD_NUMBER;
+        hash = (53 * hash) + getAf();
+      }
+      if (hasSTotalPkts()) {
+        hash = (37 * hash) + S_TOTAL_PKTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getSTotalPkts());
+      }
+      if (hasSTotalBytes()) {
+        hash = (37 * hash) + S_TOTAL_BYTES_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getSTotalBytes());
+      }
+      if (hasDTotalPkts()) {
+        hash = (37 * hash) + D_TOTAL_PKTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getDTotalPkts());
+      }
+      if (hasDTotalBytes()) {
+        hash = (37 * hash) + D_TOTAL_BYTES_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getDTotalBytes());
+      }
+      if (hasSTcpFlags()) {
+        hash = (37 * hash) + S_TCPFLAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getSTcpFlags();
+      }
+      if (hasPad()) {
+        hash = (37 * hash) + PAD_FIELD_NUMBER;
+        hash = (53 * hash) + getPad();
+      }
+      if (hasDTcpFlags()) {
+        hash = (37 * hash) + D_TCPFLAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getDTcpFlags();
+      }
+      if (hasCheck()) {
+        hash = (37 * hash) + CHECK_FIELD_NUMBER;
+        hash = (53 * hash) + getCheck();
       }
       if (hasHash()) {
         hash = (37 * hash) + HASH_FIELD_NUMBER;
@@ -4399,12 +4966,34 @@ public final class MyActionMessageProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        data_ = 0;
+        startTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        cxid_ = 0L;
+        lastPktTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        hash_ = 0;
+        cxid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
+        reversed_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        af_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        sTotalPkts_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        sTotalBytes_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        dTotalPkts_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        dTotalBytes_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        sTcpFlags_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        pad_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        dTcpFlags_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        check_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        hash_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
 
@@ -4434,16 +5023,60 @@ public final class MyActionMessageProto {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
+          result.startTime_ = startTime_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.cxid_ = cxid_;
+          result.lastPktTime_ = lastPktTime_;
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.hash_ = hash_;
+          result.cxid_ = cxid_;
           to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.reversed_ = reversed_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.af_ = af_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.sTotalPkts_ = sTotalPkts_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.sTotalBytes_ = sTotalBytes_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.dTotalPkts_ = dTotalPkts_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.dTotalBytes_ = dTotalBytes_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.sTcpFlags_ = sTcpFlags_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.pad_ = pad_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.dTcpFlags_ = dTcpFlags_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.check_ = check_;
+          to_bitField0_ |= 0x00001000;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.hash_ = hash_;
+          to_bitField0_ |= 0x00002000;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -4494,11 +5127,44 @@ public final class MyActionMessageProto {
 
       public Builder mergeFrom(MyActionMessageProto.ActionState other) {
         if (other == MyActionMessageProto.ActionState.getDefaultInstance()) return this;
-        if (other.hasData()) {
-          setData(other.getData());
+        if (other.hasStartTime()) {
+          setStartTime(other.getStartTime());
+        }
+        if (other.hasLastPktTime()) {
+          setLastPktTime(other.getLastPktTime());
         }
         if (other.hasCxid()) {
           setCxid(other.getCxid());
+        }
+        if (other.hasReversed()) {
+          setReversed(other.getReversed());
+        }
+        if (other.hasAf()) {
+          setAf(other.getAf());
+        }
+        if (other.hasSTotalPkts()) {
+          setSTotalPkts(other.getSTotalPkts());
+        }
+        if (other.hasSTotalBytes()) {
+          setSTotalBytes(other.getSTotalBytes());
+        }
+        if (other.hasDTotalPkts()) {
+          setDTotalPkts(other.getDTotalPkts());
+        }
+        if (other.hasDTotalBytes()) {
+          setDTotalBytes(other.getDTotalBytes());
+        }
+        if (other.hasSTcpFlags()) {
+          setSTcpFlags(other.getSTcpFlags());
+        }
+        if (other.hasPad()) {
+          setPad(other.getPad());
+        }
+        if (other.hasDTcpFlags()) {
+          setDTcpFlags(other.getDTcpFlags());
+        }
+        if (other.hasCheck()) {
+          setCheck(other.getCheck());
         }
         if (other.hasHash()) {
           setHash(other.getHash());
@@ -4533,56 +5199,95 @@ public final class MyActionMessageProto {
       }
       private int bitField0_;
 
-      private int data_ ;
+      private long startTime_ ;
       /**
-       * <code>optional int32 data = 1;</code>
-       * @return Whether the data field is set.
+       * <code>optional fixed64 start_time = 1;</code>
+       * @return Whether the startTime field is set.
        */
       @java.lang.Override
-      public boolean hasData() {
+      public boolean hasStartTime() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int32 data = 1;</code>
-       * @return The data.
+       * <code>optional fixed64 start_time = 1;</code>
+       * @return The startTime.
        */
       @java.lang.Override
-      public int getData() {
-        return data_;
+      public long getStartTime() {
+        return startTime_;
       }
       /**
-       * <code>optional int32 data = 1;</code>
-       * @param value The data to set.
+       * <code>optional fixed64 start_time = 1;</code>
+       * @param value The startTime to set.
        * @return This builder for chaining.
        */
-      public Builder setData(int value) {
+      public Builder setStartTime(long value) {
         bitField0_ |= 0x00000001;
-        data_ = value;
+        startTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 data = 1;</code>
+       * <code>optional fixed64 start_time = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearData() {
+      public Builder clearStartTime() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        data_ = 0;
+        startTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastPktTime_ ;
+      /**
+       * <code>optional fixed64 last_pkt_time = 2;</code>
+       * @return Whether the lastPktTime field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastPktTime() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional fixed64 last_pkt_time = 2;</code>
+       * @return The lastPktTime.
+       */
+      @java.lang.Override
+      public long getLastPktTime() {
+        return lastPktTime_;
+      }
+      /**
+       * <code>optional fixed64 last_pkt_time = 2;</code>
+       * @param value The lastPktTime to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastPktTime(long value) {
+        bitField0_ |= 0x00000002;
+        lastPktTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 last_pkt_time = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastPktTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastPktTime_ = 0L;
         onChanged();
         return this;
       }
 
       private long cxid_ ;
       /**
-       * <code>optional fixed64 cxid = 2;</code>
+       * <code>optional fixed64 cxid = 3;</code>
        * @return Whether the cxid field is set.
        */
       @java.lang.Override
       public boolean hasCxid() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional fixed64 cxid = 2;</code>
+       * <code>optional fixed64 cxid = 3;</code>
        * @return The cxid.
        */
       @java.lang.Override
@@ -4590,38 +5295,428 @@ public final class MyActionMessageProto {
         return cxid_;
       }
       /**
-       * <code>optional fixed64 cxid = 2;</code>
+       * <code>optional fixed64 cxid = 3;</code>
        * @param value The cxid to set.
        * @return This builder for chaining.
        */
       public Builder setCxid(long value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         cxid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional fixed64 cxid = 2;</code>
+       * <code>optional fixed64 cxid = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearCxid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         cxid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int reversed_ ;
+      /**
+       * <code>optional uint32 reversed = 4;</code>
+       * @return Whether the reversed field is set.
+       */
+      @java.lang.Override
+      public boolean hasReversed() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional uint32 reversed = 4;</code>
+       * @return The reversed.
+       */
+      @java.lang.Override
+      public int getReversed() {
+        return reversed_;
+      }
+      /**
+       * <code>optional uint32 reversed = 4;</code>
+       * @param value The reversed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReversed(int value) {
+        bitField0_ |= 0x00000008;
+        reversed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 reversed = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReversed() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        reversed_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int af_ ;
+      /**
+       * <code>optional fixed32 af = 5;</code>
+       * @return Whether the af field is set.
+       */
+      @java.lang.Override
+      public boolean hasAf() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional fixed32 af = 5;</code>
+       * @return The af.
+       */
+      @java.lang.Override
+      public int getAf() {
+        return af_;
+      }
+      /**
+       * <code>optional fixed32 af = 5;</code>
+       * @param value The af to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAf(int value) {
+        bitField0_ |= 0x00000010;
+        af_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 af = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAf() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        af_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long sTotalPkts_ ;
+      /**
+       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * @return Whether the sTotalPkts field is set.
+       */
+      @java.lang.Override
+      public boolean hasSTotalPkts() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * @return The sTotalPkts.
+       */
+      @java.lang.Override
+      public long getSTotalPkts() {
+        return sTotalPkts_;
+      }
+      /**
+       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * @param value The sTotalPkts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSTotalPkts(long value) {
+        bitField0_ |= 0x00000020;
+        sTotalPkts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSTotalPkts() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        sTotalPkts_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long sTotalBytes_ ;
+      /**
+       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * @return Whether the sTotalBytes field is set.
+       */
+      @java.lang.Override
+      public boolean hasSTotalBytes() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * @return The sTotalBytes.
+       */
+      @java.lang.Override
+      public long getSTotalBytes() {
+        return sTotalBytes_;
+      }
+      /**
+       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * @param value The sTotalBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSTotalBytes(long value) {
+        bitField0_ |= 0x00000040;
+        sTotalBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSTotalBytes() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sTotalBytes_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long dTotalPkts_ ;
+      /**
+       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * @return Whether the dTotalPkts field is set.
+       */
+      @java.lang.Override
+      public boolean hasDTotalPkts() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * @return The dTotalPkts.
+       */
+      @java.lang.Override
+      public long getDTotalPkts() {
+        return dTotalPkts_;
+      }
+      /**
+       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * @param value The dTotalPkts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDTotalPkts(long value) {
+        bitField0_ |= 0x00000080;
+        dTotalPkts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDTotalPkts() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        dTotalPkts_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long dTotalBytes_ ;
+      /**
+       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * @return Whether the dTotalBytes field is set.
+       */
+      @java.lang.Override
+      public boolean hasDTotalBytes() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * @return The dTotalBytes.
+       */
+      @java.lang.Override
+      public long getDTotalBytes() {
+        return dTotalBytes_;
+      }
+      /**
+       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * @param value The dTotalBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDTotalBytes(long value) {
+        bitField0_ |= 0x00000100;
+        dTotalBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDTotalBytes() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        dTotalBytes_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int sTcpFlags_ ;
+      /**
+       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * @return Whether the sTcpFlags field is set.
+       */
+      @java.lang.Override
+      public boolean hasSTcpFlags() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * @return The sTcpFlags.
+       */
+      @java.lang.Override
+      public int getSTcpFlags() {
+        return sTcpFlags_;
+      }
+      /**
+       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * @param value The sTcpFlags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSTcpFlags(int value) {
+        bitField0_ |= 0x00000200;
+        sTcpFlags_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSTcpFlags() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        sTcpFlags_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pad_ ;
+      /**
+       * <code>optional uint32 pad = 13;</code>
+       * @return Whether the pad field is set.
+       */
+      @java.lang.Override
+      public boolean hasPad() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>optional uint32 pad = 13;</code>
+       * @return The pad.
+       */
+      @java.lang.Override
+      public int getPad() {
+        return pad_;
+      }
+      /**
+       * <code>optional uint32 pad = 13;</code>
+       * @param value The pad to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPad(int value) {
+        bitField0_ |= 0x00000400;
+        pad_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 pad = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPad() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        pad_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int dTcpFlags_ ;
+      /**
+       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * @return Whether the dTcpFlags field is set.
+       */
+      @java.lang.Override
+      public boolean hasDTcpFlags() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * @return The dTcpFlags.
+       */
+      @java.lang.Override
+      public int getDTcpFlags() {
+        return dTcpFlags_;
+      }
+      /**
+       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * @param value The dTcpFlags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDTcpFlags(int value) {
+        bitField0_ |= 0x00000800;
+        dTcpFlags_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDTcpFlags() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        dTcpFlags_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int check_ ;
+      /**
+       * <code>optional uint32 check = 15;</code>
+       * @return Whether the check field is set.
+       */
+      @java.lang.Override
+      public boolean hasCheck() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <code>optional uint32 check = 15;</code>
+       * @return The check.
+       */
+      @java.lang.Override
+      public int getCheck() {
+        return check_;
+      }
+      /**
+       * <code>optional uint32 check = 15;</code>
+       * @param value The check to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCheck(int value) {
+        bitField0_ |= 0x00001000;
+        check_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 check = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCheck() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        check_ = 0;
         onChanged();
         return this;
       }
 
       private int hash_ ;
       /**
-       * <code>optional int32 hash = 3;</code>
+       * <code>optional fixed32 hash = 16;</code>
        * @return Whether the hash field is set.
        */
       @java.lang.Override
       public boolean hasHash() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00002000) != 0);
       }
       /**
-       * <code>optional int32 hash = 3;</code>
+       * <code>optional fixed32 hash = 16;</code>
        * @return The hash.
        */
       @java.lang.Override
@@ -4629,22 +5724,22 @@ public final class MyActionMessageProto {
         return hash_;
       }
       /**
-       * <code>optional int32 hash = 3;</code>
+       * <code>optional fixed32 hash = 16;</code>
        * @param value The hash to set.
        * @return This builder for chaining.
        */
       public Builder setHash(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00002000;
         hash_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 hash = 3;</code>
+       * <code>optional fixed32 hash = 16;</code>
        * @return This builder for chaining.
        */
       public Builder clearHash() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00002000);
         hash_ = 0;
         onChanged();
         return this;
@@ -6017,12 +7112,17 @@ public final class MyActionMessageProto {
       "age\"&\n\tActionSyn\022\014\n\004host\030\001 \001(\t\022\013\n\003pid\030\002 " +
       "\001(\007\"6\n\023ActionGetPerflowMsg\022\020\n\010hw_proto\030\001" +
       " \001(\005\022\r\n\005proto\030\002 \001(\005\"\'\n\026ActionGetPerflowA" +
-      "ckMsg\022\r\n\005count\030\001 \001(\007\"7\n\013ActionState\022\014\n\004d" +
-      "ata\030\001 \001(\005\022\014\n\004cxid\030\002 \001(\006\022\014\n\004hash\030\003 \001(\005\"2\n" +
-      "\023ActionPutPerflowMsg\022\033\n\005state\030\001 \001(\0132\014.Ac" +
-      "tionState\"4\n\026ActionPutPerflowAckMsg\022\014\n\004h" +
-      "ash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(\007B\030B\024MyActionMessa" +
-      "geProtoH\001"
+      "ckMsg\022\r\n\005count\030\001 \001(\007\"\220\002\n\013ActionState\022\022\n\n" +
+      "start_time\030\001 \001(\006\022\025\n\rlast_pkt_time\030\002 \001(\006\022" +
+      "\014\n\004cxid\030\003 \001(\006\022\020\n\010reversed\030\004 \001(\r\022\n\n\002af\030\005 " +
+      "\001(\007\022\024\n\014s_total_pkts\030\010 \001(\006\022\025\n\rs_total_byt" +
+      "es\030\t \001(\006\022\024\n\014d_total_pkts\030\n \001(\006\022\025\n\rd_tota" +
+      "l_bytes\030\013 \001(\006\022\022\n\ns_tcpFlags\030\014 \001(\r\022\013\n\003pad" +
+      "\030\r \001(\r\022\022\n\nd_tcpFlags\030\016 \001(\r\022\r\n\005check\030\017 \001(" +
+      "\r\022\014\n\004hash\030\020 \001(\007\"2\n\023ActionPutPerflowMsg\022\033" +
+      "\n\005state\030\001 \001(\0132\014.ActionState\"4\n\026ActionPut" +
+      "PerflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(" +
+      "\007B\030B\024MyActionMessageProtoH\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6057,7 +7157,7 @@ public final class MyActionMessageProto {
     internal_static_ActionState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionState_descriptor,
-        new java.lang.String[] { "Data", "Cxid", "Hash", });
+        new java.lang.String[] { "StartTime", "LastPktTime", "Cxid", "Reversed", "Af", "STotalPkts", "STotalBytes", "DTotalPkts", "DTotalBytes", "STcpFlags", "Pad", "DTcpFlags", "Check", "Hash", });
     internal_static_ActionPutPerflowMsg_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_ActionPutPerflowMsg_fieldAccessorTable = new
