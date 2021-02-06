@@ -104,5 +104,75 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
         logger.info("action d_tcp_flags"+actionState.getDTcpFlags());
         logger.info("action check"+actionState.getCheck());
         logger.info("action hash"+actionState.getHash());
+        if(actionState.hasCAsset()){
+            logger.info("c asset exits");
+            MyActionMessageProto.Asset c_asset = actionState.getCAsset();
+            showAsset(c_asset);
+        }
+        if(actionState.hasSAsset()){
+            logger.info("s asset exits");
+            MyActionMessageProto.Asset s_asset = actionState.getSAsset();
+            showAsset(s_asset);
+        }
+    }
+
+    public void showAsset(MyActionMessageProto.Asset asset){
+        logger.info("asset  firstSeen"+ asset.getFirstSeen());
+        logger.info("asset  lastSeen"+ asset.getLastSeen());
+        logger.info("asset  Iattempts"+ asset.getIAttempts());
+        logger.info("asset  af"+ asset.getAf());
+        logger.info("asset  vlan"+ asset.getVlan());
+        logger.info("asset  sip"+ asset.getSIp());
+        if(asset.hasServices()){
+            showServAsset(asset.getServices());
+        }
+        if(asset.hasOs()){
+            showOSAsset(asset.getOs());
+        }
+    }
+
+    public void showServAsset(MyActionMessageProto.ServAsset servAsset){
+        logger.info("servAsset first_seen"+servAsset.getFirstSeen());
+        logger.info("servAsset last_seen"+servAsset.getLastSeen());
+        logger.info("servAsset i_attempts"+servAsset.getIAttempts());
+        logger.info("servAsset proto"+servAsset.getProto());
+        logger.info("servAsset port"+servAsset.getPort());
+        logger.info("servAsset ttl"+servAsset.getTtl());
+        logger.info("servAsset bservice"+servAsset.getBservice().getData());
+        logger.info("servAsset bapplication"+servAsset.getBapplication().getData());
+        logger.info("servAsset role"+servAsset.getRole());
+        logger.info("servAsset unknown"+servAsset.getUnknown());
+    }
+
+    public void showOSAsset(MyActionMessageProto.OsAsset osAsset){
+        logger.info("OsAsset first_seen"+osAsset.getFirstSeen());
+        logger.info("OsAsset last_seen"+osAsset.getLastSeen());
+        logger.info("OsAsset itempts"+osAsset.getIAttempts());
+        logger.info("OsAsset bvendor"+osAsset.getBvendor().getData());
+        logger.info("OsAsset bos"+osAsset.getBos().getData());
+        logger.info("OsAsset detection"+osAsset.getDetection());
+        logger.info("OsAsset raw_fp"+osAsset.getRawFp().getData());
+        logger.info("OsAsset matched_fp"+osAsset.getMatchedFp().getData());
+        logger.info("OsAsset mactch_os"+osAsset.getMatchOs());
+        logger.info("OsAsset mactch_desc"+osAsset.getMatchDesc());
+        logger.info("OsAsset port"+osAsset.getPort());
+        logger.info("OsAsset mtu"+osAsset.getMtu());
+        logger.info("OsAsset ttl"+osAsset.getTtl());
+        logger.info("OsAsset uptime"+osAsset.getUptime());
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

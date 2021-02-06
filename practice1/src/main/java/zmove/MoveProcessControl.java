@@ -154,7 +154,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         try {
             latch.await();
             logger.info("receive double ack"+System.currentTimeMillis());
-            changeForwarding();
+            //changeForwarding();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -164,6 +164,11 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public void initialForwarding(){
         String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
                 "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=2\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
+        System.out.println(execCurl(cmd));
+    }
+
+    public void deleteForwarding(){
+        String[] cmd={"curl","-X", "DELETE","-d", "{\"name\":\"flow-mod-1\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
         System.out.println(execCurl(cmd));
     }
 
@@ -221,6 +226,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 break;
             case 2:
                 //System.out.println("线程开始了");
+                deleteForwarding();
                 logger.info("a simulation of move start");
                 startMove();
                 startNextAfter = 0;

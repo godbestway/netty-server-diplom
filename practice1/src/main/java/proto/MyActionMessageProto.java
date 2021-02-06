@@ -4040,103 +4040,133 @@ public final class MyActionMessageProto {
     int getAf();
 
     /**
-     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * <code>optional fixed64 s_total_pkts = 6;</code>
      * @return Whether the sTotalPkts field is set.
      */
     boolean hasSTotalPkts();
     /**
-     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * <code>optional fixed64 s_total_pkts = 6;</code>
      * @return The sTotalPkts.
      */
     long getSTotalPkts();
 
     /**
-     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * <code>optional fixed64 s_total_bytes = 7;</code>
      * @return Whether the sTotalBytes field is set.
      */
     boolean hasSTotalBytes();
     /**
-     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * <code>optional fixed64 s_total_bytes = 7;</code>
      * @return The sTotalBytes.
      */
     long getSTotalBytes();
 
     /**
-     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * <code>optional fixed64 d_total_pkts = 8;</code>
      * @return Whether the dTotalPkts field is set.
      */
     boolean hasDTotalPkts();
     /**
-     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * <code>optional fixed64 d_total_pkts = 8;</code>
      * @return The dTotalPkts.
      */
     long getDTotalPkts();
 
     /**
-     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * <code>optional fixed64 d_total_bytes = 9;</code>
      * @return Whether the dTotalBytes field is set.
      */
     boolean hasDTotalBytes();
     /**
-     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * <code>optional fixed64 d_total_bytes = 9;</code>
      * @return The dTotalBytes.
      */
     long getDTotalBytes();
 
     /**
-     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * <code>optional uint32 s_tcpFlags = 10;</code>
      * @return Whether the sTcpFlags field is set.
      */
     boolean hasSTcpFlags();
     /**
-     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * <code>optional uint32 s_tcpFlags = 10;</code>
      * @return The sTcpFlags.
      */
     int getSTcpFlags();
 
     /**
-     * <code>optional uint32 pad = 13;</code>
+     * <code>optional uint32 pad = 11;</code>
      * @return Whether the pad field is set.
      */
     boolean hasPad();
     /**
-     * <code>optional uint32 pad = 13;</code>
+     * <code>optional uint32 pad = 11;</code>
      * @return The pad.
      */
     int getPad();
 
     /**
-     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * <code>optional uint32 d_tcpFlags = 12;</code>
      * @return Whether the dTcpFlags field is set.
      */
     boolean hasDTcpFlags();
     /**
-     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * <code>optional uint32 d_tcpFlags = 12;</code>
      * @return The dTcpFlags.
      */
     int getDTcpFlags();
 
     /**
-     * <code>optional uint32 check = 15;</code>
+     * <code>optional uint32 check = 13;</code>
      * @return Whether the check field is set.
      */
     boolean hasCheck();
     /**
-     * <code>optional uint32 check = 15;</code>
+     * <code>optional uint32 check = 13;</code>
      * @return The check.
      */
     int getCheck();
 
     /**
-     * <code>optional fixed32 hash = 16;</code>
+     * <code>optional fixed32 hash = 14;</code>
      * @return Whether the hash field is set.
      */
     boolean hasHash();
     /**
-     * <code>optional fixed32 hash = 16;</code>
+     * <code>optional fixed32 hash = 14;</code>
      * @return The hash.
      */
     int getHash();
+
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     * @return Whether the cAsset field is set.
+     */
+    boolean hasCAsset();
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     * @return The cAsset.
+     */
+    MyActionMessageProto.Asset getCAsset();
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     */
+    MyActionMessageProto.AssetOrBuilder getCAssetOrBuilder();
+
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     * @return Whether the sAsset field is set.
+     */
+    boolean hasSAsset();
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     * @return The sAsset.
+     */
+    MyActionMessageProto.Asset getSAsset();
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     */
+    MyActionMessageProto.AssetOrBuilder getSAssetOrBuilder();
   }
   /**
    * Protobuf type {@code ActionState}
@@ -4209,49 +4239,75 @@ public final class MyActionMessageProto {
               af_ = input.readFixed32();
               break;
             }
-            case 65: {
+            case 49: {
               bitField0_ |= 0x00000020;
               sTotalPkts_ = input.readFixed64();
               break;
             }
-            case 73: {
+            case 57: {
               bitField0_ |= 0x00000040;
               sTotalBytes_ = input.readFixed64();
               break;
             }
-            case 81: {
+            case 65: {
               bitField0_ |= 0x00000080;
               dTotalPkts_ = input.readFixed64();
               break;
             }
-            case 89: {
+            case 73: {
               bitField0_ |= 0x00000100;
               dTotalBytes_ = input.readFixed64();
               break;
             }
-            case 96: {
+            case 80: {
               bitField0_ |= 0x00000200;
               sTcpFlags_ = input.readUInt32();
               break;
             }
-            case 104: {
+            case 88: {
               bitField0_ |= 0x00000400;
               pad_ = input.readUInt32();
               break;
             }
-            case 112: {
+            case 96: {
               bitField0_ |= 0x00000800;
               dTcpFlags_ = input.readUInt32();
               break;
             }
-            case 120: {
+            case 104: {
               bitField0_ |= 0x00001000;
               check_ = input.readUInt32();
               break;
             }
-            case 133: {
+            case 117: {
               bitField0_ |= 0x00002000;
               hash_ = input.readFixed32();
+              break;
+            }
+            case 122: {
+              MyActionMessageProto.Asset.Builder subBuilder = null;
+              if (((bitField0_ & 0x00004000) != 0)) {
+                subBuilder = cAsset_.toBuilder();
+              }
+              cAsset_ = input.readMessage(MyActionMessageProto.Asset.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cAsset_);
+                cAsset_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00004000;
+              break;
+            }
+            case 130: {
+              MyActionMessageProto.Asset.Builder subBuilder = null;
+              if (((bitField0_ & 0x00008000) != 0)) {
+                subBuilder = sAsset_.toBuilder();
+              }
+              sAsset_ = input.readMessage(MyActionMessageProto.Asset.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sAsset_);
+                sAsset_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00008000;
               break;
             }
             default: {
@@ -4382,10 +4438,10 @@ public final class MyActionMessageProto {
       return af_;
     }
 
-    public static final int S_TOTAL_PKTS_FIELD_NUMBER = 8;
+    public static final int S_TOTAL_PKTS_FIELD_NUMBER = 6;
     private long sTotalPkts_;
     /**
-     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * <code>optional fixed64 s_total_pkts = 6;</code>
      * @return Whether the sTotalPkts field is set.
      */
     @java.lang.Override
@@ -4393,7 +4449,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional fixed64 s_total_pkts = 8;</code>
+     * <code>optional fixed64 s_total_pkts = 6;</code>
      * @return The sTotalPkts.
      */
     @java.lang.Override
@@ -4401,10 +4457,10 @@ public final class MyActionMessageProto {
       return sTotalPkts_;
     }
 
-    public static final int S_TOTAL_BYTES_FIELD_NUMBER = 9;
+    public static final int S_TOTAL_BYTES_FIELD_NUMBER = 7;
     private long sTotalBytes_;
     /**
-     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * <code>optional fixed64 s_total_bytes = 7;</code>
      * @return Whether the sTotalBytes field is set.
      */
     @java.lang.Override
@@ -4412,7 +4468,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional fixed64 s_total_bytes = 9;</code>
+     * <code>optional fixed64 s_total_bytes = 7;</code>
      * @return The sTotalBytes.
      */
     @java.lang.Override
@@ -4420,10 +4476,10 @@ public final class MyActionMessageProto {
       return sTotalBytes_;
     }
 
-    public static final int D_TOTAL_PKTS_FIELD_NUMBER = 10;
+    public static final int D_TOTAL_PKTS_FIELD_NUMBER = 8;
     private long dTotalPkts_;
     /**
-     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * <code>optional fixed64 d_total_pkts = 8;</code>
      * @return Whether the dTotalPkts field is set.
      */
     @java.lang.Override
@@ -4431,7 +4487,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>optional fixed64 d_total_pkts = 10;</code>
+     * <code>optional fixed64 d_total_pkts = 8;</code>
      * @return The dTotalPkts.
      */
     @java.lang.Override
@@ -4439,10 +4495,10 @@ public final class MyActionMessageProto {
       return dTotalPkts_;
     }
 
-    public static final int D_TOTAL_BYTES_FIELD_NUMBER = 11;
+    public static final int D_TOTAL_BYTES_FIELD_NUMBER = 9;
     private long dTotalBytes_;
     /**
-     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * <code>optional fixed64 d_total_bytes = 9;</code>
      * @return Whether the dTotalBytes field is set.
      */
     @java.lang.Override
@@ -4450,7 +4506,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000100) != 0);
     }
     /**
-     * <code>optional fixed64 d_total_bytes = 11;</code>
+     * <code>optional fixed64 d_total_bytes = 9;</code>
      * @return The dTotalBytes.
      */
     @java.lang.Override
@@ -4458,10 +4514,10 @@ public final class MyActionMessageProto {
       return dTotalBytes_;
     }
 
-    public static final int S_TCPFLAGS_FIELD_NUMBER = 12;
+    public static final int S_TCPFLAGS_FIELD_NUMBER = 10;
     private int sTcpFlags_;
     /**
-     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * <code>optional uint32 s_tcpFlags = 10;</code>
      * @return Whether the sTcpFlags field is set.
      */
     @java.lang.Override
@@ -4469,7 +4525,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <code>optional uint32 s_tcpFlags = 12;</code>
+     * <code>optional uint32 s_tcpFlags = 10;</code>
      * @return The sTcpFlags.
      */
     @java.lang.Override
@@ -4477,10 +4533,10 @@ public final class MyActionMessageProto {
       return sTcpFlags_;
     }
 
-    public static final int PAD_FIELD_NUMBER = 13;
+    public static final int PAD_FIELD_NUMBER = 11;
     private int pad_;
     /**
-     * <code>optional uint32 pad = 13;</code>
+     * <code>optional uint32 pad = 11;</code>
      * @return Whether the pad field is set.
      */
     @java.lang.Override
@@ -4488,7 +4544,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000400) != 0);
     }
     /**
-     * <code>optional uint32 pad = 13;</code>
+     * <code>optional uint32 pad = 11;</code>
      * @return The pad.
      */
     @java.lang.Override
@@ -4496,10 +4552,10 @@ public final class MyActionMessageProto {
       return pad_;
     }
 
-    public static final int D_TCPFLAGS_FIELD_NUMBER = 14;
+    public static final int D_TCPFLAGS_FIELD_NUMBER = 12;
     private int dTcpFlags_;
     /**
-     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * <code>optional uint32 d_tcpFlags = 12;</code>
      * @return Whether the dTcpFlags field is set.
      */
     @java.lang.Override
@@ -4507,7 +4563,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00000800) != 0);
     }
     /**
-     * <code>optional uint32 d_tcpFlags = 14;</code>
+     * <code>optional uint32 d_tcpFlags = 12;</code>
      * @return The dTcpFlags.
      */
     @java.lang.Override
@@ -4515,10 +4571,10 @@ public final class MyActionMessageProto {
       return dTcpFlags_;
     }
 
-    public static final int CHECK_FIELD_NUMBER = 15;
+    public static final int CHECK_FIELD_NUMBER = 13;
     private int check_;
     /**
-     * <code>optional uint32 check = 15;</code>
+     * <code>optional uint32 check = 13;</code>
      * @return Whether the check field is set.
      */
     @java.lang.Override
@@ -4526,7 +4582,7 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00001000) != 0);
     }
     /**
-     * <code>optional uint32 check = 15;</code>
+     * <code>optional uint32 check = 13;</code>
      * @return The check.
      */
     @java.lang.Override
@@ -4534,10 +4590,10 @@ public final class MyActionMessageProto {
       return check_;
     }
 
-    public static final int HASH_FIELD_NUMBER = 16;
+    public static final int HASH_FIELD_NUMBER = 14;
     private int hash_;
     /**
-     * <code>optional fixed32 hash = 16;</code>
+     * <code>optional fixed32 hash = 14;</code>
      * @return Whether the hash field is set.
      */
     @java.lang.Override
@@ -4545,12 +4601,64 @@ public final class MyActionMessageProto {
       return ((bitField0_ & 0x00002000) != 0);
     }
     /**
-     * <code>optional fixed32 hash = 16;</code>
+     * <code>optional fixed32 hash = 14;</code>
      * @return The hash.
      */
     @java.lang.Override
     public int getHash() {
       return hash_;
+    }
+
+    public static final int C_ASSET_FIELD_NUMBER = 15;
+    private MyActionMessageProto.Asset cAsset_;
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     * @return Whether the cAsset field is set.
+     */
+    @java.lang.Override
+    public boolean hasCAsset() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     * @return The cAsset.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Asset getCAsset() {
+      return cAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : cAsset_;
+    }
+    /**
+     * <code>optional .Asset c_asset = 15;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.AssetOrBuilder getCAssetOrBuilder() {
+      return cAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : cAsset_;
+    }
+
+    public static final int S_ASSET_FIELD_NUMBER = 16;
+    private MyActionMessageProto.Asset sAsset_;
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     * @return Whether the sAsset field is set.
+     */
+    @java.lang.Override
+    public boolean hasSAsset() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     * @return The sAsset.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Asset getSAsset() {
+      return sAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : sAsset_;
+    }
+    /**
+     * <code>optional .Asset s_asset = 16;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.AssetOrBuilder getSAssetOrBuilder() {
+      return sAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : sAsset_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4583,31 +4691,37 @@ public final class MyActionMessageProto {
         output.writeFixed32(5, af_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeFixed64(8, sTotalPkts_);
+        output.writeFixed64(6, sTotalPkts_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        output.writeFixed64(9, sTotalBytes_);
+        output.writeFixed64(7, sTotalBytes_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        output.writeFixed64(10, dTotalPkts_);
+        output.writeFixed64(8, dTotalPkts_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
-        output.writeFixed64(11, dTotalBytes_);
+        output.writeFixed64(9, dTotalBytes_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        output.writeUInt32(12, sTcpFlags_);
+        output.writeUInt32(10, sTcpFlags_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        output.writeUInt32(13, pad_);
+        output.writeUInt32(11, pad_);
       }
       if (((bitField0_ & 0x00000800) != 0)) {
-        output.writeUInt32(14, dTcpFlags_);
+        output.writeUInt32(12, dTcpFlags_);
       }
       if (((bitField0_ & 0x00001000) != 0)) {
-        output.writeUInt32(15, check_);
+        output.writeUInt32(13, check_);
       }
       if (((bitField0_ & 0x00002000) != 0)) {
-        output.writeFixed32(16, hash_);
+        output.writeFixed32(14, hash_);
+      }
+      if (((bitField0_ & 0x00004000) != 0)) {
+        output.writeMessage(15, getCAsset());
+      }
+      if (((bitField0_ & 0x00008000) != 0)) {
+        output.writeMessage(16, getSAsset());
       }
       unknownFields.writeTo(output);
     }
@@ -4640,39 +4754,47 @@ public final class MyActionMessageProto {
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(8, sTotalPkts_);
+          .computeFixed64Size(6, sTotalPkts_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(9, sTotalBytes_);
+          .computeFixed64Size(7, sTotalBytes_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(10, dTotalPkts_);
+          .computeFixed64Size(8, dTotalPkts_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(11, dTotalBytes_);
+          .computeFixed64Size(9, dTotalBytes_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(12, sTcpFlags_);
+          .computeUInt32Size(10, sTcpFlags_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(13, pad_);
+          .computeUInt32Size(11, pad_);
       }
       if (((bitField0_ & 0x00000800) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(14, dTcpFlags_);
+          .computeUInt32Size(12, dTcpFlags_);
       }
       if (((bitField0_ & 0x00001000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(15, check_);
+          .computeUInt32Size(13, check_);
       }
       if (((bitField0_ & 0x00002000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed32Size(16, hash_);
+          .computeFixed32Size(14, hash_);
+      }
+      if (((bitField0_ & 0x00004000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(15, getCAsset());
+      }
+      if (((bitField0_ & 0x00008000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, getSAsset());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4759,6 +4881,16 @@ public final class MyActionMessageProto {
         if (getHash()
             != other.getHash()) return false;
       }
+      if (hasCAsset() != other.hasCAsset()) return false;
+      if (hasCAsset()) {
+        if (!getCAsset()
+            .equals(other.getCAsset())) return false;
+      }
+      if (hasSAsset() != other.hasSAsset()) return false;
+      if (hasSAsset()) {
+        if (!getSAsset()
+            .equals(other.getSAsset())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4832,6 +4964,14 @@ public final class MyActionMessageProto {
       if (hasHash()) {
         hash = (37 * hash) + HASH_FIELD_NUMBER;
         hash = (53 * hash) + getHash();
+      }
+      if (hasCAsset()) {
+        hash = (37 * hash) + C_ASSET_FIELD_NUMBER;
+        hash = (53 * hash) + getCAsset().hashCode();
+      }
+      if (hasSAsset()) {
+        hash = (37 * hash) + S_ASSET_FIELD_NUMBER;
+        hash = (53 * hash) + getSAsset().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4961,6 +5101,8 @@ public final class MyActionMessageProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getCAssetFieldBuilder();
+          getSAssetFieldBuilder();
         }
       }
       @java.lang.Override
@@ -4994,6 +5136,18 @@ public final class MyActionMessageProto {
         bitField0_ = (bitField0_ & ~0x00001000);
         hash_ = 0;
         bitField0_ = (bitField0_ & ~0x00002000);
+        if (cAssetBuilder_ == null) {
+          cAsset_ = null;
+        } else {
+          cAssetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00004000);
+        if (sAssetBuilder_ == null) {
+          sAsset_ = null;
+        } else {
+          sAssetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
 
@@ -5077,6 +5231,22 @@ public final class MyActionMessageProto {
         if (((from_bitField0_ & 0x00002000) != 0)) {
           result.hash_ = hash_;
           to_bitField0_ |= 0x00002000;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          if (cAssetBuilder_ == null) {
+            result.cAsset_ = cAsset_;
+          } else {
+            result.cAsset_ = cAssetBuilder_.build();
+          }
+          to_bitField0_ |= 0x00004000;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          if (sAssetBuilder_ == null) {
+            result.sAsset_ = sAsset_;
+          } else {
+            result.sAsset_ = sAssetBuilder_.build();
+          }
+          to_bitField0_ |= 0x00008000;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -5168,6 +5338,12 @@ public final class MyActionMessageProto {
         }
         if (other.hasHash()) {
           setHash(other.getHash());
+        }
+        if (other.hasCAsset()) {
+          mergeCAsset(other.getCAsset());
+        }
+        if (other.hasSAsset()) {
+          mergeSAsset(other.getSAsset());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5396,7 +5572,7 @@ public final class MyActionMessageProto {
 
       private long sTotalPkts_ ;
       /**
-       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * <code>optional fixed64 s_total_pkts = 6;</code>
        * @return Whether the sTotalPkts field is set.
        */
       @java.lang.Override
@@ -5404,7 +5580,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * <code>optional fixed64 s_total_pkts = 6;</code>
        * @return The sTotalPkts.
        */
       @java.lang.Override
@@ -5412,7 +5588,7 @@ public final class MyActionMessageProto {
         return sTotalPkts_;
       }
       /**
-       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * <code>optional fixed64 s_total_pkts = 6;</code>
        * @param value The sTotalPkts to set.
        * @return This builder for chaining.
        */
@@ -5423,7 +5599,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional fixed64 s_total_pkts = 8;</code>
+       * <code>optional fixed64 s_total_pkts = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearSTotalPkts() {
@@ -5435,7 +5611,7 @@ public final class MyActionMessageProto {
 
       private long sTotalBytes_ ;
       /**
-       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * <code>optional fixed64 s_total_bytes = 7;</code>
        * @return Whether the sTotalBytes field is set.
        */
       @java.lang.Override
@@ -5443,7 +5619,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * <code>optional fixed64 s_total_bytes = 7;</code>
        * @return The sTotalBytes.
        */
       @java.lang.Override
@@ -5451,7 +5627,7 @@ public final class MyActionMessageProto {
         return sTotalBytes_;
       }
       /**
-       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * <code>optional fixed64 s_total_bytes = 7;</code>
        * @param value The sTotalBytes to set.
        * @return This builder for chaining.
        */
@@ -5462,7 +5638,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional fixed64 s_total_bytes = 9;</code>
+       * <code>optional fixed64 s_total_bytes = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearSTotalBytes() {
@@ -5474,7 +5650,7 @@ public final class MyActionMessageProto {
 
       private long dTotalPkts_ ;
       /**
-       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * <code>optional fixed64 d_total_pkts = 8;</code>
        * @return Whether the dTotalPkts field is set.
        */
       @java.lang.Override
@@ -5482,7 +5658,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * <code>optional fixed64 d_total_pkts = 8;</code>
        * @return The dTotalPkts.
        */
       @java.lang.Override
@@ -5490,7 +5666,7 @@ public final class MyActionMessageProto {
         return dTotalPkts_;
       }
       /**
-       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * <code>optional fixed64 d_total_pkts = 8;</code>
        * @param value The dTotalPkts to set.
        * @return This builder for chaining.
        */
@@ -5501,7 +5677,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional fixed64 d_total_pkts = 10;</code>
+       * <code>optional fixed64 d_total_pkts = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearDTotalPkts() {
@@ -5513,7 +5689,7 @@ public final class MyActionMessageProto {
 
       private long dTotalBytes_ ;
       /**
-       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * <code>optional fixed64 d_total_bytes = 9;</code>
        * @return Whether the dTotalBytes field is set.
        */
       @java.lang.Override
@@ -5521,7 +5697,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * <code>optional fixed64 d_total_bytes = 9;</code>
        * @return The dTotalBytes.
        */
       @java.lang.Override
@@ -5529,7 +5705,7 @@ public final class MyActionMessageProto {
         return dTotalBytes_;
       }
       /**
-       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * <code>optional fixed64 d_total_bytes = 9;</code>
        * @param value The dTotalBytes to set.
        * @return This builder for chaining.
        */
@@ -5540,7 +5716,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional fixed64 d_total_bytes = 11;</code>
+       * <code>optional fixed64 d_total_bytes = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearDTotalBytes() {
@@ -5552,7 +5728,7 @@ public final class MyActionMessageProto {
 
       private int sTcpFlags_ ;
       /**
-       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * <code>optional uint32 s_tcpFlags = 10;</code>
        * @return Whether the sTcpFlags field is set.
        */
       @java.lang.Override
@@ -5560,7 +5736,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * <code>optional uint32 s_tcpFlags = 10;</code>
        * @return The sTcpFlags.
        */
       @java.lang.Override
@@ -5568,7 +5744,7 @@ public final class MyActionMessageProto {
         return sTcpFlags_;
       }
       /**
-       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * <code>optional uint32 s_tcpFlags = 10;</code>
        * @param value The sTcpFlags to set.
        * @return This builder for chaining.
        */
@@ -5579,7 +5755,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional uint32 s_tcpFlags = 12;</code>
+       * <code>optional uint32 s_tcpFlags = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearSTcpFlags() {
@@ -5591,7 +5767,7 @@ public final class MyActionMessageProto {
 
       private int pad_ ;
       /**
-       * <code>optional uint32 pad = 13;</code>
+       * <code>optional uint32 pad = 11;</code>
        * @return Whether the pad field is set.
        */
       @java.lang.Override
@@ -5599,7 +5775,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000400) != 0);
       }
       /**
-       * <code>optional uint32 pad = 13;</code>
+       * <code>optional uint32 pad = 11;</code>
        * @return The pad.
        */
       @java.lang.Override
@@ -5607,7 +5783,7 @@ public final class MyActionMessageProto {
         return pad_;
       }
       /**
-       * <code>optional uint32 pad = 13;</code>
+       * <code>optional uint32 pad = 11;</code>
        * @param value The pad to set.
        * @return This builder for chaining.
        */
@@ -5618,7 +5794,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional uint32 pad = 13;</code>
+       * <code>optional uint32 pad = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearPad() {
@@ -5630,7 +5806,7 @@ public final class MyActionMessageProto {
 
       private int dTcpFlags_ ;
       /**
-       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * <code>optional uint32 d_tcpFlags = 12;</code>
        * @return Whether the dTcpFlags field is set.
        */
       @java.lang.Override
@@ -5638,7 +5814,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00000800) != 0);
       }
       /**
-       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * <code>optional uint32 d_tcpFlags = 12;</code>
        * @return The dTcpFlags.
        */
       @java.lang.Override
@@ -5646,7 +5822,7 @@ public final class MyActionMessageProto {
         return dTcpFlags_;
       }
       /**
-       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * <code>optional uint32 d_tcpFlags = 12;</code>
        * @param value The dTcpFlags to set.
        * @return This builder for chaining.
        */
@@ -5657,7 +5833,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional uint32 d_tcpFlags = 14;</code>
+       * <code>optional uint32 d_tcpFlags = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearDTcpFlags() {
@@ -5669,7 +5845,7 @@ public final class MyActionMessageProto {
 
       private int check_ ;
       /**
-       * <code>optional uint32 check = 15;</code>
+       * <code>optional uint32 check = 13;</code>
        * @return Whether the check field is set.
        */
       @java.lang.Override
@@ -5677,7 +5853,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00001000) != 0);
       }
       /**
-       * <code>optional uint32 check = 15;</code>
+       * <code>optional uint32 check = 13;</code>
        * @return The check.
        */
       @java.lang.Override
@@ -5685,7 +5861,7 @@ public final class MyActionMessageProto {
         return check_;
       }
       /**
-       * <code>optional uint32 check = 15;</code>
+       * <code>optional uint32 check = 13;</code>
        * @param value The check to set.
        * @return This builder for chaining.
        */
@@ -5696,7 +5872,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional uint32 check = 15;</code>
+       * <code>optional uint32 check = 13;</code>
        * @return This builder for chaining.
        */
       public Builder clearCheck() {
@@ -5708,7 +5884,7 @@ public final class MyActionMessageProto {
 
       private int hash_ ;
       /**
-       * <code>optional fixed32 hash = 16;</code>
+       * <code>optional fixed32 hash = 14;</code>
        * @return Whether the hash field is set.
        */
       @java.lang.Override
@@ -5716,7 +5892,7 @@ public final class MyActionMessageProto {
         return ((bitField0_ & 0x00002000) != 0);
       }
       /**
-       * <code>optional fixed32 hash = 16;</code>
+       * <code>optional fixed32 hash = 14;</code>
        * @return The hash.
        */
       @java.lang.Override
@@ -5724,7 +5900,7 @@ public final class MyActionMessageProto {
         return hash_;
       }
       /**
-       * <code>optional fixed32 hash = 16;</code>
+       * <code>optional fixed32 hash = 14;</code>
        * @param value The hash to set.
        * @return This builder for chaining.
        */
@@ -5735,7 +5911,7 @@ public final class MyActionMessageProto {
         return this;
       }
       /**
-       * <code>optional fixed32 hash = 16;</code>
+       * <code>optional fixed32 hash = 14;</code>
        * @return This builder for chaining.
        */
       public Builder clearHash() {
@@ -5743,6 +5919,246 @@ public final class MyActionMessageProto {
         hash_ = 0;
         onChanged();
         return this;
+      }
+
+      private MyActionMessageProto.Asset cAsset_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder> cAssetBuilder_;
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       * @return Whether the cAsset field is set.
+       */
+      public boolean hasCAsset() {
+        return ((bitField0_ & 0x00004000) != 0);
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       * @return The cAsset.
+       */
+      public MyActionMessageProto.Asset getCAsset() {
+        if (cAssetBuilder_ == null) {
+          return cAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : cAsset_;
+        } else {
+          return cAssetBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public Builder setCAsset(MyActionMessageProto.Asset value) {
+        if (cAssetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cAsset_ = value;
+          onChanged();
+        } else {
+          cAssetBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public Builder setCAsset(
+          MyActionMessageProto.Asset.Builder builderForValue) {
+        if (cAssetBuilder_ == null) {
+          cAsset_ = builderForValue.build();
+          onChanged();
+        } else {
+          cAssetBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public Builder mergeCAsset(MyActionMessageProto.Asset value) {
+        if (cAssetBuilder_ == null) {
+          if (((bitField0_ & 0x00004000) != 0) &&
+              cAsset_ != null &&
+              cAsset_ != MyActionMessageProto.Asset.getDefaultInstance()) {
+            cAsset_ =
+              MyActionMessageProto.Asset.newBuilder(cAsset_).mergeFrom(value).buildPartial();
+          } else {
+            cAsset_ = value;
+          }
+          onChanged();
+        } else {
+          cAssetBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public Builder clearCAsset() {
+        if (cAssetBuilder_ == null) {
+          cAsset_ = null;
+          onChanged();
+        } else {
+          cAssetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00004000);
+        return this;
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public MyActionMessageProto.Asset.Builder getCAssetBuilder() {
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return getCAssetFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      public MyActionMessageProto.AssetOrBuilder getCAssetOrBuilder() {
+        if (cAssetBuilder_ != null) {
+          return cAssetBuilder_.getMessageOrBuilder();
+        } else {
+          return cAsset_ == null ?
+              MyActionMessageProto.Asset.getDefaultInstance() : cAsset_;
+        }
+      }
+      /**
+       * <code>optional .Asset c_asset = 15;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder> 
+          getCAssetFieldBuilder() {
+        if (cAssetBuilder_ == null) {
+          cAssetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder>(
+                  getCAsset(),
+                  getParentForChildren(),
+                  isClean());
+          cAsset_ = null;
+        }
+        return cAssetBuilder_;
+      }
+
+      private MyActionMessageProto.Asset sAsset_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder> sAssetBuilder_;
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       * @return Whether the sAsset field is set.
+       */
+      public boolean hasSAsset() {
+        return ((bitField0_ & 0x00008000) != 0);
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       * @return The sAsset.
+       */
+      public MyActionMessageProto.Asset getSAsset() {
+        if (sAssetBuilder_ == null) {
+          return sAsset_ == null ? MyActionMessageProto.Asset.getDefaultInstance() : sAsset_;
+        } else {
+          return sAssetBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public Builder setSAsset(MyActionMessageProto.Asset value) {
+        if (sAssetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sAsset_ = value;
+          onChanged();
+        } else {
+          sAssetBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public Builder setSAsset(
+          MyActionMessageProto.Asset.Builder builderForValue) {
+        if (sAssetBuilder_ == null) {
+          sAsset_ = builderForValue.build();
+          onChanged();
+        } else {
+          sAssetBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public Builder mergeSAsset(MyActionMessageProto.Asset value) {
+        if (sAssetBuilder_ == null) {
+          if (((bitField0_ & 0x00008000) != 0) &&
+              sAsset_ != null &&
+              sAsset_ != MyActionMessageProto.Asset.getDefaultInstance()) {
+            sAsset_ =
+              MyActionMessageProto.Asset.newBuilder(sAsset_).mergeFrom(value).buildPartial();
+          } else {
+            sAsset_ = value;
+          }
+          onChanged();
+        } else {
+          sAssetBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public Builder clearSAsset() {
+        if (sAssetBuilder_ == null) {
+          sAsset_ = null;
+          onChanged();
+        } else {
+          sAssetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00008000);
+        return this;
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public MyActionMessageProto.Asset.Builder getSAssetBuilder() {
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return getSAssetFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      public MyActionMessageProto.AssetOrBuilder getSAssetOrBuilder() {
+        if (sAssetBuilder_ != null) {
+          return sAssetBuilder_.getMessageOrBuilder();
+        } else {
+          return sAsset_ == null ?
+              MyActionMessageProto.Asset.getDefaultInstance() : sAsset_;
+        }
+      }
+      /**
+       * <code>optional .Asset s_asset = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder> 
+          getSAssetFieldBuilder() {
+        if (sAssetBuilder_ == null) {
+          sAssetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Asset, MyActionMessageProto.Asset.Builder, MyActionMessageProto.AssetOrBuilder>(
+                  getSAsset(),
+                  getParentForChildren(),
+                  isClean());
+          sAsset_ = null;
+        }
+        return sAssetBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7051,6 +7467,6294 @@ public final class MyActionMessageProto {
 
   }
 
+  public interface AssetOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Asset)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    boolean hasFirstSeen();
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    long getFirstSeen();
+
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    boolean hasLastSeen();
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    long getLastSeen();
+
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    boolean hasIAttempts();
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    int getIAttempts();
+
+    /**
+     * <code>optional fixed32 af = 4;</code>
+     * @return Whether the af field is set.
+     */
+    boolean hasAf();
+    /**
+     * <code>optional fixed32 af = 4;</code>
+     * @return The af.
+     */
+    int getAf();
+
+    /**
+     * <code>optional uint32 vlan = 5;</code>
+     * @return Whether the vlan field is set.
+     */
+    boolean hasVlan();
+    /**
+     * <code>optional uint32 vlan = 5;</code>
+     * @return The vlan.
+     */
+    int getVlan();
+
+    /**
+     * <code>optional fixed32 s_ip = 6;</code>
+     * @return Whether the sIp field is set.
+     */
+    boolean hasSIp();
+    /**
+     * <code>optional fixed32 s_ip = 6;</code>
+     * @return The sIp.
+     */
+    int getSIp();
+
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     * @return Whether the services field is set.
+     */
+    boolean hasServices();
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     * @return The services.
+     */
+    MyActionMessageProto.ServAsset getServices();
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     */
+    MyActionMessageProto.ServAssetOrBuilder getServicesOrBuilder();
+
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     * @return Whether the os field is set.
+     */
+    boolean hasOs();
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     * @return The os.
+     */
+    MyActionMessageProto.OsAsset getOs();
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     */
+    MyActionMessageProto.OsAssetOrBuilder getOsOrBuilder();
+  }
+  /**
+   * Protobuf type {@code Asset}
+   */
+  public static final class Asset extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Asset)
+      AssetOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Asset.newBuilder() to construct.
+    private Asset(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Asset() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Asset();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Asset(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              bitField0_ |= 0x00000001;
+              firstSeen_ = input.readFixed64();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              lastSeen_ = input.readFixed64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              iAttempts_ = input.readUInt32();
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              af_ = input.readFixed32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              vlan_ = input.readUInt32();
+              break;
+            }
+            case 53: {
+              bitField0_ |= 0x00000020;
+              sIp_ = input.readFixed32();
+              break;
+            }
+            case 58: {
+              MyActionMessageProto.ServAsset.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) != 0)) {
+                subBuilder = services_.toBuilder();
+              }
+              services_ = input.readMessage(MyActionMessageProto.ServAsset.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(services_);
+                services_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 66: {
+              MyActionMessageProto.OsAsset.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) != 0)) {
+                subBuilder = os_.toBuilder();
+              }
+              os_ = input.readMessage(MyActionMessageProto.OsAsset.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(os_);
+                os_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MyActionMessageProto.internal_static_Asset_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MyActionMessageProto.internal_static_Asset_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MyActionMessageProto.Asset.class, MyActionMessageProto.Asset.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FIRST_SEEN_FIELD_NUMBER = 1;
+    private long firstSeen_;
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasFirstSeen() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    @java.lang.Override
+    public long getFirstSeen() {
+      return firstSeen_;
+    }
+
+    public static final int LAST_SEEN_FIELD_NUMBER = 2;
+    private long lastSeen_;
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastSeen() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    @java.lang.Override
+    public long getLastSeen() {
+      return lastSeen_;
+    }
+
+    public static final int I_ATTEMPTS_FIELD_NUMBER = 3;
+    private int iAttempts_;
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    @java.lang.Override
+    public boolean hasIAttempts() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    @java.lang.Override
+    public int getIAttempts() {
+      return iAttempts_;
+    }
+
+    public static final int AF_FIELD_NUMBER = 4;
+    private int af_;
+    /**
+     * <code>optional fixed32 af = 4;</code>
+     * @return Whether the af field is set.
+     */
+    @java.lang.Override
+    public boolean hasAf() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional fixed32 af = 4;</code>
+     * @return The af.
+     */
+    @java.lang.Override
+    public int getAf() {
+      return af_;
+    }
+
+    public static final int VLAN_FIELD_NUMBER = 5;
+    private int vlan_;
+    /**
+     * <code>optional uint32 vlan = 5;</code>
+     * @return Whether the vlan field is set.
+     */
+    @java.lang.Override
+    public boolean hasVlan() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional uint32 vlan = 5;</code>
+     * @return The vlan.
+     */
+    @java.lang.Override
+    public int getVlan() {
+      return vlan_;
+    }
+
+    public static final int S_IP_FIELD_NUMBER = 6;
+    private int sIp_;
+    /**
+     * <code>optional fixed32 s_ip = 6;</code>
+     * @return Whether the sIp field is set.
+     */
+    @java.lang.Override
+    public boolean hasSIp() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional fixed32 s_ip = 6;</code>
+     * @return The sIp.
+     */
+    @java.lang.Override
+    public int getSIp() {
+      return sIp_;
+    }
+
+    public static final int SERVICES_FIELD_NUMBER = 7;
+    private MyActionMessageProto.ServAsset services_;
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     * @return Whether the services field is set.
+     */
+    @java.lang.Override
+    public boolean hasServices() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     * @return The services.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.ServAsset getServices() {
+      return services_ == null ? MyActionMessageProto.ServAsset.getDefaultInstance() : services_;
+    }
+    /**
+     * <code>optional .ServAsset services = 7;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.ServAssetOrBuilder getServicesOrBuilder() {
+      return services_ == null ? MyActionMessageProto.ServAsset.getDefaultInstance() : services_;
+    }
+
+    public static final int OS_FIELD_NUMBER = 8;
+    private MyActionMessageProto.OsAsset os_;
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     * @return Whether the os field is set.
+     */
+    @java.lang.Override
+    public boolean hasOs() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     * @return The os.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.OsAsset getOs() {
+      return os_ == null ? MyActionMessageProto.OsAsset.getDefaultInstance() : os_;
+    }
+    /**
+     * <code>optional .OsAsset os = 8;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.OsAssetOrBuilder getOsOrBuilder() {
+      return os_ == null ? MyActionMessageProto.OsAsset.getDefaultInstance() : os_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeFixed64(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeFixed64(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt32(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeFixed32(4, af_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeUInt32(5, vlan_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeFixed32(6, sIp_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeMessage(7, getServices());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeMessage(8, getOs());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(4, af_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, vlan_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(6, sIp_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getServices());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getOs());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MyActionMessageProto.Asset)) {
+        return super.equals(obj);
+      }
+      MyActionMessageProto.Asset other = (MyActionMessageProto.Asset) obj;
+
+      if (hasFirstSeen() != other.hasFirstSeen()) return false;
+      if (hasFirstSeen()) {
+        if (getFirstSeen()
+            != other.getFirstSeen()) return false;
+      }
+      if (hasLastSeen() != other.hasLastSeen()) return false;
+      if (hasLastSeen()) {
+        if (getLastSeen()
+            != other.getLastSeen()) return false;
+      }
+      if (hasIAttempts() != other.hasIAttempts()) return false;
+      if (hasIAttempts()) {
+        if (getIAttempts()
+            != other.getIAttempts()) return false;
+      }
+      if (hasAf() != other.hasAf()) return false;
+      if (hasAf()) {
+        if (getAf()
+            != other.getAf()) return false;
+      }
+      if (hasVlan() != other.hasVlan()) return false;
+      if (hasVlan()) {
+        if (getVlan()
+            != other.getVlan()) return false;
+      }
+      if (hasSIp() != other.hasSIp()) return false;
+      if (hasSIp()) {
+        if (getSIp()
+            != other.getSIp()) return false;
+      }
+      if (hasServices() != other.hasServices()) return false;
+      if (hasServices()) {
+        if (!getServices()
+            .equals(other.getServices())) return false;
+      }
+      if (hasOs() != other.hasOs()) return false;
+      if (hasOs()) {
+        if (!getOs()
+            .equals(other.getOs())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFirstSeen()) {
+        hash = (37 * hash) + FIRST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFirstSeen());
+      }
+      if (hasLastSeen()) {
+        hash = (37 * hash) + LAST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastSeen());
+      }
+      if (hasIAttempts()) {
+        hash = (37 * hash) + I_ATTEMPTS_FIELD_NUMBER;
+        hash = (53 * hash) + getIAttempts();
+      }
+      if (hasAf()) {
+        hash = (37 * hash) + AF_FIELD_NUMBER;
+        hash = (53 * hash) + getAf();
+      }
+      if (hasVlan()) {
+        hash = (37 * hash) + VLAN_FIELD_NUMBER;
+        hash = (53 * hash) + getVlan();
+      }
+      if (hasSIp()) {
+        hash = (37 * hash) + S_IP_FIELD_NUMBER;
+        hash = (53 * hash) + getSIp();
+      }
+      if (hasServices()) {
+        hash = (37 * hash) + SERVICES_FIELD_NUMBER;
+        hash = (53 * hash) + getServices().hashCode();
+      }
+      if (hasOs()) {
+        hash = (37 * hash) + OS_FIELD_NUMBER;
+        hash = (53 * hash) + getOs().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MyActionMessageProto.Asset parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Asset parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Asset parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.Asset parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Asset parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Asset parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MyActionMessageProto.Asset prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Asset}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Asset)
+        MyActionMessageProto.AssetOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MyActionMessageProto.internal_static_Asset_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MyActionMessageProto.internal_static_Asset_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MyActionMessageProto.Asset.class, MyActionMessageProto.Asset.Builder.class);
+      }
+
+      // Construct using MyActionMessageProto.Asset.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getServicesFieldBuilder();
+          getOsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        firstSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        lastSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        iAttempts_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        af_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        vlan_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        sIp_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (servicesBuilder_ == null) {
+          services_ = null;
+        } else {
+          servicesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        if (osBuilder_ == null) {
+          os_ = null;
+        } else {
+          osBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MyActionMessageProto.internal_static_Asset_descriptor;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Asset getDefaultInstanceForType() {
+        return MyActionMessageProto.Asset.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Asset build() {
+        MyActionMessageProto.Asset result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Asset buildPartial() {
+        MyActionMessageProto.Asset result = new MyActionMessageProto.Asset(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.firstSeen_ = firstSeen_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastSeen_ = lastSeen_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.iAttempts_ = iAttempts_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.af_ = af_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.vlan_ = vlan_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.sIp_ = sIp_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (servicesBuilder_ == null) {
+            result.services_ = services_;
+          } else {
+            result.services_ = servicesBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          if (osBuilder_ == null) {
+            result.os_ = os_;
+          } else {
+            result.os_ = osBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000080;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MyActionMessageProto.Asset) {
+          return mergeFrom((MyActionMessageProto.Asset)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(MyActionMessageProto.Asset other) {
+        if (other == MyActionMessageProto.Asset.getDefaultInstance()) return this;
+        if (other.hasFirstSeen()) {
+          setFirstSeen(other.getFirstSeen());
+        }
+        if (other.hasLastSeen()) {
+          setLastSeen(other.getLastSeen());
+        }
+        if (other.hasIAttempts()) {
+          setIAttempts(other.getIAttempts());
+        }
+        if (other.hasAf()) {
+          setAf(other.getAf());
+        }
+        if (other.hasVlan()) {
+          setVlan(other.getVlan());
+        }
+        if (other.hasSIp()) {
+          setSIp(other.getSIp());
+        }
+        if (other.hasServices()) {
+          mergeServices(other.getServices());
+        }
+        if (other.hasOs()) {
+          mergeOs(other.getOs());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MyActionMessageProto.Asset parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MyActionMessageProto.Asset) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long firstSeen_ ;
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return Whether the firstSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasFirstSeen() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return The firstSeen.
+       */
+      @java.lang.Override
+      public long getFirstSeen() {
+        return firstSeen_;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @param value The firstSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstSeen(long value) {
+        bitField0_ |= 0x00000001;
+        firstSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFirstSeen() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        firstSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastSeen_ ;
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return Whether the lastSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastSeen() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return The lastSeen.
+       */
+      @java.lang.Override
+      public long getLastSeen() {
+        return lastSeen_;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @param value The lastSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastSeen(long value) {
+        bitField0_ |= 0x00000002;
+        lastSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastSeen() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int iAttempts_ ;
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return Whether the iAttempts field is set.
+       */
+      @java.lang.Override
+      public boolean hasIAttempts() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return The iAttempts.
+       */
+      @java.lang.Override
+      public int getIAttempts() {
+        return iAttempts_;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @param value The iAttempts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIAttempts(int value) {
+        bitField0_ |= 0x00000004;
+        iAttempts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIAttempts() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        iAttempts_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int af_ ;
+      /**
+       * <code>optional fixed32 af = 4;</code>
+       * @return Whether the af field is set.
+       */
+      @java.lang.Override
+      public boolean hasAf() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional fixed32 af = 4;</code>
+       * @return The af.
+       */
+      @java.lang.Override
+      public int getAf() {
+        return af_;
+      }
+      /**
+       * <code>optional fixed32 af = 4;</code>
+       * @param value The af to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAf(int value) {
+        bitField0_ |= 0x00000008;
+        af_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 af = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAf() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        af_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int vlan_ ;
+      /**
+       * <code>optional uint32 vlan = 5;</code>
+       * @return Whether the vlan field is set.
+       */
+      @java.lang.Override
+      public boolean hasVlan() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional uint32 vlan = 5;</code>
+       * @return The vlan.
+       */
+      @java.lang.Override
+      public int getVlan() {
+        return vlan_;
+      }
+      /**
+       * <code>optional uint32 vlan = 5;</code>
+       * @param value The vlan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVlan(int value) {
+        bitField0_ |= 0x00000010;
+        vlan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 vlan = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVlan() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        vlan_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int sIp_ ;
+      /**
+       * <code>optional fixed32 s_ip = 6;</code>
+       * @return Whether the sIp field is set.
+       */
+      @java.lang.Override
+      public boolean hasSIp() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional fixed32 s_ip = 6;</code>
+       * @return The sIp.
+       */
+      @java.lang.Override
+      public int getSIp() {
+        return sIp_;
+      }
+      /**
+       * <code>optional fixed32 s_ip = 6;</code>
+       * @param value The sIp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSIp(int value) {
+        bitField0_ |= 0x00000020;
+        sIp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 s_ip = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSIp() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        sIp_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private MyActionMessageProto.ServAsset services_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.ServAsset, MyActionMessageProto.ServAsset.Builder, MyActionMessageProto.ServAssetOrBuilder> servicesBuilder_;
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       * @return Whether the services field is set.
+       */
+      public boolean hasServices() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       * @return The services.
+       */
+      public MyActionMessageProto.ServAsset getServices() {
+        if (servicesBuilder_ == null) {
+          return services_ == null ? MyActionMessageProto.ServAsset.getDefaultInstance() : services_;
+        } else {
+          return servicesBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public Builder setServices(MyActionMessageProto.ServAsset value) {
+        if (servicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          services_ = value;
+          onChanged();
+        } else {
+          servicesBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public Builder setServices(
+          MyActionMessageProto.ServAsset.Builder builderForValue) {
+        if (servicesBuilder_ == null) {
+          services_ = builderForValue.build();
+          onChanged();
+        } else {
+          servicesBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public Builder mergeServices(MyActionMessageProto.ServAsset value) {
+        if (servicesBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+              services_ != null &&
+              services_ != MyActionMessageProto.ServAsset.getDefaultInstance()) {
+            services_ =
+              MyActionMessageProto.ServAsset.newBuilder(services_).mergeFrom(value).buildPartial();
+          } else {
+            services_ = value;
+          }
+          onChanged();
+        } else {
+          servicesBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public Builder clearServices() {
+        if (servicesBuilder_ == null) {
+          services_ = null;
+          onChanged();
+        } else {
+          servicesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public MyActionMessageProto.ServAsset.Builder getServicesBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getServicesFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      public MyActionMessageProto.ServAssetOrBuilder getServicesOrBuilder() {
+        if (servicesBuilder_ != null) {
+          return servicesBuilder_.getMessageOrBuilder();
+        } else {
+          return services_ == null ?
+              MyActionMessageProto.ServAsset.getDefaultInstance() : services_;
+        }
+      }
+      /**
+       * <code>optional .ServAsset services = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.ServAsset, MyActionMessageProto.ServAsset.Builder, MyActionMessageProto.ServAssetOrBuilder> 
+          getServicesFieldBuilder() {
+        if (servicesBuilder_ == null) {
+          servicesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.ServAsset, MyActionMessageProto.ServAsset.Builder, MyActionMessageProto.ServAssetOrBuilder>(
+                  getServices(),
+                  getParentForChildren(),
+                  isClean());
+          services_ = null;
+        }
+        return servicesBuilder_;
+      }
+
+      private MyActionMessageProto.OsAsset os_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.OsAsset, MyActionMessageProto.OsAsset.Builder, MyActionMessageProto.OsAssetOrBuilder> osBuilder_;
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       * @return Whether the os field is set.
+       */
+      public boolean hasOs() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       * @return The os.
+       */
+      public MyActionMessageProto.OsAsset getOs() {
+        if (osBuilder_ == null) {
+          return os_ == null ? MyActionMessageProto.OsAsset.getDefaultInstance() : os_;
+        } else {
+          return osBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public Builder setOs(MyActionMessageProto.OsAsset value) {
+        if (osBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          os_ = value;
+          onChanged();
+        } else {
+          osBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public Builder setOs(
+          MyActionMessageProto.OsAsset.Builder builderForValue) {
+        if (osBuilder_ == null) {
+          os_ = builderForValue.build();
+          onChanged();
+        } else {
+          osBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public Builder mergeOs(MyActionMessageProto.OsAsset value) {
+        if (osBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+              os_ != null &&
+              os_ != MyActionMessageProto.OsAsset.getDefaultInstance()) {
+            os_ =
+              MyActionMessageProto.OsAsset.newBuilder(os_).mergeFrom(value).buildPartial();
+          } else {
+            os_ = value;
+          }
+          onChanged();
+        } else {
+          osBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public Builder clearOs() {
+        if (osBuilder_ == null) {
+          os_ = null;
+          onChanged();
+        } else {
+          osBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public MyActionMessageProto.OsAsset.Builder getOsBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getOsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      public MyActionMessageProto.OsAssetOrBuilder getOsOrBuilder() {
+        if (osBuilder_ != null) {
+          return osBuilder_.getMessageOrBuilder();
+        } else {
+          return os_ == null ?
+              MyActionMessageProto.OsAsset.getDefaultInstance() : os_;
+        }
+      }
+      /**
+       * <code>optional .OsAsset os = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.OsAsset, MyActionMessageProto.OsAsset.Builder, MyActionMessageProto.OsAssetOrBuilder> 
+          getOsFieldBuilder() {
+        if (osBuilder_ == null) {
+          osBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.OsAsset, MyActionMessageProto.OsAsset.Builder, MyActionMessageProto.OsAssetOrBuilder>(
+                  getOs(),
+                  getParentForChildren(),
+                  isClean());
+          os_ = null;
+        }
+        return osBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Asset)
+    }
+
+    // @@protoc_insertion_point(class_scope:Asset)
+    private static final MyActionMessageProto.Asset DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MyActionMessageProto.Asset();
+    }
+
+    public static MyActionMessageProto.Asset getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Asset>
+        PARSER = new com.google.protobuf.AbstractParser<Asset>() {
+      @java.lang.Override
+      public Asset parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Asset(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Asset> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Asset> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public MyActionMessageProto.Asset getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ServAssetOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ServAsset)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    boolean hasFirstSeen();
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    long getFirstSeen();
+
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    boolean hasLastSeen();
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    long getLastSeen();
+
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    boolean hasIAttempts();
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    int getIAttempts();
+
+    /**
+     * <code>optional uint32 proto = 4;</code>
+     * @return Whether the proto field is set.
+     */
+    boolean hasProto();
+    /**
+     * <code>optional uint32 proto = 4;</code>
+     * @return The proto.
+     */
+    int getProto();
+
+    /**
+     * <code>optional uint32 port = 5;</code>
+     * @return Whether the port field is set.
+     */
+    boolean hasPort();
+    /**
+     * <code>optional uint32 port = 5;</code>
+     * @return The port.
+     */
+    int getPort();
+
+    /**
+     * <code>optional uint32 ttl = 6;</code>
+     * @return Whether the ttl field is set.
+     */
+    boolean hasTtl();
+    /**
+     * <code>optional uint32 ttl = 6;</code>
+     * @return The ttl.
+     */
+    int getTtl();
+
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     * @return Whether the bservice field is set.
+     */
+    boolean hasBservice();
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     * @return The bservice.
+     */
+    MyActionMessageProto.Bstring getBservice();
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getBserviceOrBuilder();
+
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     * @return Whether the bapplication field is set.
+     */
+    boolean hasBapplication();
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     * @return The bapplication.
+     */
+    MyActionMessageProto.Bstring getBapplication();
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getBapplicationOrBuilder();
+
+    /**
+     * <code>optional fixed32 role = 9;</code>
+     * @return Whether the role field is set.
+     */
+    boolean hasRole();
+    /**
+     * <code>optional fixed32 role = 9;</code>
+     * @return The role.
+     */
+    int getRole();
+
+    /**
+     * <code>optional fixed32 unknown = 10;</code>
+     * @return Whether the unknown field is set.
+     */
+    boolean hasUnknown();
+    /**
+     * <code>optional fixed32 unknown = 10;</code>
+     * @return The unknown.
+     */
+    int getUnknown();
+  }
+  /**
+   * Protobuf type {@code ServAsset}
+   */
+  public static final class ServAsset extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ServAsset)
+      ServAssetOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ServAsset.newBuilder() to construct.
+    private ServAsset(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ServAsset() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ServAsset();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ServAsset(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              bitField0_ |= 0x00000001;
+              firstSeen_ = input.readFixed64();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              lastSeen_ = input.readFixed64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              iAttempts_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              proto_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              port_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              ttl_ = input.readUInt32();
+              break;
+            }
+            case 58: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) != 0)) {
+                subBuilder = bservice_.toBuilder();
+              }
+              bservice_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(bservice_);
+                bservice_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 66: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) != 0)) {
+                subBuilder = bapplication_.toBuilder();
+              }
+              bapplication_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(bapplication_);
+                bapplication_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
+            case 77: {
+              bitField0_ |= 0x00000100;
+              role_ = input.readFixed32();
+              break;
+            }
+            case 85: {
+              bitField0_ |= 0x00000200;
+              unknown_ = input.readFixed32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MyActionMessageProto.internal_static_ServAsset_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MyActionMessageProto.internal_static_ServAsset_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MyActionMessageProto.ServAsset.class, MyActionMessageProto.ServAsset.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FIRST_SEEN_FIELD_NUMBER = 1;
+    private long firstSeen_;
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasFirstSeen() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    @java.lang.Override
+    public long getFirstSeen() {
+      return firstSeen_;
+    }
+
+    public static final int LAST_SEEN_FIELD_NUMBER = 2;
+    private long lastSeen_;
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastSeen() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    @java.lang.Override
+    public long getLastSeen() {
+      return lastSeen_;
+    }
+
+    public static final int I_ATTEMPTS_FIELD_NUMBER = 3;
+    private int iAttempts_;
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    @java.lang.Override
+    public boolean hasIAttempts() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    @java.lang.Override
+    public int getIAttempts() {
+      return iAttempts_;
+    }
+
+    public static final int PROTO_FIELD_NUMBER = 4;
+    private int proto_;
+    /**
+     * <code>optional uint32 proto = 4;</code>
+     * @return Whether the proto field is set.
+     */
+    @java.lang.Override
+    public boolean hasProto() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional uint32 proto = 4;</code>
+     * @return The proto.
+     */
+    @java.lang.Override
+    public int getProto() {
+      return proto_;
+    }
+
+    public static final int PORT_FIELD_NUMBER = 5;
+    private int port_;
+    /**
+     * <code>optional uint32 port = 5;</code>
+     * @return Whether the port field is set.
+     */
+    @java.lang.Override
+    public boolean hasPort() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional uint32 port = 5;</code>
+     * @return The port.
+     */
+    @java.lang.Override
+    public int getPort() {
+      return port_;
+    }
+
+    public static final int TTL_FIELD_NUMBER = 6;
+    private int ttl_;
+    /**
+     * <code>optional uint32 ttl = 6;</code>
+     * @return Whether the ttl field is set.
+     */
+    @java.lang.Override
+    public boolean hasTtl() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional uint32 ttl = 6;</code>
+     * @return The ttl.
+     */
+    @java.lang.Override
+    public int getTtl() {
+      return ttl_;
+    }
+
+    public static final int BSERVICE_FIELD_NUMBER = 7;
+    private MyActionMessageProto.Bstring bservice_;
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     * @return Whether the bservice field is set.
+     */
+    @java.lang.Override
+    public boolean hasBservice() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     * @return The bservice.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getBservice() {
+      return bservice_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bservice_;
+    }
+    /**
+     * <code>optional .Bstring bservice = 7;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getBserviceOrBuilder() {
+      return bservice_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bservice_;
+    }
+
+    public static final int BAPPLICATION_FIELD_NUMBER = 8;
+    private MyActionMessageProto.Bstring bapplication_;
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     * @return Whether the bapplication field is set.
+     */
+    @java.lang.Override
+    public boolean hasBapplication() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     * @return The bapplication.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getBapplication() {
+      return bapplication_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bapplication_;
+    }
+    /**
+     * <code>optional .Bstring bapplication = 8;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getBapplicationOrBuilder() {
+      return bapplication_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bapplication_;
+    }
+
+    public static final int ROLE_FIELD_NUMBER = 9;
+    private int role_;
+    /**
+     * <code>optional fixed32 role = 9;</code>
+     * @return Whether the role field is set.
+     */
+    @java.lang.Override
+    public boolean hasRole() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional fixed32 role = 9;</code>
+     * @return The role.
+     */
+    @java.lang.Override
+    public int getRole() {
+      return role_;
+    }
+
+    public static final int UNKNOWN_FIELD_NUMBER = 10;
+    private int unknown_;
+    /**
+     * <code>optional fixed32 unknown = 10;</code>
+     * @return Whether the unknown field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnknown() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional fixed32 unknown = 10;</code>
+     * @return The unknown.
+     */
+    @java.lang.Override
+    public int getUnknown() {
+      return unknown_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeFixed64(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeFixed64(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt32(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeUInt32(4, proto_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeUInt32(5, port_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeUInt32(6, ttl_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeMessage(7, getBservice());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeMessage(8, getBapplication());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        output.writeFixed32(9, role_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeFixed32(10, unknown_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, proto_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, port_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, ttl_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getBservice());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getBapplication());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(9, role_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(10, unknown_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MyActionMessageProto.ServAsset)) {
+        return super.equals(obj);
+      }
+      MyActionMessageProto.ServAsset other = (MyActionMessageProto.ServAsset) obj;
+
+      if (hasFirstSeen() != other.hasFirstSeen()) return false;
+      if (hasFirstSeen()) {
+        if (getFirstSeen()
+            != other.getFirstSeen()) return false;
+      }
+      if (hasLastSeen() != other.hasLastSeen()) return false;
+      if (hasLastSeen()) {
+        if (getLastSeen()
+            != other.getLastSeen()) return false;
+      }
+      if (hasIAttempts() != other.hasIAttempts()) return false;
+      if (hasIAttempts()) {
+        if (getIAttempts()
+            != other.getIAttempts()) return false;
+      }
+      if (hasProto() != other.hasProto()) return false;
+      if (hasProto()) {
+        if (getProto()
+            != other.getProto()) return false;
+      }
+      if (hasPort() != other.hasPort()) return false;
+      if (hasPort()) {
+        if (getPort()
+            != other.getPort()) return false;
+      }
+      if (hasTtl() != other.hasTtl()) return false;
+      if (hasTtl()) {
+        if (getTtl()
+            != other.getTtl()) return false;
+      }
+      if (hasBservice() != other.hasBservice()) return false;
+      if (hasBservice()) {
+        if (!getBservice()
+            .equals(other.getBservice())) return false;
+      }
+      if (hasBapplication() != other.hasBapplication()) return false;
+      if (hasBapplication()) {
+        if (!getBapplication()
+            .equals(other.getBapplication())) return false;
+      }
+      if (hasRole() != other.hasRole()) return false;
+      if (hasRole()) {
+        if (getRole()
+            != other.getRole()) return false;
+      }
+      if (hasUnknown() != other.hasUnknown()) return false;
+      if (hasUnknown()) {
+        if (getUnknown()
+            != other.getUnknown()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFirstSeen()) {
+        hash = (37 * hash) + FIRST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFirstSeen());
+      }
+      if (hasLastSeen()) {
+        hash = (37 * hash) + LAST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastSeen());
+      }
+      if (hasIAttempts()) {
+        hash = (37 * hash) + I_ATTEMPTS_FIELD_NUMBER;
+        hash = (53 * hash) + getIAttempts();
+      }
+      if (hasProto()) {
+        hash = (37 * hash) + PROTO_FIELD_NUMBER;
+        hash = (53 * hash) + getProto();
+      }
+      if (hasPort()) {
+        hash = (37 * hash) + PORT_FIELD_NUMBER;
+        hash = (53 * hash) + getPort();
+      }
+      if (hasTtl()) {
+        hash = (37 * hash) + TTL_FIELD_NUMBER;
+        hash = (53 * hash) + getTtl();
+      }
+      if (hasBservice()) {
+        hash = (37 * hash) + BSERVICE_FIELD_NUMBER;
+        hash = (53 * hash) + getBservice().hashCode();
+      }
+      if (hasBapplication()) {
+        hash = (37 * hash) + BAPPLICATION_FIELD_NUMBER;
+        hash = (53 * hash) + getBapplication().hashCode();
+      }
+      if (hasRole()) {
+        hash = (37 * hash) + ROLE_FIELD_NUMBER;
+        hash = (53 * hash) + getRole();
+      }
+      if (hasUnknown()) {
+        hash = (37 * hash) + UNKNOWN_FIELD_NUMBER;
+        hash = (53 * hash) + getUnknown();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MyActionMessageProto.ServAsset parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.ServAsset parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.ServAsset parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.ServAsset parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MyActionMessageProto.ServAsset prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ServAsset}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ServAsset)
+        MyActionMessageProto.ServAssetOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MyActionMessageProto.internal_static_ServAsset_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MyActionMessageProto.internal_static_ServAsset_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MyActionMessageProto.ServAsset.class, MyActionMessageProto.ServAsset.Builder.class);
+      }
+
+      // Construct using MyActionMessageProto.ServAsset.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBserviceFieldBuilder();
+          getBapplicationFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        firstSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        lastSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        iAttempts_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        proto_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        port_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        ttl_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (bserviceBuilder_ == null) {
+          bservice_ = null;
+        } else {
+          bserviceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        if (bapplicationBuilder_ == null) {
+          bapplication_ = null;
+        } else {
+          bapplicationBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        role_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        unknown_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MyActionMessageProto.internal_static_ServAsset_descriptor;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.ServAsset getDefaultInstanceForType() {
+        return MyActionMessageProto.ServAsset.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.ServAsset build() {
+        MyActionMessageProto.ServAsset result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.ServAsset buildPartial() {
+        MyActionMessageProto.ServAsset result = new MyActionMessageProto.ServAsset(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.firstSeen_ = firstSeen_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastSeen_ = lastSeen_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.iAttempts_ = iAttempts_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.proto_ = proto_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.port_ = port_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.ttl_ = ttl_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (bserviceBuilder_ == null) {
+            result.bservice_ = bservice_;
+          } else {
+            result.bservice_ = bserviceBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          if (bapplicationBuilder_ == null) {
+            result.bapplication_ = bapplication_;
+          } else {
+            result.bapplication_ = bapplicationBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.role_ = role_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.unknown_ = unknown_;
+          to_bitField0_ |= 0x00000200;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MyActionMessageProto.ServAsset) {
+          return mergeFrom((MyActionMessageProto.ServAsset)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(MyActionMessageProto.ServAsset other) {
+        if (other == MyActionMessageProto.ServAsset.getDefaultInstance()) return this;
+        if (other.hasFirstSeen()) {
+          setFirstSeen(other.getFirstSeen());
+        }
+        if (other.hasLastSeen()) {
+          setLastSeen(other.getLastSeen());
+        }
+        if (other.hasIAttempts()) {
+          setIAttempts(other.getIAttempts());
+        }
+        if (other.hasProto()) {
+          setProto(other.getProto());
+        }
+        if (other.hasPort()) {
+          setPort(other.getPort());
+        }
+        if (other.hasTtl()) {
+          setTtl(other.getTtl());
+        }
+        if (other.hasBservice()) {
+          mergeBservice(other.getBservice());
+        }
+        if (other.hasBapplication()) {
+          mergeBapplication(other.getBapplication());
+        }
+        if (other.hasRole()) {
+          setRole(other.getRole());
+        }
+        if (other.hasUnknown()) {
+          setUnknown(other.getUnknown());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MyActionMessageProto.ServAsset parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MyActionMessageProto.ServAsset) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long firstSeen_ ;
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return Whether the firstSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasFirstSeen() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return The firstSeen.
+       */
+      @java.lang.Override
+      public long getFirstSeen() {
+        return firstSeen_;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @param value The firstSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstSeen(long value) {
+        bitField0_ |= 0x00000001;
+        firstSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFirstSeen() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        firstSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastSeen_ ;
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return Whether the lastSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastSeen() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return The lastSeen.
+       */
+      @java.lang.Override
+      public long getLastSeen() {
+        return lastSeen_;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @param value The lastSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastSeen(long value) {
+        bitField0_ |= 0x00000002;
+        lastSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastSeen() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int iAttempts_ ;
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return Whether the iAttempts field is set.
+       */
+      @java.lang.Override
+      public boolean hasIAttempts() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return The iAttempts.
+       */
+      @java.lang.Override
+      public int getIAttempts() {
+        return iAttempts_;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @param value The iAttempts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIAttempts(int value) {
+        bitField0_ |= 0x00000004;
+        iAttempts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIAttempts() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        iAttempts_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int proto_ ;
+      /**
+       * <code>optional uint32 proto = 4;</code>
+       * @return Whether the proto field is set.
+       */
+      @java.lang.Override
+      public boolean hasProto() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional uint32 proto = 4;</code>
+       * @return The proto.
+       */
+      @java.lang.Override
+      public int getProto() {
+        return proto_;
+      }
+      /**
+       * <code>optional uint32 proto = 4;</code>
+       * @param value The proto to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProto(int value) {
+        bitField0_ |= 0x00000008;
+        proto_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 proto = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProto() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        proto_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int port_ ;
+      /**
+       * <code>optional uint32 port = 5;</code>
+       * @return Whether the port field is set.
+       */
+      @java.lang.Override
+      public boolean hasPort() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional uint32 port = 5;</code>
+       * @return The port.
+       */
+      @java.lang.Override
+      public int getPort() {
+        return port_;
+      }
+      /**
+       * <code>optional uint32 port = 5;</code>
+       * @param value The port to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPort(int value) {
+        bitField0_ |= 0x00000010;
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 port = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPort() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        port_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int ttl_ ;
+      /**
+       * <code>optional uint32 ttl = 6;</code>
+       * @return Whether the ttl field is set.
+       */
+      @java.lang.Override
+      public boolean hasTtl() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional uint32 ttl = 6;</code>
+       * @return The ttl.
+       */
+      @java.lang.Override
+      public int getTtl() {
+        return ttl_;
+      }
+      /**
+       * <code>optional uint32 ttl = 6;</code>
+       * @param value The ttl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTtl(int value) {
+        bitField0_ |= 0x00000020;
+        ttl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 ttl = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTtl() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        ttl_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private MyActionMessageProto.Bstring bservice_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> bserviceBuilder_;
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       * @return Whether the bservice field is set.
+       */
+      public boolean hasBservice() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       * @return The bservice.
+       */
+      public MyActionMessageProto.Bstring getBservice() {
+        if (bserviceBuilder_ == null) {
+          return bservice_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bservice_;
+        } else {
+          return bserviceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public Builder setBservice(MyActionMessageProto.Bstring value) {
+        if (bserviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bservice_ = value;
+          onChanged();
+        } else {
+          bserviceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public Builder setBservice(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (bserviceBuilder_ == null) {
+          bservice_ = builderForValue.build();
+          onChanged();
+        } else {
+          bserviceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public Builder mergeBservice(MyActionMessageProto.Bstring value) {
+        if (bserviceBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+              bservice_ != null &&
+              bservice_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            bservice_ =
+              MyActionMessageProto.Bstring.newBuilder(bservice_).mergeFrom(value).buildPartial();
+          } else {
+            bservice_ = value;
+          }
+          onChanged();
+        } else {
+          bserviceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public Builder clearBservice() {
+        if (bserviceBuilder_ == null) {
+          bservice_ = null;
+          onChanged();
+        } else {
+          bserviceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getBserviceBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getBserviceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getBserviceOrBuilder() {
+        if (bserviceBuilder_ != null) {
+          return bserviceBuilder_.getMessageOrBuilder();
+        } else {
+          return bservice_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : bservice_;
+        }
+      }
+      /**
+       * <code>optional .Bstring bservice = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getBserviceFieldBuilder() {
+        if (bserviceBuilder_ == null) {
+          bserviceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getBservice(),
+                  getParentForChildren(),
+                  isClean());
+          bservice_ = null;
+        }
+        return bserviceBuilder_;
+      }
+
+      private MyActionMessageProto.Bstring bapplication_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> bapplicationBuilder_;
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       * @return Whether the bapplication field is set.
+       */
+      public boolean hasBapplication() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       * @return The bapplication.
+       */
+      public MyActionMessageProto.Bstring getBapplication() {
+        if (bapplicationBuilder_ == null) {
+          return bapplication_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bapplication_;
+        } else {
+          return bapplicationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public Builder setBapplication(MyActionMessageProto.Bstring value) {
+        if (bapplicationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bapplication_ = value;
+          onChanged();
+        } else {
+          bapplicationBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public Builder setBapplication(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (bapplicationBuilder_ == null) {
+          bapplication_ = builderForValue.build();
+          onChanged();
+        } else {
+          bapplicationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public Builder mergeBapplication(MyActionMessageProto.Bstring value) {
+        if (bapplicationBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+              bapplication_ != null &&
+              bapplication_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            bapplication_ =
+              MyActionMessageProto.Bstring.newBuilder(bapplication_).mergeFrom(value).buildPartial();
+          } else {
+            bapplication_ = value;
+          }
+          onChanged();
+        } else {
+          bapplicationBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public Builder clearBapplication() {
+        if (bapplicationBuilder_ == null) {
+          bapplication_ = null;
+          onChanged();
+        } else {
+          bapplicationBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getBapplicationBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getBapplicationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getBapplicationOrBuilder() {
+        if (bapplicationBuilder_ != null) {
+          return bapplicationBuilder_.getMessageOrBuilder();
+        } else {
+          return bapplication_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : bapplication_;
+        }
+      }
+      /**
+       * <code>optional .Bstring bapplication = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getBapplicationFieldBuilder() {
+        if (bapplicationBuilder_ == null) {
+          bapplicationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getBapplication(),
+                  getParentForChildren(),
+                  isClean());
+          bapplication_ = null;
+        }
+        return bapplicationBuilder_;
+      }
+
+      private int role_ ;
+      /**
+       * <code>optional fixed32 role = 9;</code>
+       * @return Whether the role field is set.
+       */
+      @java.lang.Override
+      public boolean hasRole() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional fixed32 role = 9;</code>
+       * @return The role.
+       */
+      @java.lang.Override
+      public int getRole() {
+        return role_;
+      }
+      /**
+       * <code>optional fixed32 role = 9;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRole(int value) {
+        bitField0_ |= 0x00000100;
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 role = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRole() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        role_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int unknown_ ;
+      /**
+       * <code>optional fixed32 unknown = 10;</code>
+       * @return Whether the unknown field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnknown() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional fixed32 unknown = 10;</code>
+       * @return The unknown.
+       */
+      @java.lang.Override
+      public int getUnknown() {
+        return unknown_;
+      }
+      /**
+       * <code>optional fixed32 unknown = 10;</code>
+       * @param value The unknown to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnknown(int value) {
+        bitField0_ |= 0x00000200;
+        unknown_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 unknown = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnknown() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        unknown_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ServAsset)
+    }
+
+    // @@protoc_insertion_point(class_scope:ServAsset)
+    private static final MyActionMessageProto.ServAsset DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MyActionMessageProto.ServAsset();
+    }
+
+    public static MyActionMessageProto.ServAsset getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ServAsset>
+        PARSER = new com.google.protobuf.AbstractParser<ServAsset>() {
+      @java.lang.Override
+      public ServAsset parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ServAsset(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ServAsset> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ServAsset> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public MyActionMessageProto.ServAsset getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OsAssetOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:OsAsset)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    boolean hasFirstSeen();
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    long getFirstSeen();
+
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    boolean hasLastSeen();
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    long getLastSeen();
+
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    boolean hasIAttempts();
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    int getIAttempts();
+
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     * @return Whether the bvendor field is set.
+     */
+    boolean hasBvendor();
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     * @return The bvendor.
+     */
+    MyActionMessageProto.Bstring getBvendor();
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getBvendorOrBuilder();
+
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     * @return Whether the bos field is set.
+     */
+    boolean hasBos();
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     * @return The bos.
+     */
+    MyActionMessageProto.Bstring getBos();
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getBosOrBuilder();
+
+    /**
+     * <code>optional uint32 detection = 6;</code>
+     * @return Whether the detection field is set.
+     */
+    boolean hasDetection();
+    /**
+     * <code>optional uint32 detection = 6;</code>
+     * @return The detection.
+     */
+    int getDetection();
+
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     * @return Whether the rawFp field is set.
+     */
+    boolean hasRawFp();
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     * @return The rawFp.
+     */
+    MyActionMessageProto.Bstring getRawFp();
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getRawFpOrBuilder();
+
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     * @return Whether the matchedFp field is set.
+     */
+    boolean hasMatchedFp();
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     * @return The matchedFp.
+     */
+    MyActionMessageProto.Bstring getMatchedFp();
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     */
+    MyActionMessageProto.BstringOrBuilder getMatchedFpOrBuilder();
+
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return Whether the matchOs field is set.
+     */
+    boolean hasMatchOs();
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return The matchOs.
+     */
+    java.lang.String getMatchOs();
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return The bytes for matchOs.
+     */
+    com.google.protobuf.ByteString
+        getMatchOsBytes();
+
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return Whether the matchDesc field is set.
+     */
+    boolean hasMatchDesc();
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return The matchDesc.
+     */
+    java.lang.String getMatchDesc();
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return The bytes for matchDesc.
+     */
+    com.google.protobuf.ByteString
+        getMatchDescBytes();
+
+    /**
+     * <code>optional uint32 port = 11;</code>
+     * @return Whether the port field is set.
+     */
+    boolean hasPort();
+    /**
+     * <code>optional uint32 port = 11;</code>
+     * @return The port.
+     */
+    int getPort();
+
+    /**
+     * <code>optional uint32 mtu = 12;</code>
+     * @return Whether the mtu field is set.
+     */
+    boolean hasMtu();
+    /**
+     * <code>optional uint32 mtu = 12;</code>
+     * @return The mtu.
+     */
+    int getMtu();
+
+    /**
+     * <code>optional uint32 ttl = 13;</code>
+     * @return Whether the ttl field is set.
+     */
+    boolean hasTtl();
+    /**
+     * <code>optional uint32 ttl = 13;</code>
+     * @return The ttl.
+     */
+    int getTtl();
+
+    /**
+     * <code>optional uint32 uptime = 14;</code>
+     * @return Whether the uptime field is set.
+     */
+    boolean hasUptime();
+    /**
+     * <code>optional uint32 uptime = 14;</code>
+     * @return The uptime.
+     */
+    int getUptime();
+  }
+  /**
+   * Protobuf type {@code OsAsset}
+   */
+  public static final class OsAsset extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:OsAsset)
+      OsAssetOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OsAsset.newBuilder() to construct.
+    private OsAsset(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OsAsset() {
+      matchOs_ = "";
+      matchDesc_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new OsAsset();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OsAsset(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              bitField0_ |= 0x00000001;
+              firstSeen_ = input.readFixed64();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              lastSeen_ = input.readFixed64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              iAttempts_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) != 0)) {
+                subBuilder = bvendor_.toBuilder();
+              }
+              bvendor_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(bvendor_);
+                bvendor_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) != 0)) {
+                subBuilder = bos_.toBuilder();
+              }
+              bos_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(bos_);
+                bos_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              detection_ = input.readUInt32();
+              break;
+            }
+            case 58: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) != 0)) {
+                subBuilder = rawFp_.toBuilder();
+              }
+              rawFp_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rawFp_);
+                rawFp_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 66: {
+              MyActionMessageProto.Bstring.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) != 0)) {
+                subBuilder = matchedFp_.toBuilder();
+              }
+              matchedFp_ = input.readMessage(MyActionMessageProto.Bstring.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(matchedFp_);
+                matchedFp_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000100;
+              matchOs_ = bs;
+              break;
+            }
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              matchDesc_ = bs;
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              port_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              mtu_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00001000;
+              ttl_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              uptime_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MyActionMessageProto.internal_static_OsAsset_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MyActionMessageProto.internal_static_OsAsset_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MyActionMessageProto.OsAsset.class, MyActionMessageProto.OsAsset.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FIRST_SEEN_FIELD_NUMBER = 1;
+    private long firstSeen_;
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return Whether the firstSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasFirstSeen() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional fixed64 first_seen = 1;</code>
+     * @return The firstSeen.
+     */
+    @java.lang.Override
+    public long getFirstSeen() {
+      return firstSeen_;
+    }
+
+    public static final int LAST_SEEN_FIELD_NUMBER = 2;
+    private long lastSeen_;
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return Whether the lastSeen field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastSeen() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional fixed64 last_seen = 2;</code>
+     * @return The lastSeen.
+     */
+    @java.lang.Override
+    public long getLastSeen() {
+      return lastSeen_;
+    }
+
+    public static final int I_ATTEMPTS_FIELD_NUMBER = 3;
+    private int iAttempts_;
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return Whether the iAttempts field is set.
+     */
+    @java.lang.Override
+    public boolean hasIAttempts() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint32 i_attempts = 3;</code>
+     * @return The iAttempts.
+     */
+    @java.lang.Override
+    public int getIAttempts() {
+      return iAttempts_;
+    }
+
+    public static final int BVENDOR_FIELD_NUMBER = 4;
+    private MyActionMessageProto.Bstring bvendor_;
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     * @return Whether the bvendor field is set.
+     */
+    @java.lang.Override
+    public boolean hasBvendor() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     * @return The bvendor.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getBvendor() {
+      return bvendor_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bvendor_;
+    }
+    /**
+     * <code>optional .Bstring bvendor = 4;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getBvendorOrBuilder() {
+      return bvendor_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bvendor_;
+    }
+
+    public static final int BOS_FIELD_NUMBER = 5;
+    private MyActionMessageProto.Bstring bos_;
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     * @return Whether the bos field is set.
+     */
+    @java.lang.Override
+    public boolean hasBos() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     * @return The bos.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getBos() {
+      return bos_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bos_;
+    }
+    /**
+     * <code>optional .Bstring bos = 5;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getBosOrBuilder() {
+      return bos_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bos_;
+    }
+
+    public static final int DETECTION_FIELD_NUMBER = 6;
+    private int detection_;
+    /**
+     * <code>optional uint32 detection = 6;</code>
+     * @return Whether the detection field is set.
+     */
+    @java.lang.Override
+    public boolean hasDetection() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional uint32 detection = 6;</code>
+     * @return The detection.
+     */
+    @java.lang.Override
+    public int getDetection() {
+      return detection_;
+    }
+
+    public static final int RAW_FP_FIELD_NUMBER = 7;
+    private MyActionMessageProto.Bstring rawFp_;
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     * @return Whether the rawFp field is set.
+     */
+    @java.lang.Override
+    public boolean hasRawFp() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     * @return The rawFp.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getRawFp() {
+      return rawFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : rawFp_;
+    }
+    /**
+     * <code>optional .Bstring raw_fp = 7;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getRawFpOrBuilder() {
+      return rawFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : rawFp_;
+    }
+
+    public static final int MATCHED_FP_FIELD_NUMBER = 8;
+    private MyActionMessageProto.Bstring matchedFp_;
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     * @return Whether the matchedFp field is set.
+     */
+    @java.lang.Override
+    public boolean hasMatchedFp() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     * @return The matchedFp.
+     */
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getMatchedFp() {
+      return matchedFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : matchedFp_;
+    }
+    /**
+     * <code>optional .Bstring matched_fp = 8;</code>
+     */
+    @java.lang.Override
+    public MyActionMessageProto.BstringOrBuilder getMatchedFpOrBuilder() {
+      return matchedFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : matchedFp_;
+    }
+
+    public static final int MATCH_OS_FIELD_NUMBER = 9;
+    private volatile java.lang.Object matchOs_;
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return Whether the matchOs field is set.
+     */
+    @java.lang.Override
+    public boolean hasMatchOs() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return The matchOs.
+     */
+    @java.lang.Override
+    public java.lang.String getMatchOs() {
+      java.lang.Object ref = matchOs_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          matchOs_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string match_os = 9;</code>
+     * @return The bytes for matchOs.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMatchOsBytes() {
+      java.lang.Object ref = matchOs_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        matchOs_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MATCH_DESC_FIELD_NUMBER = 10;
+    private volatile java.lang.Object matchDesc_;
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return Whether the matchDesc field is set.
+     */
+    @java.lang.Override
+    public boolean hasMatchDesc() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return The matchDesc.
+     */
+    @java.lang.Override
+    public java.lang.String getMatchDesc() {
+      java.lang.Object ref = matchDesc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          matchDesc_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string match_desc = 10;</code>
+     * @return The bytes for matchDesc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMatchDescBytes() {
+      java.lang.Object ref = matchDesc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        matchDesc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PORT_FIELD_NUMBER = 11;
+    private int port_;
+    /**
+     * <code>optional uint32 port = 11;</code>
+     * @return Whether the port field is set.
+     */
+    @java.lang.Override
+    public boolean hasPort() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional uint32 port = 11;</code>
+     * @return The port.
+     */
+    @java.lang.Override
+    public int getPort() {
+      return port_;
+    }
+
+    public static final int MTU_FIELD_NUMBER = 12;
+    private int mtu_;
+    /**
+     * <code>optional uint32 mtu = 12;</code>
+     * @return Whether the mtu field is set.
+     */
+    @java.lang.Override
+    public boolean hasMtu() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional uint32 mtu = 12;</code>
+     * @return The mtu.
+     */
+    @java.lang.Override
+    public int getMtu() {
+      return mtu_;
+    }
+
+    public static final int TTL_FIELD_NUMBER = 13;
+    private int ttl_;
+    /**
+     * <code>optional uint32 ttl = 13;</code>
+     * @return Whether the ttl field is set.
+     */
+    @java.lang.Override
+    public boolean hasTtl() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>optional uint32 ttl = 13;</code>
+     * @return The ttl.
+     */
+    @java.lang.Override
+    public int getTtl() {
+      return ttl_;
+    }
+
+    public static final int UPTIME_FIELD_NUMBER = 14;
+    private int uptime_;
+    /**
+     * <code>optional uint32 uptime = 14;</code>
+     * @return Whether the uptime field is set.
+     */
+    @java.lang.Override
+    public boolean hasUptime() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>optional uint32 uptime = 14;</code>
+     * @return The uptime.
+     */
+    @java.lang.Override
+    public int getUptime() {
+      return uptime_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeFixed64(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeFixed64(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt32(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeMessage(4, getBvendor());
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeMessage(5, getBos());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeUInt32(6, detection_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeMessage(7, getRawFp());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeMessage(8, getMatchedFp());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, matchOs_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, matchDesc_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeUInt32(11, port_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeUInt32(12, mtu_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        output.writeUInt32(13, ttl_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        output.writeUInt32(14, uptime_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(1, firstSeen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(2, lastSeen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, iAttempts_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getBvendor());
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getBos());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, detection_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getRawFp());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getMatchedFp());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, matchOs_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, matchDesc_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(11, port_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(12, mtu_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(13, ttl_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(14, uptime_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MyActionMessageProto.OsAsset)) {
+        return super.equals(obj);
+      }
+      MyActionMessageProto.OsAsset other = (MyActionMessageProto.OsAsset) obj;
+
+      if (hasFirstSeen() != other.hasFirstSeen()) return false;
+      if (hasFirstSeen()) {
+        if (getFirstSeen()
+            != other.getFirstSeen()) return false;
+      }
+      if (hasLastSeen() != other.hasLastSeen()) return false;
+      if (hasLastSeen()) {
+        if (getLastSeen()
+            != other.getLastSeen()) return false;
+      }
+      if (hasIAttempts() != other.hasIAttempts()) return false;
+      if (hasIAttempts()) {
+        if (getIAttempts()
+            != other.getIAttempts()) return false;
+      }
+      if (hasBvendor() != other.hasBvendor()) return false;
+      if (hasBvendor()) {
+        if (!getBvendor()
+            .equals(other.getBvendor())) return false;
+      }
+      if (hasBos() != other.hasBos()) return false;
+      if (hasBos()) {
+        if (!getBos()
+            .equals(other.getBos())) return false;
+      }
+      if (hasDetection() != other.hasDetection()) return false;
+      if (hasDetection()) {
+        if (getDetection()
+            != other.getDetection()) return false;
+      }
+      if (hasRawFp() != other.hasRawFp()) return false;
+      if (hasRawFp()) {
+        if (!getRawFp()
+            .equals(other.getRawFp())) return false;
+      }
+      if (hasMatchedFp() != other.hasMatchedFp()) return false;
+      if (hasMatchedFp()) {
+        if (!getMatchedFp()
+            .equals(other.getMatchedFp())) return false;
+      }
+      if (hasMatchOs() != other.hasMatchOs()) return false;
+      if (hasMatchOs()) {
+        if (!getMatchOs()
+            .equals(other.getMatchOs())) return false;
+      }
+      if (hasMatchDesc() != other.hasMatchDesc()) return false;
+      if (hasMatchDesc()) {
+        if (!getMatchDesc()
+            .equals(other.getMatchDesc())) return false;
+      }
+      if (hasPort() != other.hasPort()) return false;
+      if (hasPort()) {
+        if (getPort()
+            != other.getPort()) return false;
+      }
+      if (hasMtu() != other.hasMtu()) return false;
+      if (hasMtu()) {
+        if (getMtu()
+            != other.getMtu()) return false;
+      }
+      if (hasTtl() != other.hasTtl()) return false;
+      if (hasTtl()) {
+        if (getTtl()
+            != other.getTtl()) return false;
+      }
+      if (hasUptime() != other.hasUptime()) return false;
+      if (hasUptime()) {
+        if (getUptime()
+            != other.getUptime()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFirstSeen()) {
+        hash = (37 * hash) + FIRST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFirstSeen());
+      }
+      if (hasLastSeen()) {
+        hash = (37 * hash) + LAST_SEEN_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastSeen());
+      }
+      if (hasIAttempts()) {
+        hash = (37 * hash) + I_ATTEMPTS_FIELD_NUMBER;
+        hash = (53 * hash) + getIAttempts();
+      }
+      if (hasBvendor()) {
+        hash = (37 * hash) + BVENDOR_FIELD_NUMBER;
+        hash = (53 * hash) + getBvendor().hashCode();
+      }
+      if (hasBos()) {
+        hash = (37 * hash) + BOS_FIELD_NUMBER;
+        hash = (53 * hash) + getBos().hashCode();
+      }
+      if (hasDetection()) {
+        hash = (37 * hash) + DETECTION_FIELD_NUMBER;
+        hash = (53 * hash) + getDetection();
+      }
+      if (hasRawFp()) {
+        hash = (37 * hash) + RAW_FP_FIELD_NUMBER;
+        hash = (53 * hash) + getRawFp().hashCode();
+      }
+      if (hasMatchedFp()) {
+        hash = (37 * hash) + MATCHED_FP_FIELD_NUMBER;
+        hash = (53 * hash) + getMatchedFp().hashCode();
+      }
+      if (hasMatchOs()) {
+        hash = (37 * hash) + MATCH_OS_FIELD_NUMBER;
+        hash = (53 * hash) + getMatchOs().hashCode();
+      }
+      if (hasMatchDesc()) {
+        hash = (37 * hash) + MATCH_DESC_FIELD_NUMBER;
+        hash = (53 * hash) + getMatchDesc().hashCode();
+      }
+      if (hasPort()) {
+        hash = (37 * hash) + PORT_FIELD_NUMBER;
+        hash = (53 * hash) + getPort();
+      }
+      if (hasMtu()) {
+        hash = (37 * hash) + MTU_FIELD_NUMBER;
+        hash = (53 * hash) + getMtu();
+      }
+      if (hasTtl()) {
+        hash = (37 * hash) + TTL_FIELD_NUMBER;
+        hash = (53 * hash) + getTtl();
+      }
+      if (hasUptime()) {
+        hash = (37 * hash) + UPTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getUptime();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MyActionMessageProto.OsAsset parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.OsAsset parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.OsAsset parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.OsAsset parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MyActionMessageProto.OsAsset prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code OsAsset}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:OsAsset)
+        MyActionMessageProto.OsAssetOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MyActionMessageProto.internal_static_OsAsset_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MyActionMessageProto.internal_static_OsAsset_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MyActionMessageProto.OsAsset.class, MyActionMessageProto.OsAsset.Builder.class);
+      }
+
+      // Construct using MyActionMessageProto.OsAsset.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBvendorFieldBuilder();
+          getBosFieldBuilder();
+          getRawFpFieldBuilder();
+          getMatchedFpFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        firstSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        lastSeen_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        iAttempts_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (bvendorBuilder_ == null) {
+          bvendor_ = null;
+        } else {
+          bvendorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (bosBuilder_ == null) {
+          bos_ = null;
+        } else {
+          bosBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        detection_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (rawFpBuilder_ == null) {
+          rawFp_ = null;
+        } else {
+          rawFpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        if (matchedFpBuilder_ == null) {
+          matchedFp_ = null;
+        } else {
+          matchedFpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        matchOs_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        matchDesc_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
+        port_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        mtu_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        ttl_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        uptime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MyActionMessageProto.internal_static_OsAsset_descriptor;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.OsAsset getDefaultInstanceForType() {
+        return MyActionMessageProto.OsAsset.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.OsAsset build() {
+        MyActionMessageProto.OsAsset result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.OsAsset buildPartial() {
+        MyActionMessageProto.OsAsset result = new MyActionMessageProto.OsAsset(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.firstSeen_ = firstSeen_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastSeen_ = lastSeen_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.iAttempts_ = iAttempts_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (bvendorBuilder_ == null) {
+            result.bvendor_ = bvendor_;
+          } else {
+            result.bvendor_ = bvendorBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (bosBuilder_ == null) {
+            result.bos_ = bos_;
+          } else {
+            result.bos_ = bosBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.detection_ = detection_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (rawFpBuilder_ == null) {
+            result.rawFp_ = rawFp_;
+          } else {
+            result.rawFp_ = rawFpBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          if (matchedFpBuilder_ == null) {
+            result.matchedFp_ = matchedFp_;
+          } else {
+            result.matchedFp_ = matchedFpBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.matchOs_ = matchOs_;
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.matchDesc_ = matchDesc_;
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.port_ = port_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.mtu_ = mtu_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.ttl_ = ttl_;
+          to_bitField0_ |= 0x00001000;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.uptime_ = uptime_;
+          to_bitField0_ |= 0x00002000;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MyActionMessageProto.OsAsset) {
+          return mergeFrom((MyActionMessageProto.OsAsset)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(MyActionMessageProto.OsAsset other) {
+        if (other == MyActionMessageProto.OsAsset.getDefaultInstance()) return this;
+        if (other.hasFirstSeen()) {
+          setFirstSeen(other.getFirstSeen());
+        }
+        if (other.hasLastSeen()) {
+          setLastSeen(other.getLastSeen());
+        }
+        if (other.hasIAttempts()) {
+          setIAttempts(other.getIAttempts());
+        }
+        if (other.hasBvendor()) {
+          mergeBvendor(other.getBvendor());
+        }
+        if (other.hasBos()) {
+          mergeBos(other.getBos());
+        }
+        if (other.hasDetection()) {
+          setDetection(other.getDetection());
+        }
+        if (other.hasRawFp()) {
+          mergeRawFp(other.getRawFp());
+        }
+        if (other.hasMatchedFp()) {
+          mergeMatchedFp(other.getMatchedFp());
+        }
+        if (other.hasMatchOs()) {
+          bitField0_ |= 0x00000100;
+          matchOs_ = other.matchOs_;
+          onChanged();
+        }
+        if (other.hasMatchDesc()) {
+          bitField0_ |= 0x00000200;
+          matchDesc_ = other.matchDesc_;
+          onChanged();
+        }
+        if (other.hasPort()) {
+          setPort(other.getPort());
+        }
+        if (other.hasMtu()) {
+          setMtu(other.getMtu());
+        }
+        if (other.hasTtl()) {
+          setTtl(other.getTtl());
+        }
+        if (other.hasUptime()) {
+          setUptime(other.getUptime());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MyActionMessageProto.OsAsset parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MyActionMessageProto.OsAsset) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long firstSeen_ ;
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return Whether the firstSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasFirstSeen() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return The firstSeen.
+       */
+      @java.lang.Override
+      public long getFirstSeen() {
+        return firstSeen_;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @param value The firstSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstSeen(long value) {
+        bitField0_ |= 0x00000001;
+        firstSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 first_seen = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFirstSeen() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        firstSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastSeen_ ;
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return Whether the lastSeen field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastSeen() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return The lastSeen.
+       */
+      @java.lang.Override
+      public long getLastSeen() {
+        return lastSeen_;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @param value The lastSeen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastSeen(long value) {
+        bitField0_ |= 0x00000002;
+        lastSeen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 last_seen = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastSeen() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastSeen_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int iAttempts_ ;
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return Whether the iAttempts field is set.
+       */
+      @java.lang.Override
+      public boolean hasIAttempts() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return The iAttempts.
+       */
+      @java.lang.Override
+      public int getIAttempts() {
+        return iAttempts_;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @param value The iAttempts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIAttempts(int value) {
+        bitField0_ |= 0x00000004;
+        iAttempts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 i_attempts = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIAttempts() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        iAttempts_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private MyActionMessageProto.Bstring bvendor_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> bvendorBuilder_;
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       * @return Whether the bvendor field is set.
+       */
+      public boolean hasBvendor() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       * @return The bvendor.
+       */
+      public MyActionMessageProto.Bstring getBvendor() {
+        if (bvendorBuilder_ == null) {
+          return bvendor_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bvendor_;
+        } else {
+          return bvendorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public Builder setBvendor(MyActionMessageProto.Bstring value) {
+        if (bvendorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bvendor_ = value;
+          onChanged();
+        } else {
+          bvendorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public Builder setBvendor(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (bvendorBuilder_ == null) {
+          bvendor_ = builderForValue.build();
+          onChanged();
+        } else {
+          bvendorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public Builder mergeBvendor(MyActionMessageProto.Bstring value) {
+        if (bvendorBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+              bvendor_ != null &&
+              bvendor_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            bvendor_ =
+              MyActionMessageProto.Bstring.newBuilder(bvendor_).mergeFrom(value).buildPartial();
+          } else {
+            bvendor_ = value;
+          }
+          onChanged();
+        } else {
+          bvendorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public Builder clearBvendor() {
+        if (bvendorBuilder_ == null) {
+          bvendor_ = null;
+          onChanged();
+        } else {
+          bvendorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getBvendorBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getBvendorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getBvendorOrBuilder() {
+        if (bvendorBuilder_ != null) {
+          return bvendorBuilder_.getMessageOrBuilder();
+        } else {
+          return bvendor_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : bvendor_;
+        }
+      }
+      /**
+       * <code>optional .Bstring bvendor = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getBvendorFieldBuilder() {
+        if (bvendorBuilder_ == null) {
+          bvendorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getBvendor(),
+                  getParentForChildren(),
+                  isClean());
+          bvendor_ = null;
+        }
+        return bvendorBuilder_;
+      }
+
+      private MyActionMessageProto.Bstring bos_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> bosBuilder_;
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       * @return Whether the bos field is set.
+       */
+      public boolean hasBos() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       * @return The bos.
+       */
+      public MyActionMessageProto.Bstring getBos() {
+        if (bosBuilder_ == null) {
+          return bos_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : bos_;
+        } else {
+          return bosBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public Builder setBos(MyActionMessageProto.Bstring value) {
+        if (bosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bos_ = value;
+          onChanged();
+        } else {
+          bosBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public Builder setBos(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (bosBuilder_ == null) {
+          bos_ = builderForValue.build();
+          onChanged();
+        } else {
+          bosBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public Builder mergeBos(MyActionMessageProto.Bstring value) {
+        if (bosBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0) &&
+              bos_ != null &&
+              bos_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            bos_ =
+              MyActionMessageProto.Bstring.newBuilder(bos_).mergeFrom(value).buildPartial();
+          } else {
+            bos_ = value;
+          }
+          onChanged();
+        } else {
+          bosBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public Builder clearBos() {
+        if (bosBuilder_ == null) {
+          bos_ = null;
+          onChanged();
+        } else {
+          bosBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getBosBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getBosFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getBosOrBuilder() {
+        if (bosBuilder_ != null) {
+          return bosBuilder_.getMessageOrBuilder();
+        } else {
+          return bos_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : bos_;
+        }
+      }
+      /**
+       * <code>optional .Bstring bos = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getBosFieldBuilder() {
+        if (bosBuilder_ == null) {
+          bosBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getBos(),
+                  getParentForChildren(),
+                  isClean());
+          bos_ = null;
+        }
+        return bosBuilder_;
+      }
+
+      private int detection_ ;
+      /**
+       * <code>optional uint32 detection = 6;</code>
+       * @return Whether the detection field is set.
+       */
+      @java.lang.Override
+      public boolean hasDetection() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional uint32 detection = 6;</code>
+       * @return The detection.
+       */
+      @java.lang.Override
+      public int getDetection() {
+        return detection_;
+      }
+      /**
+       * <code>optional uint32 detection = 6;</code>
+       * @param value The detection to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDetection(int value) {
+        bitField0_ |= 0x00000020;
+        detection_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 detection = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDetection() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        detection_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private MyActionMessageProto.Bstring rawFp_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> rawFpBuilder_;
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       * @return Whether the rawFp field is set.
+       */
+      public boolean hasRawFp() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       * @return The rawFp.
+       */
+      public MyActionMessageProto.Bstring getRawFp() {
+        if (rawFpBuilder_ == null) {
+          return rawFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : rawFp_;
+        } else {
+          return rawFpBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public Builder setRawFp(MyActionMessageProto.Bstring value) {
+        if (rawFpBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rawFp_ = value;
+          onChanged();
+        } else {
+          rawFpBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public Builder setRawFp(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (rawFpBuilder_ == null) {
+          rawFp_ = builderForValue.build();
+          onChanged();
+        } else {
+          rawFpBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public Builder mergeRawFp(MyActionMessageProto.Bstring value) {
+        if (rawFpBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+              rawFp_ != null &&
+              rawFp_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            rawFp_ =
+              MyActionMessageProto.Bstring.newBuilder(rawFp_).mergeFrom(value).buildPartial();
+          } else {
+            rawFp_ = value;
+          }
+          onChanged();
+        } else {
+          rawFpBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public Builder clearRawFp() {
+        if (rawFpBuilder_ == null) {
+          rawFp_ = null;
+          onChanged();
+        } else {
+          rawFpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getRawFpBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getRawFpFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getRawFpOrBuilder() {
+        if (rawFpBuilder_ != null) {
+          return rawFpBuilder_.getMessageOrBuilder();
+        } else {
+          return rawFp_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : rawFp_;
+        }
+      }
+      /**
+       * <code>optional .Bstring raw_fp = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getRawFpFieldBuilder() {
+        if (rawFpBuilder_ == null) {
+          rawFpBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getRawFp(),
+                  getParentForChildren(),
+                  isClean());
+          rawFp_ = null;
+        }
+        return rawFpBuilder_;
+      }
+
+      private MyActionMessageProto.Bstring matchedFp_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> matchedFpBuilder_;
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       * @return Whether the matchedFp field is set.
+       */
+      public boolean hasMatchedFp() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       * @return The matchedFp.
+       */
+      public MyActionMessageProto.Bstring getMatchedFp() {
+        if (matchedFpBuilder_ == null) {
+          return matchedFp_ == null ? MyActionMessageProto.Bstring.getDefaultInstance() : matchedFp_;
+        } else {
+          return matchedFpBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public Builder setMatchedFp(MyActionMessageProto.Bstring value) {
+        if (matchedFpBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          matchedFp_ = value;
+          onChanged();
+        } else {
+          matchedFpBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public Builder setMatchedFp(
+          MyActionMessageProto.Bstring.Builder builderForValue) {
+        if (matchedFpBuilder_ == null) {
+          matchedFp_ = builderForValue.build();
+          onChanged();
+        } else {
+          matchedFpBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public Builder mergeMatchedFp(MyActionMessageProto.Bstring value) {
+        if (matchedFpBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+              matchedFp_ != null &&
+              matchedFp_ != MyActionMessageProto.Bstring.getDefaultInstance()) {
+            matchedFp_ =
+              MyActionMessageProto.Bstring.newBuilder(matchedFp_).mergeFrom(value).buildPartial();
+          } else {
+            matchedFp_ = value;
+          }
+          onChanged();
+        } else {
+          matchedFpBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public Builder clearMatchedFp() {
+        if (matchedFpBuilder_ == null) {
+          matchedFp_ = null;
+          onChanged();
+        } else {
+          matchedFpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public MyActionMessageProto.Bstring.Builder getMatchedFpBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getMatchedFpFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      public MyActionMessageProto.BstringOrBuilder getMatchedFpOrBuilder() {
+        if (matchedFpBuilder_ != null) {
+          return matchedFpBuilder_.getMessageOrBuilder();
+        } else {
+          return matchedFp_ == null ?
+              MyActionMessageProto.Bstring.getDefaultInstance() : matchedFp_;
+        }
+      }
+      /**
+       * <code>optional .Bstring matched_fp = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder> 
+          getMatchedFpFieldBuilder() {
+        if (matchedFpBuilder_ == null) {
+          matchedFpBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyActionMessageProto.Bstring, MyActionMessageProto.Bstring.Builder, MyActionMessageProto.BstringOrBuilder>(
+                  getMatchedFp(),
+                  getParentForChildren(),
+                  isClean());
+          matchedFp_ = null;
+        }
+        return matchedFpBuilder_;
+      }
+
+      private java.lang.Object matchOs_ = "";
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @return Whether the matchOs field is set.
+       */
+      public boolean hasMatchOs() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @return The matchOs.
+       */
+      public java.lang.String getMatchOs() {
+        java.lang.Object ref = matchOs_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            matchOs_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @return The bytes for matchOs.
+       */
+      public com.google.protobuf.ByteString
+          getMatchOsBytes() {
+        java.lang.Object ref = matchOs_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          matchOs_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @param value The matchOs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMatchOs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        matchOs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMatchOs() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        matchOs_ = getDefaultInstance().getMatchOs();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string match_os = 9;</code>
+       * @param value The bytes for matchOs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMatchOsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        matchOs_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object matchDesc_ = "";
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @return Whether the matchDesc field is set.
+       */
+      public boolean hasMatchDesc() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @return The matchDesc.
+       */
+      public java.lang.String getMatchDesc() {
+        java.lang.Object ref = matchDesc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            matchDesc_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @return The bytes for matchDesc.
+       */
+      public com.google.protobuf.ByteString
+          getMatchDescBytes() {
+        java.lang.Object ref = matchDesc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          matchDesc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @param value The matchDesc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMatchDesc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        matchDesc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMatchDesc() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        matchDesc_ = getDefaultInstance().getMatchDesc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string match_desc = 10;</code>
+       * @param value The bytes for matchDesc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMatchDescBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        matchDesc_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int port_ ;
+      /**
+       * <code>optional uint32 port = 11;</code>
+       * @return Whether the port field is set.
+       */
+      @java.lang.Override
+      public boolean hasPort() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>optional uint32 port = 11;</code>
+       * @return The port.
+       */
+      @java.lang.Override
+      public int getPort() {
+        return port_;
+      }
+      /**
+       * <code>optional uint32 port = 11;</code>
+       * @param value The port to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPort(int value) {
+        bitField0_ |= 0x00000400;
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 port = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPort() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        port_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int mtu_ ;
+      /**
+       * <code>optional uint32 mtu = 12;</code>
+       * @return Whether the mtu field is set.
+       */
+      @java.lang.Override
+      public boolean hasMtu() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional uint32 mtu = 12;</code>
+       * @return The mtu.
+       */
+      @java.lang.Override
+      public int getMtu() {
+        return mtu_;
+      }
+      /**
+       * <code>optional uint32 mtu = 12;</code>
+       * @param value The mtu to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMtu(int value) {
+        bitField0_ |= 0x00000800;
+        mtu_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 mtu = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMtu() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        mtu_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int ttl_ ;
+      /**
+       * <code>optional uint32 ttl = 13;</code>
+       * @return Whether the ttl field is set.
+       */
+      @java.lang.Override
+      public boolean hasTtl() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <code>optional uint32 ttl = 13;</code>
+       * @return The ttl.
+       */
+      @java.lang.Override
+      public int getTtl() {
+        return ttl_;
+      }
+      /**
+       * <code>optional uint32 ttl = 13;</code>
+       * @param value The ttl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTtl(int value) {
+        bitField0_ |= 0x00001000;
+        ttl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 ttl = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTtl() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        ttl_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int uptime_ ;
+      /**
+       * <code>optional uint32 uptime = 14;</code>
+       * @return Whether the uptime field is set.
+       */
+      @java.lang.Override
+      public boolean hasUptime() {
+        return ((bitField0_ & 0x00002000) != 0);
+      }
+      /**
+       * <code>optional uint32 uptime = 14;</code>
+       * @return The uptime.
+       */
+      @java.lang.Override
+      public int getUptime() {
+        return uptime_;
+      }
+      /**
+       * <code>optional uint32 uptime = 14;</code>
+       * @param value The uptime to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUptime(int value) {
+        bitField0_ |= 0x00002000;
+        uptime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 uptime = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUptime() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        uptime_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:OsAsset)
+    }
+
+    // @@protoc_insertion_point(class_scope:OsAsset)
+    private static final MyActionMessageProto.OsAsset DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MyActionMessageProto.OsAsset();
+    }
+
+    public static MyActionMessageProto.OsAsset getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<OsAsset>
+        PARSER = new com.google.protobuf.AbstractParser<OsAsset>() {
+      @java.lang.Override
+      public OsAsset parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OsAsset(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OsAsset> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OsAsset> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public MyActionMessageProto.OsAsset getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BstringOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Bstring)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional fixed32 mlen = 1;</code>
+     * @return Whether the mlen field is set.
+     */
+    boolean hasMlen();
+    /**
+     * <code>optional fixed32 mlen = 1;</code>
+     * @return The mlen.
+     */
+    int getMlen();
+
+    /**
+     * <code>optional fixed32 slen = 2;</code>
+     * @return Whether the slen field is set.
+     */
+    boolean hasSlen();
+    /**
+     * <code>optional fixed32 slen = 2;</code>
+     * @return The slen.
+     */
+    int getSlen();
+
+    /**
+     * <code>optional string data = 3;</code>
+     * @return Whether the data field is set.
+     */
+    boolean hasData();
+    /**
+     * <code>optional string data = 3;</code>
+     * @return The data.
+     */
+    java.lang.String getData();
+    /**
+     * <code>optional string data = 3;</code>
+     * @return The bytes for data.
+     */
+    com.google.protobuf.ByteString
+        getDataBytes();
+  }
+  /**
+   * Protobuf type {@code Bstring}
+   */
+  public static final class Bstring extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Bstring)
+      BstringOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Bstring.newBuilder() to construct.
+    private Bstring(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Bstring() {
+      data_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Bstring();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Bstring(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              bitField0_ |= 0x00000001;
+              mlen_ = input.readFixed32();
+              break;
+            }
+            case 21: {
+              bitField0_ |= 0x00000002;
+              slen_ = input.readFixed32();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              data_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MyActionMessageProto.internal_static_Bstring_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MyActionMessageProto.internal_static_Bstring_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MyActionMessageProto.Bstring.class, MyActionMessageProto.Bstring.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int MLEN_FIELD_NUMBER = 1;
+    private int mlen_;
+    /**
+     * <code>optional fixed32 mlen = 1;</code>
+     * @return Whether the mlen field is set.
+     */
+    @java.lang.Override
+    public boolean hasMlen() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional fixed32 mlen = 1;</code>
+     * @return The mlen.
+     */
+    @java.lang.Override
+    public int getMlen() {
+      return mlen_;
+    }
+
+    public static final int SLEN_FIELD_NUMBER = 2;
+    private int slen_;
+    /**
+     * <code>optional fixed32 slen = 2;</code>
+     * @return Whether the slen field is set.
+     */
+    @java.lang.Override
+    public boolean hasSlen() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional fixed32 slen = 2;</code>
+     * @return The slen.
+     */
+    @java.lang.Override
+    public int getSlen() {
+      return slen_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 3;
+    private volatile java.lang.Object data_;
+    /**
+     * <code>optional string data = 3;</code>
+     * @return Whether the data field is set.
+     */
+    @java.lang.Override
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string data = 3;</code>
+     * @return The data.
+     */
+    @java.lang.Override
+    public java.lang.String getData() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          data_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string data = 3;</code>
+     * @return The bytes for data.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDataBytes() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeFixed32(1, mlen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeFixed32(2, slen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, data_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(1, mlen_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(2, slen_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, data_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MyActionMessageProto.Bstring)) {
+        return super.equals(obj);
+      }
+      MyActionMessageProto.Bstring other = (MyActionMessageProto.Bstring) obj;
+
+      if (hasMlen() != other.hasMlen()) return false;
+      if (hasMlen()) {
+        if (getMlen()
+            != other.getMlen()) return false;
+      }
+      if (hasSlen() != other.hasSlen()) return false;
+      if (hasSlen()) {
+        if (getSlen()
+            != other.getSlen()) return false;
+      }
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMlen()) {
+        hash = (37 * hash) + MLEN_FIELD_NUMBER;
+        hash = (53 * hash) + getMlen();
+      }
+      if (hasSlen()) {
+        hash = (37 * hash) + SLEN_FIELD_NUMBER;
+        hash = (53 * hash) + getSlen();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MyActionMessageProto.Bstring parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.Bstring parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Bstring parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyActionMessageProto.Bstring parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MyActionMessageProto.Bstring prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Bstring}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Bstring)
+        MyActionMessageProto.BstringOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MyActionMessageProto.internal_static_Bstring_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MyActionMessageProto.internal_static_Bstring_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MyActionMessageProto.Bstring.class, MyActionMessageProto.Bstring.Builder.class);
+      }
+
+      // Construct using MyActionMessageProto.Bstring.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        mlen_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        slen_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        data_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MyActionMessageProto.internal_static_Bstring_descriptor;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Bstring getDefaultInstanceForType() {
+        return MyActionMessageProto.Bstring.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Bstring build() {
+        MyActionMessageProto.Bstring result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public MyActionMessageProto.Bstring buildPartial() {
+        MyActionMessageProto.Bstring result = new MyActionMessageProto.Bstring(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mlen_ = mlen_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.slen_ = slen_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.data_ = data_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MyActionMessageProto.Bstring) {
+          return mergeFrom((MyActionMessageProto.Bstring)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(MyActionMessageProto.Bstring other) {
+        if (other == MyActionMessageProto.Bstring.getDefaultInstance()) return this;
+        if (other.hasMlen()) {
+          setMlen(other.getMlen());
+        }
+        if (other.hasSlen()) {
+          setSlen(other.getSlen());
+        }
+        if (other.hasData()) {
+          bitField0_ |= 0x00000004;
+          data_ = other.data_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MyActionMessageProto.Bstring parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MyActionMessageProto.Bstring) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int mlen_ ;
+      /**
+       * <code>optional fixed32 mlen = 1;</code>
+       * @return Whether the mlen field is set.
+       */
+      @java.lang.Override
+      public boolean hasMlen() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional fixed32 mlen = 1;</code>
+       * @return The mlen.
+       */
+      @java.lang.Override
+      public int getMlen() {
+        return mlen_;
+      }
+      /**
+       * <code>optional fixed32 mlen = 1;</code>
+       * @param value The mlen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMlen(int value) {
+        bitField0_ |= 0x00000001;
+        mlen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 mlen = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMlen() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        mlen_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int slen_ ;
+      /**
+       * <code>optional fixed32 slen = 2;</code>
+       * @return Whether the slen field is set.
+       */
+      @java.lang.Override
+      public boolean hasSlen() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional fixed32 slen = 2;</code>
+       * @return The slen.
+       */
+      @java.lang.Override
+      public int getSlen() {
+        return slen_;
+      }
+      /**
+       * <code>optional fixed32 slen = 2;</code>
+       * @param value The slen to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlen(int value) {
+        bitField0_ |= 0x00000002;
+        slen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 slen = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSlen() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        slen_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object data_ = "";
+      /**
+       * <code>optional string data = 3;</code>
+       * @return Whether the data field is set.
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string data = 3;</code>
+       * @return The data.
+       */
+      public java.lang.String getData() {
+        java.lang.Object ref = data_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            data_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string data = 3;</code>
+       * @return The bytes for data.
+       */
+      public com.google.protobuf.ByteString
+          getDataBytes() {
+        java.lang.Object ref = data_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          data_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string data = 3;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
+       */
+      public Builder setData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string data = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearData() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string data = 3;</code>
+       * @param value The bytes for data to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Bstring)
+    }
+
+    // @@protoc_insertion_point(class_scope:Bstring)
+    private static final MyActionMessageProto.Bstring DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MyActionMessageProto.Bstring();
+    }
+
+    public static MyActionMessageProto.Bstring getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Bstring>
+        PARSER = new com.google.protobuf.AbstractParser<Bstring>() {
+      @java.lang.Override
+      public Bstring parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Bstring(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Bstring> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Bstring> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public MyActionMessageProto.Bstring getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MyActionMessage_descriptor;
   private static final 
@@ -7086,6 +13790,26 @@ public final class MyActionMessageProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ActionPutPerflowAckMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Asset_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Asset_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ServAsset_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ServAsset_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_OsAsset_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_OsAsset_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Bstring_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Bstring_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7112,17 +13836,36 @@ public final class MyActionMessageProto {
       "age\"&\n\tActionSyn\022\014\n\004host\030\001 \001(\t\022\013\n\003pid\030\002 " +
       "\001(\007\"6\n\023ActionGetPerflowMsg\022\020\n\010hw_proto\030\001" +
       " \001(\005\022\r\n\005proto\030\002 \001(\005\"\'\n\026ActionGetPerflowA" +
-      "ckMsg\022\r\n\005count\030\001 \001(\007\"\220\002\n\013ActionState\022\022\n\n" +
+      "ckMsg\022\r\n\005count\030\001 \001(\007\"\302\002\n\013ActionState\022\022\n\n" +
       "start_time\030\001 \001(\006\022\025\n\rlast_pkt_time\030\002 \001(\006\022" +
       "\014\n\004cxid\030\003 \001(\006\022\020\n\010reversed\030\004 \001(\r\022\n\n\002af\030\005 " +
-      "\001(\007\022\024\n\014s_total_pkts\030\010 \001(\006\022\025\n\rs_total_byt" +
-      "es\030\t \001(\006\022\024\n\014d_total_pkts\030\n \001(\006\022\025\n\rd_tota" +
-      "l_bytes\030\013 \001(\006\022\022\n\ns_tcpFlags\030\014 \001(\r\022\013\n\003pad" +
-      "\030\r \001(\r\022\022\n\nd_tcpFlags\030\016 \001(\r\022\r\n\005check\030\017 \001(" +
-      "\r\022\014\n\004hash\030\020 \001(\007\"2\n\023ActionPutPerflowMsg\022\033" +
-      "\n\005state\030\001 \001(\0132\014.ActionState\"4\n\026ActionPut" +
-      "PerflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(" +
-      "\007B\030B\024MyActionMessageProtoH\001"
+      "\001(\007\022\024\n\014s_total_pkts\030\006 \001(\006\022\025\n\rs_total_byt" +
+      "es\030\007 \001(\006\022\024\n\014d_total_pkts\030\010 \001(\006\022\025\n\rd_tota" +
+      "l_bytes\030\t \001(\006\022\022\n\ns_tcpFlags\030\n \001(\r\022\013\n\003pad" +
+      "\030\013 \001(\r\022\022\n\nd_tcpFlags\030\014 \001(\r\022\r\n\005check\030\r \001(" +
+      "\r\022\014\n\004hash\030\016 \001(\007\022\027\n\007c_asset\030\017 \001(\0132\006.Asset" +
+      "\022\027\n\007s_asset\030\020 \001(\0132\006.Asset\"2\n\023ActionPutPe" +
+      "rflowMsg\022\033\n\005state\030\001 \001(\0132\014.ActionState\"4\n" +
+      "\026ActionPutPerflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n" +
+      "\004cxid\030\002 \001(\007\"\236\001\n\005Asset\022\022\n\nfirst_seen\030\001 \001(" +
+      "\006\022\021\n\tlast_seen\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r" +
+      "\022\n\n\002af\030\004 \001(\007\022\014\n\004vlan\030\005 \001(\r\022\014\n\004s_ip\030\006 \001(\007" +
+      "\022\034\n\010services\030\007 \001(\0132\n.ServAsset\022\024\n\002os\030\010 \001" +
+      "(\0132\010.OsAsset\"\313\001\n\tServAsset\022\022\n\nfirst_seen" +
+      "\030\001 \001(\006\022\021\n\tlast_seen\030\002 \001(\006\022\022\n\ni_attempts\030" +
+      "\003 \001(\r\022\r\n\005proto\030\004 \001(\r\022\014\n\004port\030\005 \001(\r\022\013\n\003tt" +
+      "l\030\006 \001(\r\022\032\n\010bservice\030\007 \001(\0132\010.Bstring\022\036\n\014b" +
+      "application\030\010 \001(\0132\010.Bstring\022\014\n\004role\030\t \001(" +
+      "\007\022\017\n\007unknown\030\n \001(\007\"\237\002\n\007OsAsset\022\022\n\nfirst_" +
+      "seen\030\001 \001(\006\022\021\n\tlast_seen\030\002 \001(\006\022\022\n\ni_attem" +
+      "pts\030\003 \001(\r\022\031\n\007bvendor\030\004 \001(\0132\010.Bstring\022\025\n\003" +
+      "bos\030\005 \001(\0132\010.Bstring\022\021\n\tdetection\030\006 \001(\r\022\030" +
+      "\n\006raw_fp\030\007 \001(\0132\010.Bstring\022\034\n\nmatched_fp\030\010" +
+      " \001(\0132\010.Bstring\022\020\n\010match_os\030\t \001(\t\022\022\n\nmatc" +
+      "h_desc\030\n \001(\t\022\014\n\004port\030\013 \001(\r\022\013\n\003mtu\030\014 \001(\r\022" +
+      "\013\n\003ttl\030\r \001(\r\022\016\n\006uptime\030\016 \001(\r\"3\n\007Bstring\022" +
+      "\014\n\004mlen\030\001 \001(\007\022\014\n\004slen\030\002 \001(\007\022\014\n\004data\030\003 \001(" +
+      "\tB\030B\024MyActionMessageProtoH\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7157,7 +13900,7 @@ public final class MyActionMessageProto {
     internal_static_ActionState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionState_descriptor,
-        new java.lang.String[] { "StartTime", "LastPktTime", "Cxid", "Reversed", "Af", "STotalPkts", "STotalBytes", "DTotalPkts", "DTotalBytes", "STcpFlags", "Pad", "DTcpFlags", "Check", "Hash", });
+        new java.lang.String[] { "StartTime", "LastPktTime", "Cxid", "Reversed", "Af", "STotalPkts", "STotalBytes", "DTotalPkts", "DTotalBytes", "STcpFlags", "Pad", "DTcpFlags", "Check", "Hash", "CAsset", "SAsset", });
     internal_static_ActionPutPerflowMsg_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_ActionPutPerflowMsg_fieldAccessorTable = new
@@ -7170,6 +13913,30 @@ public final class MyActionMessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionPutPerflowAckMsg_descriptor,
         new java.lang.String[] { "Hash", "Cxid", });
+    internal_static_Asset_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_Asset_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Asset_descriptor,
+        new java.lang.String[] { "FirstSeen", "LastSeen", "IAttempts", "Af", "Vlan", "SIp", "Services", "Os", });
+    internal_static_ServAsset_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_ServAsset_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ServAsset_descriptor,
+        new java.lang.String[] { "FirstSeen", "LastSeen", "IAttempts", "Proto", "Port", "Ttl", "Bservice", "Bapplication", "Role", "Unknown", });
+    internal_static_OsAsset_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_OsAsset_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_OsAsset_descriptor,
+        new java.lang.String[] { "FirstSeen", "LastSeen", "IAttempts", "Bvendor", "Bos", "Detection", "RawFp", "MatchedFp", "MatchOs", "MatchDesc", "Port", "Mtu", "Ttl", "Uptime", });
+    internal_static_Bstring_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_Bstring_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Bstring_descriptor,
+        new java.lang.String[] { "Mlen", "Slen", "Data", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
