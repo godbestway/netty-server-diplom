@@ -4,6 +4,7 @@ import channel.ActionChannel;
 import channel.BaseChannel;
 import channel.ConnectionChannel;
 import interfaces.NetworkFunction;
+import interfaces.msgprocessors.ProcessReceiveMsg;
 import interfaces.stepControl.ProcessCondition;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -13,8 +14,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import zconnacmove.ActionMsgProcessor;
-import zconnacmove.ConnMsgProcessor;
+
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,8 +25,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class OperationManager {
     private ConcurrentHashMap<String, NetworkFunction> nfs;
-    private ConnMsgProcessor connMsgProcessors;
-    private ActionMsgProcessor actionMsgProcessors;
+    private ProcessReceiveMsg connMsgProcessors;
+    private ProcessReceiveMsg actionMsgProcessors;
     private ProcessCondition processCondition;
     protected static Logger logger = LoggerFactory.getLogger(OperationManager.class);
 
@@ -43,7 +43,7 @@ public class OperationManager {
         port2 = 18081;
     }
 
-    public OperationManager(ConnMsgProcessor connMsgProcessors, ActionMsgProcessor actionMsgProcessors ) {
+    public OperationManager(ProcessReceiveMsg connMsgProcessors, ProcessReceiveMsg actionMsgProcessors ) {
         this.connMsgProcessors = connMsgProcessors;
         this.actionMsgProcessors = actionMsgProcessors;
         port1 = 18080;
@@ -211,19 +211,19 @@ public class OperationManager {
         logger.info("a new condition is added");
     }
 
-    public ConnMsgProcessor getConnMsgProcessors() {
+    public ProcessReceiveMsg getConnMsgProcessors() {
         return connMsgProcessors;
     }
 
-    public void setConnMsgProcessors(ConnMsgProcessor connMsgProcessors) {
+    public void setConnMsgProcessors(ProcessReceiveMsg connMsgProcessors) {
         this.connMsgProcessors = connMsgProcessors;
     }
 
-    public ActionMsgProcessor getActionMsgProcessors() {
+    public ProcessReceiveMsg getActionMsgProcessors() {
         return actionMsgProcessors;
     }
 
-    public void setActionMsgProcessors(ActionMsgProcessor actionMsgProcessors) {
+    public void setActionMsgProcessors(ProcessReceiveMsg actionMsgProcessors) {
         this.actionMsgProcessors = actionMsgProcessors;
     }
 

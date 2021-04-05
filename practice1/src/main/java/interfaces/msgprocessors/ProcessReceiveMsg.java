@@ -22,15 +22,15 @@ public interface ProcessReceiveMsg {
     void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg);
     void putActionPerflowAck(MyActionMessageProto.ActionPutPerflowAckMsg actionPutPerflowAckMsg);
 
+    void sendActionGetMultiflow(NetworkFunction nf);
+    void getActionMultiflowAck(MyActionMessageProto.ActionGetMultiflowAckMsg actionGetMultiflowAckMsg);
+    void receiveActionStateMultiflow(MyActionMessageProto.ActionMultiState actionMultiState);
+    void putActionMultiflowAck(MyActionMessageProto.ActionPutMultiflowAckMsg actionPutMultiflowAckMsg);
 
-    void receiveStateMultiflow();
-    void receiveStateConfig();
-    void getMultiflowAck();
-    void getAllflowAck();
-    void getConfigAck();
-    void putMultiflowAck();
-    void putAllflowAck();
-    void putConfigAck();
+    void sendActionGetAllflow(NetworkFunction nf);
+    void getActionAllflowAck(MyActionMessageProto.ActionGetAllflowAckMsg actionGetAllflowAckMsg);
+    void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState);
+    void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg);
 
     void sendActionGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters);
 }

@@ -2,6 +2,7 @@ package channel;
 
 import Server.OperationManager;
 import interfaces.msgprocessors.Perflow.ActionProcessPerflow;
+import interfaces.msgprocessors.ProcessReceiveMsg;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ public class ActionChannel extends BaseChannel{
     }
 
     protected void processMessage(Object msg) {
-        ActionProcessPerflow actionMsgProcess = operationManager.getActionMsgProcessors();
+        ProcessReceiveMsg actionMsgProcess = operationManager.getActionMsgProcessors();
         MyActionMessageProto.MyActionMessage myMessage = (MyActionMessageProto.MyActionMessage)msg;
 
         MyActionMessageProto.MyActionMessage.DataType dataType = myMessage.getDataType();
@@ -43,6 +44,28 @@ public class ActionChannel extends BaseChannel{
         }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowAckMsgType){
             //logger.info("receive a conn putAck"+System.currentTimeMillis());
             actionMsgProcess.putActionPerflowAck(myMessage.getActionPutPerflowAckMsg());
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionGetMultiflowAckMsgType){
+            //logger.info("receive a connstate"+System.currentTimeMillis());
+            actionMsgProcess.getActionMultiflowAck(myMessage.getActionGetMultiflowAckMsg());
+
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionMultiStateType){
+            //logger.info("receive a connstate"+System.currentTimeMillis());
+            actionMsgProcess.receiveActionStateMultiflow(myMessage.getActionMultiState());
+
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutMultiflowAckMsgType){
+            //logger.info("receive a conn putAck"+System.currentTimeMillis());
+            actionMsgProcess.putActionMultiflowAck(myMessage.getActionPutMultiflowAckMsg());
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionGetAllflowAckMsgType){
+            //logger.info("receive a connstate"+System.currentTimeMillis());
+            actionMsgProcess.getActionAllflowAck(myMessage.getActionGetAllflowAckMsg());
+
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionAllStateType){
+            //logger.info("receive a connstate"+System.currentTimeMillis());
+            actionMsgProcess.receiveActionStateAllflow(myMessage.getActionAllState());
+
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutAllflowAckMsgType){
+            //logger.info("receive a conn putAck"+System.currentTimeMillis());
+            actionMsgProcess.putActionAllflowAck(myMessage.getActionPutAllflowAckMsg());
         }
 
     }

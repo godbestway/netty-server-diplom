@@ -1,6 +1,7 @@
 package channel;
 
 import Server.OperationManager;
+import interfaces.msgprocessors.ProcessReceiveMsg;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ public class ConnectionChannel extends BaseChannel{
     }
 
     protected void processMessage(Object msg) {
-        ConnMsgProcessor connMsgProcess = operationManager.getConnMsgProcessors();
+        ProcessReceiveMsg connMsgProcess = operationManager.getConnMsgProcessors();
 
         MyConnMessageProto.MyConnMessage myMessage = (MyConnMessageProto.MyConnMessage)msg;
         MyConnMessageProto.MyConnMessage.DataType dataType = myMessage.getDataType();

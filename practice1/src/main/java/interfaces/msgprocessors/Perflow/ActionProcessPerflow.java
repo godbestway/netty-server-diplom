@@ -2,6 +2,7 @@ package interfaces.msgprocessors.Perflow;
 
 import interfaces.NetworkFunction;
 import interfaces.msgprocessors.ProcessReceiveMsg;
+import proto.MyActionMessageProto;
 import proto.MyConnMessageProto;
 
 /**
@@ -19,22 +20,13 @@ public abstract  class ActionProcessPerflow implements ProcessReceiveMsg {
 
     public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters) {}
 
-    public void receiveStateMultiflow() {}
+    public void sendActionGetMultiflow(NetworkFunction nf){};
+    public void getActionMultiflowAck(MyActionMessageProto.ActionGetMultiflowAckMsg actionGetMultiflowAckMsg){};
+    public void receiveActionStateMultiflow(MyActionMessageProto.ActionMultiState actionMultiState){};
+    public void putActionMultiflowAck(MyActionMessageProto.ActionPutMultiflowAckMsg actionPutMultiflowAckMsg){};
 
-    public void receiveStateConfig() {}
-
-    public void getMultiflowAck() {}
-
-    public void getAllflowAck() {}
-
-    public void getConfigAck() {}
-
-    public void putMultiflowAck() {
-    }
-
-    public void putAllflowAck() {
-    }
-
-    public void putConfigAck() {
-    }
+    public void sendActionGetAllflow(NetworkFunction nf){};
+    public void getActionAllflowAck(MyActionMessageProto.ActionGetAllflowAckMsg actionGetAllflowAckMsg){};
+    public void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState){};
+    public void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg){};
 }

@@ -112,9 +112,9 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
 
     public void startMove(){
         ConnStateStorage connStateStorage = ConnStateStorage.getInstance(runNFs.get("nf2"), this);
-        operationManager.getConnMsgProcessors().addConnStateStorage(connStateStorage);
+        ((ConnMsgProcessor)operationManager.getConnMsgProcessors()).addConnStateStorage(connStateStorage);
         ActionStateStorage actionStateStorage = ActionStateStorage.getInstance(runNFs.get("nf2"), this);
-        operationManager.getActionMsgProcessors().addActionStateStorage(actionStateStorage);
+        ((ActionMsgProcessor)operationManager.getActionMsgProcessors()).addActionStateStorage(actionStateStorage);
         //movestart = System.currentTimeMillis();
         //receiveDoubleAck();
 

@@ -19,14 +19,13 @@ public abstract class ConnProcessPerflow implements ProcessReceiveMsg {
 
     public void putActionPerflowAck(MyActionMessageProto.ActionPutPerflowAckMsg actionPutPerflowAckMsg){}
 
-    public void receiveStateMultiflow(){}
-    public void receiveStateConfig(){}
+    public void sendActionGetMultiflow(NetworkFunction nf){};
+    public void getActionMultiflowAck(MyActionMessageProto.ActionGetMultiflowAckMsg actionGetMultiflowAckMsg){};
+    public void receiveActionStateMultiflow(MyActionMessageProto.ActionMultiState actionMultiState){};
+    public void putActionMultiflowAck(MyActionMessageProto.ActionPutMultiflowAckMsg actionPutMultiflowAckMsg){};
 
-    public void getMultiflowAck(){}
-    public void getAllflowAck(){}
-    public void getConfigAck(){}
-
-    public void putMultiflowAck(){}
-    public void putAllflowAck(){}
-    public void putConfigAck(){}
+    public void sendActionGetAllflow(NetworkFunction nf){};
+    public void getActionAllflowAck(MyActionMessageProto.ActionGetAllflowAckMsg actionGetAllflowAckMsg){};
+    public void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState){};
+    public void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg){};
 }
