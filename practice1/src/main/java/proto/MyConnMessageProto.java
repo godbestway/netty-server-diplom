@@ -2860,6 +2860,17 @@ public final class MyConnMessageProto {
      * @return The proto.
      */
     int getProto();
+
+    /**
+     * <code>optional int32 mode = 3;</code>
+     * @return Whether the mode field is set.
+     */
+    boolean hasMode();
+    /**
+     * <code>optional int32 mode = 3;</code>
+     * @return The mode.
+     */
+    int getMode();
   }
   /**
    * Protobuf type {@code ConnGetPerflowMsg}
@@ -2915,6 +2926,11 @@ public final class MyConnMessageProto {
             case 16: {
               bitField0_ |= 0x00000002;
               proto_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              mode_ = input.readInt32();
               break;
             }
             default: {
@@ -2988,6 +3004,25 @@ public final class MyConnMessageProto {
       return proto_;
     }
 
+    public static final int MODE_FIELD_NUMBER = 3;
+    private int mode_;
+    /**
+     * <code>optional int32 mode = 3;</code>
+     * @return Whether the mode field is set.
+     */
+    @java.lang.Override
+    public boolean hasMode() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional int32 mode = 3;</code>
+     * @return The mode.
+     */
+    @java.lang.Override
+    public int getMode() {
+      return mode_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3008,6 +3043,9 @@ public final class MyConnMessageProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt32(2, proto_);
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt32(3, mode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3024,6 +3062,10 @@ public final class MyConnMessageProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, proto_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, mode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3050,6 +3092,11 @@ public final class MyConnMessageProto {
         if (getProto()
             != other.getProto()) return false;
       }
+      if (hasMode() != other.hasMode()) return false;
+      if (hasMode()) {
+        if (getMode()
+            != other.getMode()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3068,6 +3115,10 @@ public final class MyConnMessageProto {
       if (hasProto()) {
         hash = (37 * hash) + PROTO_FIELD_NUMBER;
         hash = (53 * hash) + getProto();
+      }
+      if (hasMode()) {
+        hash = (37 * hash) + MODE_FIELD_NUMBER;
+        hash = (53 * hash) + getMode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3206,6 +3257,8 @@ public final class MyConnMessageProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         proto_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        mode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3241,6 +3294,10 @@ public final class MyConnMessageProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.proto_ = proto_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.mode_ = mode_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3296,6 +3353,9 @@ public final class MyConnMessageProto {
         }
         if (other.hasProto()) {
           setProto(other.getProto());
+        }
+        if (other.hasMode()) {
+          setMode(other.getMode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3401,6 +3461,45 @@ public final class MyConnMessageProto {
       public Builder clearProto() {
         bitField0_ = (bitField0_ & ~0x00000002);
         proto_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int mode_ ;
+      /**
+       * <code>optional int32 mode = 3;</code>
+       * @return Whether the mode field is set.
+       */
+      @java.lang.Override
+      public boolean hasMode() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional int32 mode = 3;</code>
+       * @return The mode.
+       */
+      @java.lang.Override
+      public int getMode() {
+        return mode_;
+      }
+      /**
+       * <code>optional int32 mode = 3;</code>
+       * @param value The mode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMode(int value) {
+        bitField0_ |= 0x00000004;
+        mode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 mode = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMode() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        mode_ = 0;
         onChanged();
         return this;
       }
@@ -6968,17 +7067,17 @@ public final class MyConnMessageProto {
       "ConnStateType\020\004\022\031\n\025ConnPutPerflowMsgType" +
       "\020\005\022\034\n\030ConnPutPerflowAckMsgType\020\006B\t\n\007mess" +
       "age\"$\n\007ConnSyn\022\014\n\004host\030\001 \001(\t\022\013\n\003pid\030\002 \001(" +
-      "\007\"4\n\021ConnGetPerflowMsg\022\020\n\010hw_proto\030\001 \001(\005" +
-      "\022\r\n\005proto\030\002 \001(\005\"%\n\024ConnGetPerflowAckMsg\022" +
-      "\r\n\005count\030\001 \001(\007\"\274\001\n\tConnState\022\021\n\tether_ds" +
-      "t\030\001 \003(\007\022\021\n\tether_src\030\002 \003(\007\022\014\n\004s_ip\030\003 \001(\007" +
-      "\022\014\n\004d_ip\030\004 \001(\007\022\016\n\006s_port\030\005 \001(\007\022\016\n\006d_port" +
-      "\030\006 \001(\007\022\020\n\010hw_proto\030\007 \001(\005\022\r\n\005proto\030\010 \001(\005\022" +
-      "\014\n\004cxid\030\t \001(\006\022\014\n\004hash\030\n \001(\007\022\020\n\010nat_hash\030" +
-      "\013 \001(\007\".\n\021ConnPutPerflowMsg\022\031\n\005state\030\001 \001(" +
-      "\0132\n.ConnState\"2\n\024ConnPutPerflowAckMsg\022\014\n" +
-      "\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(\007B\026B\022MyConnMessa" +
-      "geProtoH\001"
+      "\007\"B\n\021ConnGetPerflowMsg\022\020\n\010hw_proto\030\001 \001(\005" +
+      "\022\r\n\005proto\030\002 \001(\005\022\014\n\004mode\030\003 \001(\005\"%\n\024ConnGet" +
+      "PerflowAckMsg\022\r\n\005count\030\001 \001(\007\"\274\001\n\tConnSta" +
+      "te\022\021\n\tether_dst\030\001 \003(\007\022\021\n\tether_src\030\002 \003(\007" +
+      "\022\014\n\004s_ip\030\003 \001(\007\022\014\n\004d_ip\030\004 \001(\007\022\016\n\006s_port\030\005" +
+      " \001(\007\022\016\n\006d_port\030\006 \001(\007\022\020\n\010hw_proto\030\007 \001(\005\022\r" +
+      "\n\005proto\030\010 \001(\005\022\014\n\004cxid\030\t \001(\006\022\014\n\004hash\030\n \001(" +
+      "\007\022\020\n\010nat_hash\030\013 \001(\007\".\n\021ConnPutPerflowMsg" +
+      "\022\031\n\005state\030\001 \001(\0132\n.ConnState\"2\n\024ConnPutPe" +
+      "rflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(\007B" +
+      "\026B\022MyConnMessageProtoH\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7001,7 +7100,7 @@ public final class MyConnMessageProto {
     internal_static_ConnGetPerflowMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ConnGetPerflowMsg_descriptor,
-        new java.lang.String[] { "HwProto", "Proto", });
+        new java.lang.String[] { "HwProto", "Proto", "Mode", });
     internal_static_ConnGetPerflowAckMsg_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_ConnGetPerflowAckMsg_fieldAccessorTable = new

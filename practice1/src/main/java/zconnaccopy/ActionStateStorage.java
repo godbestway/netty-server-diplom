@@ -16,23 +16,26 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class ActionStateStorage {
     private static volatile ActionStateStorage actionStateStorage;
     private ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>> statesMap;
+    private ConcurrentLinkedQueue<MyActionMessageProto.ActionMultiState> statesList;
     private NetworkFunction dst;
     private boolean ack;
-    private MoveProcessControl moveProcessControl;
+    private CopyProcessControl moveProcessControl;
+
     protected static Logger logger = LoggerFactory.getLogger(ActionStateStorage.class);
 
     private ActionStateStorage(){
-        statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
+        //statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
+        statesList = new ConcurrentLinkedQueue<>();
     }
 
-    private ActionStateStorage(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    private ActionStateStorage(NetworkFunction dst, CopyProcessControl moveProcessControl){
         this.moveProcessControl = moveProcessControl;
         this.dst = dst;
         this.ack = false;
         statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
     }
 
-    public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    public static ActionStateStorage getInstance(NetworkFunction dst, CopyProcessControl moveProcessControl){
         if(actionStateStorage == null){
             synchronized (ConnStateStorage.class){
                 if(actionStateStorage == null){
@@ -75,5 +78,13 @@ public class ActionStateStorage {
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public ConcurrentLinkedQueue<MyActionMessageProto.ActionMultiState> getStatesList() {
+        return statesList;
+    }
+
+    public void setStatesList(ConcurrentLinkedQueue<MyActionMessageProto.ActionMultiState> statesList) {
+        this.statesList = statesList;
     }
 }

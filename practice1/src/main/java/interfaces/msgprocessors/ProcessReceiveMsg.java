@@ -11,7 +11,7 @@ import proto.MyConnMessageProto;
  */
 public interface ProcessReceiveMsg {
 
-    void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters);
+    void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters, int mode);
     void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg);
     void receiveConnStatePerflow(MyConnMessageProto.ConnState connState);
     void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg);

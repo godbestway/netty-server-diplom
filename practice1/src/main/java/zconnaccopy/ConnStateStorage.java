@@ -17,7 +17,7 @@ public class ConnStateStorage {
     private ConcurrentLinkedQueue<MyConnMessageProto.ConnState> statesList;
     private NetworkFunction dst;
     private boolean ack;
-    private MoveProcessControl moveProcessControl;
+    private CopyProcessControl moveProcessControl;
     protected static Logger logger = LoggerFactory.getLogger(ConnStateStorage.class);
 
 
@@ -31,14 +31,14 @@ public class ConnStateStorage {
         statesList = new ConcurrentLinkedQueue<MyConnMessageProto.ConnState>();
     }
 
-    private ConnStateStorage(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    private ConnStateStorage(NetworkFunction dst, CopyProcessControl moveProcessControl){
         this.ack = false;
         this.dst = dst;
         this.moveProcessControl = moveProcessControl;
         statesList = new ConcurrentLinkedQueue<MyConnMessageProto.ConnState>();
     }
 
-    public static ConnStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    public static ConnStateStorage getInstance(NetworkFunction dst, CopyProcessControl moveProcessControl){
         if(connStateStorage == null){
             synchronized (ConnStateStorage.class){
                 if(connStateStorage == null){

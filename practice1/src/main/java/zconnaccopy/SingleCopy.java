@@ -26,7 +26,7 @@ public class SingleCopy {
             e.printStackTrace();
         }
 
-        ProcessCondition moveProcessControl = new MoveProcessControl(operationManager);
+        ProcessCondition moveProcessControl = new CopyProcessControl(operationManager);
         new Thread((Runnable) moveProcessControl).start();
 
         synchronized (operationManager){

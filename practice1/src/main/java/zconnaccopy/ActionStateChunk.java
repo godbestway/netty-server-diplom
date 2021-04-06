@@ -43,6 +43,7 @@ public class ActionStateChunk implements Callable<Boolean> {
         //logger.info("ActionStateChuck call"+System.currentTimeMillis()+" actionState"+actionState.getData());
         MyActionMessageProto.MyActionMessage putPerflowMessage = null;
         if(this.actionState != null) {
+            //logger.info("send action state perflow");
             putPerflowMessage = MyActionMessageProto.MyActionMessage.newBuilder()
                     .setDataType(MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowMsgType)
                     .setActionPutPerflowMsg(MyActionMessageProto.ActionPutPerflowMsg.

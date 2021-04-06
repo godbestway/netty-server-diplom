@@ -58,7 +58,7 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
         //showReceiveList();
 
-        showConnState(connState);
+        //showConnState(connState);
         ConnStateChunk connStateChunk = null;
         connStateChunk = new ConnStateChunk(connStateStorage.getDst(), connState);
         threadPool.submit(connStateChunk);
@@ -81,13 +81,16 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
     }
 
-    public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters) {
+    //mode = 1 is move operation, mode = 2 is copy
+    public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters, int mode) {
         logger.info("发送了connection getperflow");
         MyConnMessageProto.MyConnMessage myMessage = MyConnMessageProto.MyConnMessage.newBuilder()
                 .setDataType(MyConnMessageProto.MyConnMessage.DataType.ConnGetPerflowMsgType)
                 .setConnGetPerflowMsg(MyConnMessageProto.ConnGetPerflowMsg.newBuilder()
                         .setHwProto(hwParameters)
-                        .setProto(protoParameters).build())
+                        .setProto(protoParameters)
+                        .setMode(mode)
+                        .build())
                 .build();
 
         nf.getConnectionChannel().sendMessage(myMessage);

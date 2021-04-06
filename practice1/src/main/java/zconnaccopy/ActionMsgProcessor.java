@@ -21,6 +21,7 @@ import java.util.concurrent.Executors;
  */
 public class ActionMsgProcessor extends ActionProcessAllflows {
     private volatile int receiveCount;
+
     private volatile int countPerflow;
     private volatile int totalPerflow ;
     private volatile int countMultiflow;
@@ -80,6 +81,12 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         //logger.info("action receive:"+ receiveCount);
 
         //showReceiveList();
+        //actionState.getSAsset() ;
+        //MyActionMessageProto.Asset asset = null;
+        //actionState.toBuilder()
+        //        .setCAsset(asset)
+        //        .setSAsset(asset).build();
+
 
         //showFWActionState(actionState);
         //logger.info("action receive state current time "+actionState.getCxid());
@@ -98,6 +105,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         logger.info("getPerflowAck action totalnum:"+ totalPerflow);
         //logger.info("getPerflowAck action count:"+ count);
         if(totalPerflow == countPerflow){
+            perflowAck = true;
             setActionStateStorageAck();
         }
 
@@ -110,7 +118,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         //System.out.println("connection put perflow count"+count);
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
         //logger.info("action put perflow cxid"+ actionPutPerflowAckMsg.getCxid());
-        //logger.info("action put perflow count"+ count);
+        //logger.info("action put perflow count"+ countPerflow);
         //logger.info("action put perflow totalnum"+totalnum);
         //logger.info("action put perflow num"+count);
         if(totalPerflow == countPerflow){
@@ -133,8 +141,9 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
     @Override
     public void getActionMultiflowAck(MyActionMessageProto.ActionGetMultiflowAckMsg actionGetMultiflowAckMsg) {
         totalMultiflow = actionGetMultiflowAckMsg.getCount();
-        logger.info("getMultiflowAck action totalnum:"+ totalMultiflow);
+        //logger.info("getMultiflowAck action totalnum:"+ totalMultiflow);
         //logger.info("getPerflowAck action count:"+ count);
+
         if(totalMultiflow == countMultiflow){
             multiflowAck = true;
             setActionStateStorageAck();
@@ -146,9 +155,9 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
     @Override
     public void receiveActionStateMultiflow(MyActionMessageProto.ActionMultiState actionMultiState) {
         //showNATActionState(actionState);
-        logger.info("action receive: multiflow");
+        //logger.info("action receive: multiflow");
         //showReceiveList();
-
+        //actionStateStorage.getStatesList().add(actionMultiState);
         //showFWActionState(actionState);
         //logger.info("action receive state current time "+actionState.getCxid());
         //&& (receiveCount < 36)(receiveCount > 20)&&
@@ -156,7 +165,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         //if((actionState.getHash() == 7074) || (actionState.getHash() == 7330)) {
         ActionStateChunk actionStateChunk = new ActionStateChunk(actionStateStorage.getDst(), actionMultiState);
         threadPool.submit(actionStateChunk);
-        //showActionState(actionState);
+        //showAsset(actionMultiState.getMultiState());
         //}
 
     }
@@ -171,7 +180,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         //logger.info("action put perflow cxid"+ actionPutPerflowAckMsg.getCxid());
         //logger.info("action put perflow count"+ count);
         //logger.info("action put perflow totalnum"+totalnum);
-        logger.info("action put multiflow num"+countMultiflow);
+        //logger.info("action put multiflow num"+countMultiflow);
         if(totalMultiflow == countMultiflow){
             multiflowAck = true;
             setActionStateStorageAck();
@@ -180,7 +189,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
 
     @Override
     public void sendActionGetAllflow(NetworkFunction nf) {
-        logger.info("发送了action getpMultiflow");
+        logger.info("发送了action getAllflow");
         MyActionMessageProto.MyActionMessage myActionMessage = MyActionMessageProto.MyActionMessage.newBuilder()
                 .setDataType(MyActionMessageProto.MyActionMessage.DataType.ActionGetAllflowMsgType)
                 .setActionGetAllflowMsg(MyActionMessageProto.ActionGetAllflowMsg.newBuilder().build())
@@ -228,7 +237,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
         //logger.info("action put perflow cxid"+ actionPutPerflowAckMsg.getCxid());
         //logger.info("action put perflow count"+ count);
-        //logger.info("action put perflow totalnum"+totalnum);
+        logger.info("action put ALlflow totalnum"+countAllflow);
         //logger.info("action put perflow num"+count);
         if(totalAllflow == countAllflow){
             allflowAck = true;
@@ -255,7 +264,7 @@ public class ActionMsgProcessor extends ActionProcessAllflows {
 
     public void setActionStateStorageAck(){
         //logger.info("set a ActionStorage Ack");
-        if(multiflowAck && allflowAck){
+        if(multiflowAck && allflowAck && perflowAck){
             this.actionStateStorage.setAck();
         }
     }

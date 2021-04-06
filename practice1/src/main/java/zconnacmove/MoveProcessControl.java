@@ -128,7 +128,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                     e.printStackTrace();
                 }*/
                 operationManager.getConnMsgProcessors().sendConnGetPerflow(runNFs.get("nf1"),
-                        HwProtoParameters.TYPE_IPv4, ProtoParameters.PROTOCOL_TCP);
+                        HwProtoParameters.TYPE_IPv4, ProtoParameters.PROTOCOL_TCP, 1);
             }
         }).start();
         /*new Thread(new Runnable() {

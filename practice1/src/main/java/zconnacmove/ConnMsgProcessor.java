@@ -82,13 +82,15 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
     }
 
-    public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters) {
+    public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters,int mode) {
         logger.info("发送了connection getperflow");
         MyConnMessageProto.MyConnMessage myMessage = MyConnMessageProto.MyConnMessage.newBuilder()
                 .setDataType(MyConnMessageProto.MyConnMessage.DataType.ConnGetPerflowMsgType)
                 .setConnGetPerflowMsg(MyConnMessageProto.ConnGetPerflowMsg.newBuilder()
                         .setHwProto(hwParameters)
-                        .setProto(protoParameters).build())
+                        .setProto(protoParameters)
+                        .setMode(mode)
+                        .build())
                 .build();
 
         nf.getConnectionChannel().sendMessage(myMessage);
