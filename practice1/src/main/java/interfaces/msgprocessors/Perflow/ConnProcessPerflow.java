@@ -11,7 +11,6 @@ import proto.MyActionMessageProto;
  * @Description:
  */
 public abstract class ConnProcessPerflow implements ProcessReceiveMsg {
-    public void sendActionGetPerflow(NetworkFunction nf,short hwParameters, byte protoParameters){}
 
     public void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg){}
 
@@ -28,4 +27,8 @@ public abstract class ConnProcessPerflow implements ProcessReceiveMsg {
     public void getActionAllflowAck(MyActionMessageProto.ActionGetAllflowAckMsg actionGetAllflowAckMsg){};
     public void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState){};
     public void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg){};
+
+    public void receiveShareStatePerflow(MyActionMessageProto.ShareState shareState){};
+
+    public void sendActionGetPerflow(NetworkFunction nf,short hwParameters, byte protoParameters, int share){}
 }

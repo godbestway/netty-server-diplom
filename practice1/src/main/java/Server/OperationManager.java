@@ -16,6 +16,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -28,6 +31,7 @@ public class OperationManager {
     private ProcessReceiveMsg connMsgProcessors;
     private ProcessReceiveMsg actionMsgProcessors;
     private ProcessCondition processCondition;
+    private int onlyFramework;
     protected static Logger logger = LoggerFactory.getLogger(OperationManager.class);
 
 
@@ -37,13 +41,21 @@ public class OperationManager {
 
 
     public OperationManager(){
-
+        parseConfigFile();
         nfs = new ConcurrentHashMap<String, NetworkFunction>();
         port1 = 18080;
         port2 = 18081;
     }
 
+    public OperationManager(ProcessReceiveMsg actionMsgProcessors ) {
+        parseConfigFile();
+        this.actionMsgProcessors = actionMsgProcessors;
+        port2 = 18081;
+        nfs = new ConcurrentHashMap<String, NetworkFunction>();
+    }
+
     public OperationManager(ProcessReceiveMsg connMsgProcessors, ProcessReceiveMsg actionMsgProcessors ) {
+        parseConfigFile();
         this.connMsgProcessors = connMsgProcessors;
         this.actionMsgProcessors = actionMsgProcessors;
         port1 = 18080;
@@ -52,6 +64,17 @@ public class OperationManager {
     }
 
 
+    public void parseConfigFile(){
+        Properties prop = new Properties();
+        try {
+            FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
+            prop.load(fileInputStream);
+            this.onlyFramework = Integer.parseInt(prop.getProperty("OnlyFramework"));
+            System.out.println(onlyFramework);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     public void run1() throws Exception
     {
@@ -177,6 +200,9 @@ public class OperationManager {
                 //System.out.println("try to set a action channel");
                 logger.info("try to set a action channel");
                 nf.setActionChannel((ActionChannel)channel);
+                if(this.onlyFramework == 1){
+                    connected = true;
+                }
             }
 
             if(nf.isFullyConnected()){

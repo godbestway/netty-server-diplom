@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import proto.MyConnMessageProto;
 
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -15,15 +16,15 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class ConnStateStorage {
     private static volatile ConnStateStorage connStateStorage;
-    private ConcurrentLinkedQueue<MyConnMessageProto.ConnState> statesList;
+
     private NetworkFunction dst;
     private boolean ack;
     private MoveProcessControl moveProcessControl;
+    private ConcurrentLinkedQueue<MyConnMessageProto.ConnState> statesList;
     protected static Logger logger = LoggerFactory.getLogger(ConnStateStorage.class);
 
 
     private ConnStateStorage(){
-
         statesList = new ConcurrentLinkedQueue<MyConnMessageProto.ConnState>();
     }
 
@@ -50,13 +51,7 @@ public class ConnStateStorage {
         return connStateStorage;
     }
 
-    public ConcurrentLinkedQueue<MyConnMessageProto.ConnState> getStatesList() {
-        return statesList;
-    }
 
-    public void setStatesList(ConcurrentLinkedQueue<MyConnMessageProto.ConnState> statesList) {
-        this.statesList = statesList;
-    }
 
     public NetworkFunction getDst() {
         return dst;

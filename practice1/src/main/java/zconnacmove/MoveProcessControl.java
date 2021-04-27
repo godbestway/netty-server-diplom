@@ -30,6 +30,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     private final int numInstances = 2;
     private Map<String, NetworkFunction> runNFs;
     private OperationManager operationManager;
+    public static boolean isFirstRecv = false;
     public static long movestart;
     //public static long movestart2;
     private CountDownLatch latch;
@@ -52,7 +53,6 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public MoveProcessControl(OperationManager operationManager){
         runNFs = new HashMap<String, NetworkFunction>();
         this.operationManager = operationManager;
-        this.movestart = -1;
         //this.movestart2 = -1;
         latch = new CountDownLatch(2);
         //cyclicBarrier = new CyclicBarrier(1);
@@ -144,7 +144,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                 operationManager.getActionMsgProcessors().sendActionGetPerflow(runNFs.get("nf1"), "all");
             }
         }).start();*/
-        this.movestart = System.currentTimeMillis();
+        //this.movestart = System.currentTimeMillis();
         receiveDoubleAck();
         //operationManager.getConnMsgProcessors().testSendPutFlow();
         //receiveDoubleAck();
@@ -173,13 +173,15 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     }
 
     public void changeForwarding() {
+        System.out.println(System.currentTimeMillis());
         long movetime = System.currentTimeMillis() - this.movestart;
 
         logger.info("begin to change forward direction");
         String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
                 "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=3\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
         System.out.println(execCurl(cmd));
-        logger.info("total move time"+movetime);
+        //logger.info("total move time"+movetime);
+	    logger.info(String.format("[MOVE_TIME] elapse=%d ", movetime));
     }
 
     public static String execCurl(String[] cmds) {

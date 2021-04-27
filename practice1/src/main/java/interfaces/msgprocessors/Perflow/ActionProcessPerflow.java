@@ -29,4 +29,8 @@ public abstract  class ActionProcessPerflow implements ProcessReceiveMsg {
     public void getActionAllflowAck(MyActionMessageProto.ActionGetAllflowAckMsg actionGetAllflowAckMsg){};
     public void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState){};
     public void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg){};
+
+    public void receiveShareStatePerflow(MyActionMessageProto.ShareState shareState){};
+
+    public void sendActionGetPerflow(NetworkFunction nf,short hwParameters, byte protoParameters, int share){}
 }

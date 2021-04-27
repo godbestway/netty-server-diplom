@@ -52,14 +52,20 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
     }
 
     public void receiveConnStatePerflow(MyConnMessageProto.ConnState connState) {
-        receiveCxidList.add(connState.getHash());
+        //receiveCxidList.add(connState.getHash());
+        if(!MoveProcessControl.isFirstRecv){
+            MoveProcessControl.isFirstRecv = true;
+            MoveProcessControl.movestart = System.currentTimeMillis();
+            logger.info("move start from conn processor"+ MoveProcessControl.movestart);
+        }
+
         receiveCount++;
         //logger.info("conn receive state current time "+System.currentTimeMillis());
         //logger.info("conn receive:"+ receiveCount);
 
         //showReceiveList();
 
-        showConnState(connState);
+        //showConnState(connState);
         ConnStateChunk connStateChunk = null;
         connStateChunk = new ConnStateChunk(connStateStorage.getDst(), connState);
         threadPool.submit(connStateChunk);
@@ -67,7 +73,7 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
 
     public void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg) {
         totalnum = connGetPerflowAckMsg.getCount();
-        logger.info("getPerflowAck connection totalnum:"+ totalnum);
+        //logger.info("getPerflowAck connection totalnum:"+ totalnum);
     }
 
     public void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg) {

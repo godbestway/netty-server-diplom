@@ -59,7 +59,13 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
     }
 
     public void receiveActionStatePerflow(MyActionMessageProto.ActionState actionState) {
-        receiveCxidList.add(actionState.getHash());
+        //receiveCxidList.add(actionState.getHash());
+        if(!MoveProcessControl.isFirstRecv){
+            MoveProcessControl.isFirstRecv = true;
+            MoveProcessControl.movestart = System.currentTimeMillis();
+            logger.info("move start from action processor"+ MoveProcessControl.movestart);
+        }
+
         receiveCount++;
         //showNATActionState(actionState);
         //logger.info("action receive:"+ receiveCount);
@@ -80,7 +86,7 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
     public void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg) {
 
         totalnum = actionGetPerflowAckMsg.getCount();
-        logger.info("getPerflowAck action totalnum:"+ totalnum);
+        //logger.info("getPerflowAck action totalnum:"+ totalnum);
         //logger.info("getPerflowAck action count:"+ count);
         if(totalnum == count){
             setActionStateStorageAck();
@@ -101,18 +107,6 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
         if(totalnum == count){
             setActionStateStorageAck();
         }
-    }
-
-    public void sendActionGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters) {
-        logger.info("发送了action getperflow");
-        MyActionMessageProto.MyActionMessage myMessage = MyActionMessageProto.MyActionMessage.newBuilder()
-                .setDataType(MyActionMessageProto.MyActionMessage.DataType.ActionGetPerflowMsgType)
-                .setActionGetPerflowMsg(MyActionMessageProto.ActionGetPerflowMsg.newBuilder()
-                        .setHwProto(hwParameters)
-                        .setProto(protoParameters).build())
-                .build();
-
-        nf.getActionChannel().sendMessage(myMessage);
     }
 
     public void addActionStateStorage(ActionStateStorage actionStateStorage){

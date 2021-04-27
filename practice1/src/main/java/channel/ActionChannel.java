@@ -41,7 +41,10 @@ public class ActionChannel extends BaseChannel{
             //logger.info("receive a connstate"+System.currentTimeMillis());
             actionMsgProcess.receiveActionStatePerflow(myMessage.getActionState());
 
-        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowAckMsgType){
+        }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionShareStateType){
+            actionMsgProcess.receiveShareStatePerflow(myMessage.getShareState());
+
+        } else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionPutPerflowAckMsgType){
             //logger.info("receive a conn putAck"+System.currentTimeMillis());
             actionMsgProcess.putActionPerflowAck(myMessage.getActionPutPerflowAckMsg());
         }else if(dataType == MyActionMessageProto.MyActionMessage.DataType.ActionGetMultiflowAckMsgType){

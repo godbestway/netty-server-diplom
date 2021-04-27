@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * @Description:
  */
 public class ActionChannelHandler extends BaseChannelHandler {
-    protected static Logger logger = LoggerFactory.getLogger(ConnectionChannelHandler.class);
+    protected static Logger logger = LoggerFactory.getLogger(ActionChannelHandler.class);
 
     public ActionChannelHandler(OperationManager operationManager) {
         super(operationManager);

@@ -34,7 +34,7 @@ public class ActionStateStorage {
 
     public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl){
         if(actionStateStorage == null){
-            synchronized (ConnStateStorage.class){
+            synchronized (ActionStateStorage.class){
                 if(actionStateStorage == null){
                     actionStateStorage = new ActionStateStorage(dst, moveProcessControl);
                 }

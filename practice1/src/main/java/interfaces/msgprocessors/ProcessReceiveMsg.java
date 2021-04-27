@@ -3,6 +3,7 @@ package interfaces.msgprocessors;
 import interfaces.NetworkFunction;
 import proto.MyActionMessageProto;
 import proto.MyConnMessageProto;
+import sun.nio.ch.Net;
 
 /**
  * @Author: Chenglin Ding
@@ -15,7 +16,6 @@ public interface ProcessReceiveMsg {
     void getConnPerflowAck(MyConnMessageProto.ConnGetPerflowAckMsg connGetPerflowAckMsg);
     void receiveConnStatePerflow(MyConnMessageProto.ConnState connState);
     void putConnPerflowAck(MyConnMessageProto.ConnPutPerflowAckMsg connPutPerflowAckMsg);
-
 
 
     void receiveActionStatePerflow(MyActionMessageProto.ActionState actionState);
@@ -32,5 +32,7 @@ public interface ProcessReceiveMsg {
     void receiveActionStateAllflow(MyActionMessageProto.ActionAllState actionAllState);
     void putActionAllflowAck(MyActionMessageProto.ActionPutAllflowAckMsg actionPutAllflowAckMsg);
 
-    void sendActionGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters);
+    void sendActionGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters,int share);
+    void receiveShareStatePerflow(MyActionMessageProto.ShareState shareState);
+
 }

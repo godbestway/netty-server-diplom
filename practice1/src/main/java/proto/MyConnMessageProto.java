@@ -117,6 +117,21 @@ public final class MyConnMessageProto {
      */
     MyConnMessageProto.ConnPutPerflowAckMsgOrBuilder getConnPutPerflowAckMsgOrBuilder();
 
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     * @return Whether the unlockMsg field is set.
+     */
+    boolean hasUnlockMsg();
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     * @return The unlockMsg.
+     */
+    MyConnMessageProto.UnlockMsg getUnlockMsg();
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     */
+    MyConnMessageProto.UnlockMsgOrBuilder getUnlockMsgOrBuilder();
+
     public MyConnMessageProto.MyConnMessage.MessageCase getMessageCase();
   }
   /**
@@ -262,6 +277,20 @@ public final class MyConnMessageProto {
               messageCase_ = 7;
               break;
             }
+            case 66: {
+              MyConnMessageProto.UnlockMsg.Builder subBuilder = null;
+              if (messageCase_ == 8) {
+                subBuilder = ((MyConnMessageProto.UnlockMsg) message_).toBuilder();
+              }
+              message_ =
+                  input.readMessage(MyConnMessageProto.UnlockMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((MyConnMessageProto.UnlockMsg) message_);
+                message_ = subBuilder.buildPartial();
+              }
+              messageCase_ = 8;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -323,6 +352,10 @@ public final class MyConnMessageProto {
        * <code>ConnPutPerflowAckMsgType = 6;</code>
        */
       ConnPutPerflowAckMsgType(6),
+      /**
+       * <code>UnlockMsgType = 7;</code>
+       */
+      UnlockMsgType(7),
       ;
 
       /**
@@ -349,6 +382,10 @@ public final class MyConnMessageProto {
        * <code>ConnPutPerflowAckMsgType = 6;</code>
        */
       public static final int ConnPutPerflowAckMsgType_VALUE = 6;
+      /**
+       * <code>UnlockMsgType = 7;</code>
+       */
+      public static final int UnlockMsgType_VALUE = 7;
 
 
       public final int getNumber() {
@@ -377,6 +414,7 @@ public final class MyConnMessageProto {
           case 4: return ConnStateType;
           case 5: return ConnPutPerflowMsgType;
           case 6: return ConnPutPerflowAckMsgType;
+          case 7: return UnlockMsgType;
           default: return null;
         }
       }
@@ -438,6 +476,7 @@ public final class MyConnMessageProto {
       CONNSTATE(5),
       CONNPUTPERFLOWMSG(6),
       CONNPUTPERFLOWACKMSG(7),
+      UNLOCKMSG(8),
       MESSAGE_NOT_SET(0);
       private final int value;
       private MessageCase(int value) {
@@ -461,6 +500,7 @@ public final class MyConnMessageProto {
           case 5: return CONNSTATE;
           case 6: return CONNPUTPERFLOWMSG;
           case 7: return CONNPUTPERFLOWACKMSG;
+          case 8: return UNLOCKMSG;
           case 0: return MESSAGE_NOT_SET;
           default: return null;
         }
@@ -681,6 +721,37 @@ public final class MyConnMessageProto {
       return MyConnMessageProto.ConnPutPerflowAckMsg.getDefaultInstance();
     }
 
+    public static final int UNLOCKMSG_FIELD_NUMBER = 8;
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     * @return Whether the unlockMsg field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnlockMsg() {
+      return messageCase_ == 8;
+    }
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     * @return The unlockMsg.
+     */
+    @java.lang.Override
+    public MyConnMessageProto.UnlockMsg getUnlockMsg() {
+      if (messageCase_ == 8) {
+         return (MyConnMessageProto.UnlockMsg) message_;
+      }
+      return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+    }
+    /**
+     * <code>.UnlockMsg unlockMsg = 8;</code>
+     */
+    @java.lang.Override
+    public MyConnMessageProto.UnlockMsgOrBuilder getUnlockMsgOrBuilder() {
+      if (messageCase_ == 8) {
+         return (MyConnMessageProto.UnlockMsg) message_;
+      }
+      return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -720,6 +791,9 @@ public final class MyConnMessageProto {
       if (messageCase_ == 7) {
         output.writeMessage(7, (MyConnMessageProto.ConnPutPerflowAckMsg) message_);
       }
+      if (messageCase_ == 8) {
+        output.writeMessage(8, (MyConnMessageProto.UnlockMsg) message_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -756,6 +830,10 @@ public final class MyConnMessageProto {
       if (messageCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, (MyConnMessageProto.ConnPutPerflowAckMsg) message_);
+      }
+      if (messageCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (MyConnMessageProto.UnlockMsg) message_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -802,6 +880,10 @@ public final class MyConnMessageProto {
           if (!getConnPutPerflowAckMsg()
               .equals(other.getConnPutPerflowAckMsg())) return false;
           break;
+        case 8:
+          if (!getUnlockMsg()
+              .equals(other.getUnlockMsg())) return false;
+          break;
         case 0:
         default:
       }
@@ -844,6 +926,10 @@ public final class MyConnMessageProto {
         case 7:
           hash = (37 * hash) + CONNPUTPERFLOWACKMSG_FIELD_NUMBER;
           hash = (53 * hash) + getConnPutPerflowAckMsg().hashCode();
+          break;
+        case 8:
+          hash = (37 * hash) + UNLOCKMSG_FIELD_NUMBER;
+          hash = (53 * hash) + getUnlockMsg().hashCode();
           break;
         case 0:
         default:
@@ -1059,6 +1145,13 @@ public final class MyConnMessageProto {
             result.message_ = connPutPerflowAckMsgBuilder_.build();
           }
         }
+        if (messageCase_ == 8) {
+          if (unlockMsgBuilder_ == null) {
+            result.message_ = message_;
+          } else {
+            result.message_ = unlockMsgBuilder_.build();
+          }
+        }
         result.bitField0_ = to_bitField0_;
         result.messageCase_ = messageCase_;
         onBuilt();
@@ -1135,6 +1228,10 @@ public final class MyConnMessageProto {
           }
           case CONNPUTPERFLOWACKMSG: {
             mergeConnPutPerflowAckMsg(other.getConnPutPerflowAckMsg());
+            break;
+          }
+          case UNLOCKMSG: {
+            mergeUnlockMsg(other.getUnlockMsg());
             break;
           }
           case MESSAGE_NOT_SET: {
@@ -2076,6 +2173,147 @@ public final class MyConnMessageProto {
         messageCase_ = 7;
         onChanged();;
         return connPutPerflowAckMsgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyConnMessageProto.UnlockMsg, MyConnMessageProto.UnlockMsg.Builder, MyConnMessageProto.UnlockMsgOrBuilder> unlockMsgBuilder_;
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       * @return Whether the unlockMsg field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnlockMsg() {
+        return messageCase_ == 8;
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       * @return The unlockMsg.
+       */
+      @java.lang.Override
+      public MyConnMessageProto.UnlockMsg getUnlockMsg() {
+        if (unlockMsgBuilder_ == null) {
+          if (messageCase_ == 8) {
+            return (MyConnMessageProto.UnlockMsg) message_;
+          }
+          return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+        } else {
+          if (messageCase_ == 8) {
+            return unlockMsgBuilder_.getMessage();
+          }
+          return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      public Builder setUnlockMsg(MyConnMessageProto.UnlockMsg value) {
+        if (unlockMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          unlockMsgBuilder_.setMessage(value);
+        }
+        messageCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      public Builder setUnlockMsg(
+          MyConnMessageProto.UnlockMsg.Builder builderForValue) {
+        if (unlockMsgBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          unlockMsgBuilder_.setMessage(builderForValue.build());
+        }
+        messageCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      public Builder mergeUnlockMsg(MyConnMessageProto.UnlockMsg value) {
+        if (unlockMsgBuilder_ == null) {
+          if (messageCase_ == 8 &&
+              message_ != MyConnMessageProto.UnlockMsg.getDefaultInstance()) {
+            message_ = MyConnMessageProto.UnlockMsg.newBuilder((MyConnMessageProto.UnlockMsg) message_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          if (messageCase_ == 8) {
+            unlockMsgBuilder_.mergeFrom(value);
+          }
+          unlockMsgBuilder_.setMessage(value);
+        }
+        messageCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      public Builder clearUnlockMsg() {
+        if (unlockMsgBuilder_ == null) {
+          if (messageCase_ == 8) {
+            messageCase_ = 0;
+            message_ = null;
+            onChanged();
+          }
+        } else {
+          if (messageCase_ == 8) {
+            messageCase_ = 0;
+            message_ = null;
+          }
+          unlockMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      public MyConnMessageProto.UnlockMsg.Builder getUnlockMsgBuilder() {
+        return getUnlockMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      @java.lang.Override
+      public MyConnMessageProto.UnlockMsgOrBuilder getUnlockMsgOrBuilder() {
+        if ((messageCase_ == 8) && (unlockMsgBuilder_ != null)) {
+          return unlockMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (messageCase_ == 8) {
+            return (MyConnMessageProto.UnlockMsg) message_;
+          }
+          return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.UnlockMsg unlockMsg = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          MyConnMessageProto.UnlockMsg, MyConnMessageProto.UnlockMsg.Builder, MyConnMessageProto.UnlockMsgOrBuilder> 
+          getUnlockMsgFieldBuilder() {
+        if (unlockMsgBuilder_ == null) {
+          if (!(messageCase_ == 8)) {
+            message_ = MyConnMessageProto.UnlockMsg.getDefaultInstance();
+          }
+          unlockMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              MyConnMessageProto.UnlockMsg, MyConnMessageProto.UnlockMsg.Builder, MyConnMessageProto.UnlockMsgOrBuilder>(
+                  (MyConnMessageProto.UnlockMsg) message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        messageCase_ = 8;
+        onChanged();;
+        return unlockMsgBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4184,15 +4422,15 @@ public final class MyConnMessageProto {
     int getProto();
 
     /**
-     * <code>optional fixed64 cxid = 9;</code>
+     * <code>optional fixed32 cxid = 9;</code>
      * @return Whether the cxid field is set.
      */
     boolean hasCxid();
     /**
-     * <code>optional fixed64 cxid = 9;</code>
+     * <code>optional fixed32 cxid = 9;</code>
      * @return The cxid.
      */
-    long getCxid();
+    int getCxid();
 
     /**
      * <code>optional fixed32 hash = 10;</code>
@@ -4336,9 +4574,9 @@ public final class MyConnMessageProto {
               proto_ = input.readInt32();
               break;
             }
-            case 73: {
+            case 77: {
               bitField0_ |= 0x00000040;
-              cxid_ = input.readFixed64();
+              cxid_ = input.readFixed32();
               break;
             }
             case 85: {
@@ -4559,9 +4797,9 @@ public final class MyConnMessageProto {
     }
 
     public static final int CXID_FIELD_NUMBER = 9;
-    private long cxid_;
+    private int cxid_;
     /**
-     * <code>optional fixed64 cxid = 9;</code>
+     * <code>optional fixed32 cxid = 9;</code>
      * @return Whether the cxid field is set.
      */
     @java.lang.Override
@@ -4569,11 +4807,11 @@ public final class MyConnMessageProto {
       return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional fixed64 cxid = 9;</code>
+     * <code>optional fixed32 cxid = 9;</code>
      * @return The cxid.
      */
     @java.lang.Override
-    public long getCxid() {
+    public int getCxid() {
       return cxid_;
     }
 
@@ -4654,7 +4892,7 @@ public final class MyConnMessageProto {
         output.writeInt32(8, proto_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        output.writeFixed64(9, cxid_);
+        output.writeFixed32(9, cxid_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         output.writeFixed32(10, hash_);
@@ -4709,7 +4947,7 @@ public final class MyConnMessageProto {
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(9, cxid_);
+          .computeFixed32Size(9, cxid_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4828,8 +5066,7 @@ public final class MyConnMessageProto {
       }
       if (hasCxid()) {
         hash = (37 * hash) + CXID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getCxid());
+        hash = (53 * hash) + getCxid();
       }
       if (hasHash()) {
         hash = (37 * hash) + HASH_FIELD_NUMBER;
@@ -4988,7 +5225,7 @@ public final class MyConnMessageProto {
         bitField0_ = (bitField0_ & ~0x00000040);
         proto_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        cxid_ = 0L;
+        cxid_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
         hash_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -5586,9 +5823,9 @@ public final class MyConnMessageProto {
         return this;
       }
 
-      private long cxid_ ;
+      private int cxid_ ;
       /**
-       * <code>optional fixed64 cxid = 9;</code>
+       * <code>optional fixed32 cxid = 9;</code>
        * @return Whether the cxid field is set.
        */
       @java.lang.Override
@@ -5596,31 +5833,31 @@ public final class MyConnMessageProto {
         return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>optional fixed64 cxid = 9;</code>
+       * <code>optional fixed32 cxid = 9;</code>
        * @return The cxid.
        */
       @java.lang.Override
-      public long getCxid() {
+      public int getCxid() {
         return cxid_;
       }
       /**
-       * <code>optional fixed64 cxid = 9;</code>
+       * <code>optional fixed32 cxid = 9;</code>
        * @param value The cxid to set.
        * @return This builder for chaining.
        */
-      public Builder setCxid(long value) {
+      public Builder setCxid(int value) {
         bitField0_ |= 0x00000100;
         cxid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional fixed64 cxid = 9;</code>
+       * <code>optional fixed32 cxid = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearCxid() {
         bitField0_ = (bitField0_ & ~0x00000100);
-        cxid_ = 0L;
+        cxid_ = 0;
         onChanged();
         return this;
       }
@@ -6412,6 +6649,28 @@ public final class MyConnMessageProto {
      * @return The cxid.
      */
     int getCxid();
+
+    /**
+     * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+     * @return Whether the fwstate field is set.
+     */
+    boolean hasFwstate();
+    /**
+     * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+     * @return The fwstate.
+     */
+    MyConnMessageProto.ConnPutPerflowAckMsg.fwState getFwstate();
+
+    /**
+     * <code>optional fixed32 nat_hash = 4;</code>
+     * @return Whether the natHash field is set.
+     */
+    boolean hasNatHash();
+    /**
+     * <code>optional fixed32 nat_hash = 4;</code>
+     * @return The natHash.
+     */
+    int getNatHash();
   }
   /**
    * Protobuf type {@code ConnPutPerflowAckMsg}
@@ -6426,6 +6685,7 @@ public final class MyConnMessageProto {
       super(builder);
     }
     private ConnPutPerflowAckMsg() {
+      fwstate_ = 1;
     }
 
     @java.lang.Override
@@ -6469,6 +6729,23 @@ public final class MyConnMessageProto {
               cxid_ = input.readFixed32();
               break;
             }
+            case 24: {
+              int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
+              MyConnMessageProto.ConnPutPerflowAckMsg.fwState value = MyConnMessageProto.ConnPutPerflowAckMsg.fwState.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                fwstate_ = rawValue;
+              }
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              natHash_ = input.readFixed32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6499,6 +6776,102 @@ public final class MyConnMessageProto {
       return MyConnMessageProto.internal_static_ConnPutPerflowAckMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               MyConnMessageProto.ConnPutPerflowAckMsg.class, MyConnMessageProto.ConnPutPerflowAckMsg.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code ConnPutPerflowAckMsg.fwState}
+     */
+    public enum fwState
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>OPEN = 1;</code>
+       */
+      OPEN(1),
+      /**
+       * <code>CLOSED = 2;</code>
+       */
+      CLOSED(2),
+      ;
+
+      /**
+       * <code>OPEN = 1;</code>
+       */
+      public static final int OPEN_VALUE = 1;
+      /**
+       * <code>CLOSED = 2;</code>
+       */
+      public static final int CLOSED_VALUE = 2;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static fwState valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static fwState forNumber(int value) {
+        switch (value) {
+          case 1: return OPEN;
+          case 2: return CLOSED;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<fwState>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          fwState> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<fwState>() {
+              public fwState findValueByNumber(int number) {
+                return fwState.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return MyConnMessageProto.ConnPutPerflowAckMsg.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final fwState[] VALUES = values();
+
+      public static fwState valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private fwState(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ConnPutPerflowAckMsg.fwState)
     }
 
     private int bitField0_;
@@ -6540,6 +6913,44 @@ public final class MyConnMessageProto {
       return cxid_;
     }
 
+    public static final int FWSTATE_FIELD_NUMBER = 3;
+    private int fwstate_;
+    /**
+     * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+     * @return Whether the fwstate field is set.
+     */
+    @java.lang.Override public boolean hasFwstate() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+     * @return The fwstate.
+     */
+    @java.lang.Override public MyConnMessageProto.ConnPutPerflowAckMsg.fwState getFwstate() {
+      @SuppressWarnings("deprecation")
+      MyConnMessageProto.ConnPutPerflowAckMsg.fwState result = MyConnMessageProto.ConnPutPerflowAckMsg.fwState.valueOf(fwstate_);
+      return result == null ? MyConnMessageProto.ConnPutPerflowAckMsg.fwState.OPEN : result;
+    }
+
+    public static final int NAT_HASH_FIELD_NUMBER = 4;
+    private int natHash_;
+    /**
+     * <code>optional fixed32 nat_hash = 4;</code>
+     * @return Whether the natHash field is set.
+     */
+    @java.lang.Override
+    public boolean hasNatHash() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional fixed32 nat_hash = 4;</code>
+     * @return The natHash.
+     */
+    @java.lang.Override
+    public int getNatHash() {
+      return natHash_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6560,6 +6971,12 @@ public final class MyConnMessageProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeFixed32(2, cxid_);
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeEnum(3, fwstate_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeFixed32(4, natHash_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6576,6 +6993,14 @@ public final class MyConnMessageProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFixed32Size(2, cxid_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, fwstate_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(4, natHash_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6602,6 +7027,15 @@ public final class MyConnMessageProto {
         if (getCxid()
             != other.getCxid()) return false;
       }
+      if (hasFwstate() != other.hasFwstate()) return false;
+      if (hasFwstate()) {
+        if (fwstate_ != other.fwstate_) return false;
+      }
+      if (hasNatHash() != other.hasNatHash()) return false;
+      if (hasNatHash()) {
+        if (getNatHash()
+            != other.getNatHash()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6620,6 +7054,14 @@ public final class MyConnMessageProto {
       if (hasCxid()) {
         hash = (37 * hash) + CXID_FIELD_NUMBER;
         hash = (53 * hash) + getCxid();
+      }
+      if (hasFwstate()) {
+        hash = (37 * hash) + FWSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + fwstate_;
+      }
+      if (hasNatHash()) {
+        hash = (37 * hash) + NAT_HASH_FIELD_NUMBER;
+        hash = (53 * hash) + getNatHash();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6758,6 +7200,10 @@ public final class MyConnMessageProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         cxid_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        fwstate_ = 1;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        natHash_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -6793,6 +7239,14 @@ public final class MyConnMessageProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.cxid_ = cxid_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.fwstate_ = fwstate_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.natHash_ = natHash_;
+          to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -6848,6 +7302,12 @@ public final class MyConnMessageProto {
         }
         if (other.hasCxid()) {
           setCxid(other.getCxid());
+        }
+        if (other.hasFwstate()) {
+          setFwstate(other.getFwstate());
+        }
+        if (other.hasNatHash()) {
+          setNatHash(other.getNatHash());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6956,6 +7416,88 @@ public final class MyConnMessageProto {
         onChanged();
         return this;
       }
+
+      private int fwstate_ = 1;
+      /**
+       * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+       * @return Whether the fwstate field is set.
+       */
+      @java.lang.Override public boolean hasFwstate() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+       * @return The fwstate.
+       */
+      @java.lang.Override
+      public MyConnMessageProto.ConnPutPerflowAckMsg.fwState getFwstate() {
+        @SuppressWarnings("deprecation")
+        MyConnMessageProto.ConnPutPerflowAckMsg.fwState result = MyConnMessageProto.ConnPutPerflowAckMsg.fwState.valueOf(fwstate_);
+        return result == null ? MyConnMessageProto.ConnPutPerflowAckMsg.fwState.OPEN : result;
+      }
+      /**
+       * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+       * @param value The fwstate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFwstate(MyConnMessageProto.ConnPutPerflowAckMsg.fwState value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        fwstate_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .ConnPutPerflowAckMsg.fwState fwstate = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFwstate() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        fwstate_ = 1;
+        onChanged();
+        return this;
+      }
+
+      private int natHash_ ;
+      /**
+       * <code>optional fixed32 nat_hash = 4;</code>
+       * @return Whether the natHash field is set.
+       */
+      @java.lang.Override
+      public boolean hasNatHash() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 4;</code>
+       * @return The natHash.
+       */
+      @java.lang.Override
+      public int getNatHash() {
+        return natHash_;
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 4;</code>
+       * @param value The natHash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNatHash(int value) {
+        bitField0_ |= 0x00000008;
+        natHash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNatHash() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        natHash_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7009,6 +7551,424 @@ public final class MyConnMessageProto {
 
   }
 
+  public interface UnlockMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UnlockMsg)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code UnlockMsg}
+   */
+  public static final class UnlockMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:UnlockMsg)
+      UnlockMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UnlockMsg.newBuilder() to construct.
+    private UnlockMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UnlockMsg() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UnlockMsg();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnlockMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return MyConnMessageProto.internal_static_UnlockMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return MyConnMessageProto.internal_static_UnlockMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MyConnMessageProto.UnlockMsg.class, MyConnMessageProto.UnlockMsg.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MyConnMessageProto.UnlockMsg)) {
+        return super.equals(obj);
+      }
+      MyConnMessageProto.UnlockMsg other = (MyConnMessageProto.UnlockMsg) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyConnMessageProto.UnlockMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MyConnMessageProto.UnlockMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MyConnMessageProto.UnlockMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MyConnMessageProto.UnlockMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code UnlockMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:UnlockMsg)
+        MyConnMessageProto.UnlockMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return MyConnMessageProto.internal_static_UnlockMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return MyConnMessageProto.internal_static_UnlockMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MyConnMessageProto.UnlockMsg.class, MyConnMessageProto.UnlockMsg.Builder.class);
+      }
+
+      // Construct using MyConnMessageProto.UnlockMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return MyConnMessageProto.internal_static_UnlockMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public MyConnMessageProto.UnlockMsg getDefaultInstanceForType() {
+        return MyConnMessageProto.UnlockMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public MyConnMessageProto.UnlockMsg build() {
+        MyConnMessageProto.UnlockMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public MyConnMessageProto.UnlockMsg buildPartial() {
+        MyConnMessageProto.UnlockMsg result = new MyConnMessageProto.UnlockMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MyConnMessageProto.UnlockMsg) {
+          return mergeFrom((MyConnMessageProto.UnlockMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(MyConnMessageProto.UnlockMsg other) {
+        if (other == MyConnMessageProto.UnlockMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MyConnMessageProto.UnlockMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MyConnMessageProto.UnlockMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:UnlockMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:UnlockMsg)
+    private static final MyConnMessageProto.UnlockMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MyConnMessageProto.UnlockMsg();
+    }
+
+    public static MyConnMessageProto.UnlockMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<UnlockMsg>
+        PARSER = new com.google.protobuf.AbstractParser<UnlockMsg>() {
+      @java.lang.Override
+      public UnlockMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnlockMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UnlockMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnlockMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public MyConnMessageProto.UnlockMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MyConnMessage_descriptor;
   private static final 
@@ -7044,6 +8004,11 @@ public final class MyConnMessageProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ConnPutPerflowAckMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UnlockMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UnlockMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7053,7 +8018,7 @@ public final class MyConnMessageProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023MyConnMessage.proto\"\363\003\n\rMyConnMessage\022" +
+      "\n\023MyConnMessage.proto\"\247\004\n\rMyConnMessage\022" +
       "*\n\tdata_type\030\001 \002(\0162\027.MyConnMessage.DataT" +
       "ype\022\033\n\007connsyn\030\002 \001(\0132\010.ConnSynH\000\022/\n\021conn" +
       "GetPerflowMsg\030\003 \001(\0132\022.ConnGetPerflowMsgH" +
@@ -7061,23 +8026,27 @@ public final class MyConnMessageProto {
       "tPerflowAckMsgH\000\022\037\n\tconnState\030\005 \001(\0132\n.Co" +
       "nnStateH\000\022/\n\021connPutPerflowMsg\030\006 \001(\0132\022.C" +
       "onnPutPerflowMsgH\000\0225\n\024connPutPerflowAckM" +
-      "sg\030\007 \001(\0132\025.ConnPutPerflowAckMsgH\000\"\234\001\n\010Da" +
-      "taType\022\013\n\007SynType\020\001\022\031\n\025ConnGetPerflowMsg" +
-      "Type\020\002\022\034\n\030ConnGetPerflowAckMsgType\020\003\022\021\n\r" +
-      "ConnStateType\020\004\022\031\n\025ConnPutPerflowMsgType" +
-      "\020\005\022\034\n\030ConnPutPerflowAckMsgType\020\006B\t\n\007mess" +
-      "age\"$\n\007ConnSyn\022\014\n\004host\030\001 \001(\t\022\013\n\003pid\030\002 \001(" +
-      "\007\"B\n\021ConnGetPerflowMsg\022\020\n\010hw_proto\030\001 \001(\005" +
-      "\022\r\n\005proto\030\002 \001(\005\022\014\n\004mode\030\003 \001(\005\"%\n\024ConnGet" +
-      "PerflowAckMsg\022\r\n\005count\030\001 \001(\007\"\274\001\n\tConnSta" +
-      "te\022\021\n\tether_dst\030\001 \003(\007\022\021\n\tether_src\030\002 \003(\007" +
-      "\022\014\n\004s_ip\030\003 \001(\007\022\014\n\004d_ip\030\004 \001(\007\022\016\n\006s_port\030\005" +
-      " \001(\007\022\016\n\006d_port\030\006 \001(\007\022\020\n\010hw_proto\030\007 \001(\005\022\r" +
-      "\n\005proto\030\010 \001(\005\022\014\n\004cxid\030\t \001(\006\022\014\n\004hash\030\n \001(" +
-      "\007\022\020\n\010nat_hash\030\013 \001(\007\".\n\021ConnPutPerflowMsg" +
-      "\022\031\n\005state\030\001 \001(\0132\n.ConnState\"2\n\024ConnPutPe" +
-      "rflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(\007B" +
-      "\026B\022MyConnMessageProtoH\001"
+      "sg\030\007 \001(\0132\025.ConnPutPerflowAckMsgH\000\022\037\n\tunl" +
+      "ockMsg\030\010 \001(\0132\n.UnlockMsgH\000\"\257\001\n\010DataType\022" +
+      "\013\n\007SynType\020\001\022\031\n\025ConnGetPerflowMsgType\020\002\022" +
+      "\034\n\030ConnGetPerflowAckMsgType\020\003\022\021\n\rConnSta" +
+      "teType\020\004\022\031\n\025ConnPutPerflowMsgType\020\005\022\034\n\030C" +
+      "onnPutPerflowAckMsgType\020\006\022\021\n\rUnlockMsgTy" +
+      "pe\020\007B\t\n\007message\"$\n\007ConnSyn\022\014\n\004host\030\001 \001(\t" +
+      "\022\013\n\003pid\030\002 \001(\007\"B\n\021ConnGetPerflowMsg\022\020\n\010hw" +
+      "_proto\030\001 \001(\005\022\r\n\005proto\030\002 \001(\005\022\014\n\004mode\030\003 \001(" +
+      "\005\"%\n\024ConnGetPerflowAckMsg\022\r\n\005count\030\001 \001(\007" +
+      "\"\274\001\n\tConnState\022\021\n\tether_dst\030\001 \003(\007\022\021\n\teth" +
+      "er_src\030\002 \003(\007\022\014\n\004s_ip\030\003 \001(\007\022\014\n\004d_ip\030\004 \001(\007" +
+      "\022\016\n\006s_port\030\005 \001(\007\022\016\n\006d_port\030\006 \001(\007\022\020\n\010hw_p" +
+      "roto\030\007 \001(\005\022\r\n\005proto\030\010 \001(\005\022\014\n\004cxid\030\t \001(\007\022" +
+      "\014\n\004hash\030\n \001(\007\022\020\n\010nat_hash\030\013 \001(\007\".\n\021ConnP" +
+      "utPerflowMsg\022\031\n\005state\030\001 \001(\0132\n.ConnState\"" +
+      "\225\001\n\024ConnPutPerflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014" +
+      "\n\004cxid\030\002 \001(\007\022.\n\007fwstate\030\003 \001(\0162\035.ConnPutP" +
+      "erflowAckMsg.fwState\022\020\n\010nat_hash\030\004 \001(\007\"\037" +
+      "\n\007fwState\022\010\n\004OPEN\020\001\022\n\n\006CLOSED\020\002\"\013\n\tUnloc" +
+      "kMsgB\026B\022MyConnMessageProtoH\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7088,7 +8057,7 @@ public final class MyConnMessageProto {
     internal_static_MyConnMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MyConnMessage_descriptor,
-        new java.lang.String[] { "DataType", "Connsyn", "ConnGetPerflowMsg", "ConnGetPerflowAckMsg", "ConnState", "ConnPutPerflowMsg", "ConnPutPerflowAckMsg", "Message", });
+        new java.lang.String[] { "DataType", "Connsyn", "ConnGetPerflowMsg", "ConnGetPerflowAckMsg", "ConnState", "ConnPutPerflowMsg", "ConnPutPerflowAckMsg", "UnlockMsg", "Message", });
     internal_static_ConnSyn_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ConnSyn_fieldAccessorTable = new
@@ -7124,7 +8093,13 @@ public final class MyConnMessageProto {
     internal_static_ConnPutPerflowAckMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ConnPutPerflowAckMsg_descriptor,
-        new java.lang.String[] { "Hash", "Cxid", });
+        new java.lang.String[] { "Hash", "Cxid", "Fwstate", "NatHash", });
+    internal_static_UnlockMsg_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_UnlockMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UnlockMsg_descriptor,
+        new java.lang.String[] { });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
