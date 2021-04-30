@@ -21,7 +21,7 @@ public class ConnStateChunk implements Callable<Boolean> {
 
     @Override
     public Boolean call() throws Exception {
-        //logger.info("send a connState "+connState.getCxid());
+        logger.info("send a connState "+connState.getCxid());
 
         MyConnMessageProto.MyConnMessage putPerflowMessage = null;
         putPerflowMessage = MyConnMessageProto.MyConnMessage.newBuilder()

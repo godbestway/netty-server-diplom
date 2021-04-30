@@ -65,9 +65,9 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
             this.traceFile = prop.getProperty("TraceReplayFile");
             this.traceRate = Short.parseShort(prop.getProperty("TraceReplayRate"));
             this.traceNumPkts  = Integer.parseInt(prop.getProperty("TraceReplayNumPkts"));
-            System.out.println("traceNumPkts"+traceNumPkts);
+            logger.info("traceNumPkts"+traceNumPkts);
             this.operationDelay= Integer.parseInt(prop.getProperty("OperationDelay"));
-            System.out.println("operationdelay"+operationDelay);
+            logger.info("operationdelay"+operationDelay);
             this.stopDelay= Integer.parseInt(prop.getProperty("StopDelay"));
         }catch (IOException e){
             e.printStackTrace();

@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SFCProcessControl implements ProcessControl, ProcessCondition, Runnable {
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private final int numInstances = 2;
+    private final int numInstances = 3;
     private Map<String, NetworkFunction> runNFs;
     private OperationManager operationManager;
     public static boolean isFirstRecv = false;
@@ -96,7 +96,7 @@ public class SFCProcessControl implements ProcessControl, ProcessCondition, Runn
     }
 
     public void startMove(){
-        ConnStateStorage connStateStorage = ConnStateStorage.getInstance(runNFs.get("nf2"), runNFs.get("NF3"),this);
+        ConnStateStorage connStateStorage = ConnStateStorage.getInstance(this.runNFs,this);
         ((ConnMsgProcessor)operationManager.getConnMsgProcessors()).addConnStateStorage(connStateStorage);
         //ActionStateStorage actionStateStorage = ActionStateStorage.getInstance(runNFs.get("nf2"), this);
         //((ActionMsgProcessor)operationManager.getActionMsgProcessors()).addActionStateStorage(actionStateStorage);
@@ -140,6 +140,7 @@ public class SFCProcessControl implements ProcessControl, ProcessCondition, Runn
                 startNextAfter = 2;
                 break;
             case 1:
+                startMove();
                 initialForwarding();
                 boolean started = this.traceLoad.startTrace(this.traceFile);
                 if (started)

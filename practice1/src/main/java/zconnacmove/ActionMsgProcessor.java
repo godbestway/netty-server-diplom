@@ -86,7 +86,7 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
     public void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg) {
 
         totalnum = actionGetPerflowAckMsg.getCount();
-        //logger.info("getPerflowAck action totalnum:"+ totalnum);
+        logger.info("getPerflowAck action totalnum:"+ totalnum);
         //logger.info("getPerflowAck action count:"+ count);
         if(totalnum == count){
             setActionStateStorageAck();
@@ -98,12 +98,10 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
         count++;
         //ackCxidList.add(actionPutPerflowAckMsg.getHash());
         //showAckList();
-        //System.out.println("connection put perflow count"+count);
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
         //logger.info("action put perflow cxid"+ actionPutPerflowAckMsg.getCxid());
-        //logger.info("action put perflow count"+ count);
+        logger.info("action put perflow count"+ count);
         //logger.info("action put perflow totalnum"+totalnum);
-        //logger.info("action put perflow num"+count);
         if(totalnum == count){
             setActionStateStorageAck();
         }

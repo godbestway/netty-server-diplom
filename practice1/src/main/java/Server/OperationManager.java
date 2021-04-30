@@ -70,7 +70,7 @@ public class OperationManager {
             FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
             prop.load(fileInputStream);
             this.onlyFramework = Integer.parseInt(prop.getProperty("OnlyFramework"));
-            System.out.println(onlyFramework);
+            logger.info("only framework"+this.onlyFramework);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -145,9 +145,9 @@ public class OperationManager {
 
         }
 
-
-
     }
+
+
 
     public void bind(ServerBootstrap serverBootstrap, int port) {
         ChannelFuture channelFuture = serverBootstrap.bind(port);

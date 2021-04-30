@@ -19,24 +19,26 @@ public class ActionStateStorage {
     private NetworkFunction dst;
     private boolean ack;
     private  MoveProcessControl moveProcessControl;
+    private int advanced;
     protected static Logger logger = LoggerFactory.getLogger(ActionStateStorage.class);
 
     private ActionStateStorage(){
         statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
     }
 
-    private ActionStateStorage(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    private ActionStateStorage(NetworkFunction dst, MoveProcessControl moveProcessControl, int advanced){
         this.moveProcessControl = moveProcessControl;
         this.dst = dst;
         this.ack = false;
+        this.advanced = advanced;
         statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
     }
 
-    public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl){
+    public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl, int advanced){
         if(actionStateStorage == null){
             synchronized (ActionStateStorage.class){
                 if(actionStateStorage == null){
-                    actionStateStorage = new ActionStateStorage(dst, moveProcessControl);
+                    actionStateStorage = new ActionStateStorage(dst, moveProcessControl, advanced);
                 }
             }
         }
@@ -69,7 +71,9 @@ public class ActionStateStorage {
             if(!this.ack)
             {
                 this.ack = true;
-                this.moveProcessControl.getLatch().countDown();
+                if(this.advanced == 0) {
+                    this.moveProcessControl.getLatch().countDown();
+                }
             }
         }
         catch (Exception e){

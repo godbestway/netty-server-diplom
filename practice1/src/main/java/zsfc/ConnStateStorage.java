@@ -25,12 +25,12 @@ public class ConnStateStorage {
         this.ack = false;
         this.runNFs = runNFs;
         this.sfcProcessControl = sfcProcessControl;
-        stateMap = new ConcurrentHashMap<>();
+        stateMap = new ConcurrentHashMap<Integer, MyConnMessageProto.ConnState>();
     }
 
     public static ConnStateStorage getInstance(Map<String, NetworkFunction> runNFs, SFCProcessControl sfcProcessControl){
         if(connStateStorage == null){
-            synchronized (zconnacmove.ConnStateStorage.class){
+            synchronized (ConnStateStorage.class){
                 if(connStateStorage == null){
                     connStateStorage = new ConnStateStorage(runNFs, sfcProcessControl);
                 }

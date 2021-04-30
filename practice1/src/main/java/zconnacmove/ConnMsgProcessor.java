@@ -82,12 +82,14 @@ public class ConnMsgProcessor extends ConnProcessPerflow{
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
         //logger.info("connection put perflow count"+count);
         //logger.info("connection put perflow totalnum"+totalnum);
+        //logger.info("get hash"+connPutPerflowAckMsg.getHash());
         if(count == totalnum){
             setConnStateStorageAck();
         }
 
     }
 
+    //mode = 1 is move operation, mode = 2 is copy
     public void sendConnGetPerflow(NetworkFunction nf, short hwParameters, byte protoParameters,int mode) {
         logger.info("发送了connection getperflow");
         MyConnMessageProto.MyConnMessage myMessage = MyConnMessageProto.MyConnMessage.newBuilder()

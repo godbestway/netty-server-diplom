@@ -45,6 +45,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     private int traceNumPkts;
     private int operationDelay;
     private int stopDelay;
+    private int advanced;
 
     public MoveProcessControl() {
         parseConfigFile();
@@ -54,9 +55,15 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         runNFs = new HashMap<String, NetworkFunction>();
         this.operationManager = operationManager;
         //this.movestart2 = -1;
-        latch = new CountDownLatch(2);
+        //latch = new CountDownLatch(2);
         //cyclicBarrier = new CyclicBarrier(1);
         parseConfigFile();
+        if(advanced == 1){
+            logger.info("advanced = 1, countDownlatch = 1");
+            latch = new CountDownLatch(1);
+        }else{
+            latch = new CountDownLatch(2);
+        }
     }
 
     public void parseConfigFile(){
@@ -73,6 +80,8 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
             this.operationDelay= Integer.parseInt(prop.getProperty("OperationDelay"));
             System.out.println("operationdelay"+operationDelay);
             this.stopDelay= Integer.parseInt(prop.getProperty("StopDelay"));
+            this.advanced = Integer.parseInt(prop.getProperty("AdvanceMode"));
+            System.out.println("advanced: "+advanced);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -113,7 +122,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public void startMove(){
         ConnStateStorage connStateStorage = ConnStateStorage.getInstance(runNFs.get("nf2"), this);
         ((ConnMsgProcessor)operationManager.getConnMsgProcessors()).addConnStateStorage(connStateStorage);
-        ActionStateStorage actionStateStorage = ActionStateStorage.getInstance(runNFs.get("nf2"), this);
+        ActionStateStorage actionStateStorage = ActionStateStorage.getInstance(runNFs.get("nf2"), this, this.advanced);
         ((ActionMsgProcessor)operationManager.getActionMsgProcessors()).addActionStateStorage(actionStateStorage);
         //movestart = System.currentTimeMillis();
         //receiveDoubleAck();
@@ -131,29 +140,15 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
                         HwProtoParameters.TYPE_IPv4, ProtoParameters.PROTOCOL_TCP, 1);
             }
         }).start();
-        /*new Thread(new Runnable() {
-            public void run() {
-                try {
-                    cyclicBarrier.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                logger.info("send a getperflow");
-                operationManager.getActionMsgProcessors().sendActionGetPerflow(runNFs.get("nf1"), "all");
-            }
-        }).start();*/
-        //this.movestart = System.currentTimeMillis();
+
         receiveDoubleAck();
-        //operationManager.getConnMsgProcessors().testSendPutFlow();
-        //receiveDoubleAck();
+
     }
 
     public void receiveDoubleAck(){
         try {
             latch.await();
-            //logger.info("receive double ack"+System.currentTimeMillis());
+            logger.info("receive double ack"+System.currentTimeMillis());
             changeForwarding();
 
         } catch (InterruptedException e) {
@@ -173,7 +168,6 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     }
 
     public void changeForwarding() {
-        System.out.println(System.currentTimeMillis());
         long movetime = System.currentTimeMillis() - this.movestart;
 
         logger.info("begin to change forward direction");

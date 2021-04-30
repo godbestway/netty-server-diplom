@@ -1,6 +1,7 @@
 package channel;
 
 import Server.OperationManager;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import interfaces.msgprocessors.ProcessReceiveMsg;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
@@ -39,7 +40,6 @@ public class ConnectionChannel extends BaseChannel{
             //logger.info("receive a  conn getAck"+System.currentTimeMillis());
             connMsgProcess.getConnPerflowAck(myMessage.getConnGetPerflowAckMsg());
         }else if(dataType == MyConnMessageProto.MyConnMessage.DataType.ConnPutPerflowAckMsgType){
-            //logger.info("receive a  putAck"+System.currentTimeMillis());
             connMsgProcess.putConnPerflowAck(myMessage.getConnPutPerflowAckMsg());
         }
 
