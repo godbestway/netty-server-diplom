@@ -7,6 +7,8 @@ import proto.MyActionMessageProto;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @Author: Chenglin Ding
@@ -16,10 +18,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class ActionStateStorage {
     private static volatile ActionStateStorage actionStateStorage;
     private ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>> statesMap;
+    private ConcurrentLinkedQueue<ActionStateChunk> statesList;
     private NetworkFunction dst;
     private boolean ack;
     private  MoveProcessControl moveProcessControl;
     private int advanced;
+    private ExecutorService threadPool;
     protected static Logger logger = LoggerFactory.getLogger(ActionStateStorage.class);
 
     private ActionStateStorage(){
@@ -32,6 +36,8 @@ public class ActionStateStorage {
         this.ack = false;
         this.advanced = advanced;
         statesMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<MyActionMessageProto.ActionState>>();
+        statesList = new ConcurrentLinkedQueue<>();
+        this.threadPool = Executors.newCachedThreadPool();
     }
 
     public static ActionStateStorage getInstance(NetworkFunction dst, MoveProcessControl moveProcessControl, int advanced){
@@ -53,6 +59,14 @@ public class ActionStateStorage {
         this.statesMap = statesMap;
     }
 
+    public ExecutorService getThreadPool() {
+        return threadPool;
+    }
+
+    public void setThreadPool(ExecutorService threadPool) {
+        this.threadPool = threadPool;
+    }
+
     public NetworkFunction getDst() {
         return dst;
     }
@@ -61,12 +75,23 @@ public class ActionStateStorage {
         this.dst = dst;
     }
 
+    public int getAdvanced() {
+        return advanced;
+    }
+
+    public ConcurrentLinkedQueue<ActionStateChunk> getStatesList() {
+        return statesList;
+    }
+
+    public void setStatesList(ConcurrentLinkedQueue<ActionStateChunk> statesList) {
+        this.statesList = statesList;
+    }
 
     /**
      * the number of putAcks is equal to the total nums
      */
     public void setAck(){
-        logger.info("set a action stateStorage ack");
+        //logger.info("set a action stateStorage ack");
         try {
             if(!this.ack)
             {

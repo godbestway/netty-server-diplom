@@ -29,7 +29,7 @@ public class ConnectionChannelHandler  extends BaseChannelHandler{
         Attribute<BaseChannel> attr = ctx.attr(AttributeMapConstant.NETTY_CHANNEL_KEY);
         attr.setIfAbsent(connChannel);
         //System.out.println("客户端："+incoming.remoteAddress()+"已连接上Connection来");
-        logger.info("客户端："+incoming.remoteAddress()+"已连接上Connection来");
+        logger.info("client："+incoming.remoteAddress()+"connected Connection channel");
 
     }
 
@@ -48,7 +48,7 @@ public class ConnectionChannelHandler  extends BaseChannelHandler{
         //连接断开时触发的动作
         Channel incoming=ctx.channel();
         //System.out.println("客户端："+incoming.remoteAddress()+"已断开");
-        logger.info("客户端："+incoming.remoteAddress()+"已断开");
+        logger.info("client："+incoming.remoteAddress()+"disconnected");
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ConnectionChannelHandler  extends BaseChannelHandler{
         //通道处于活动状态触发的动作，该方法只会在通道建立时调用一次
         Channel incoming=ctx.channel();
         //System.out.println("客户端："+incoming.remoteAddress()+"在线");
-        logger.info("客户端："+incoming.remoteAddress()+"在线");
+        logger.info("client："+incoming.remoteAddress()+"online");
 
 
     }
@@ -68,7 +68,7 @@ public class ConnectionChannelHandler  extends BaseChannelHandler{
         //通道处于非活动状态触发的动作，该方法只会在通道失效时调用一次
         Channel incoming=ctx.channel();
         //System.out.println("客户端："+incoming.remoteAddress()+"掉线");
-        logger.info("客户端："+incoming.remoteAddress()+"掉线");
+        logger.info("client："+incoming.remoteAddress()+"offline");
     }
 
 }

@@ -6,7 +6,10 @@ import interfaces.msgprocessors.Perflow.ActionProcessPerflow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import proto.MyActionMessageProto;
+import proto.MyConnMessageProto;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -36,6 +39,7 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
         this.ackCxidList = new ConcurrentLinkedQueue<Integer>();
         this.receiveCxidList = new ConcurrentLinkedQueue<Integer>();
     }
+
 
     public void showAckList(){
         logger.info("showAckList");
@@ -68,25 +72,24 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
 
         receiveCount++;
         //showNATActionState(actionState);
-        //logger.info("action receive:"+ receiveCount);
-
-        //showReceiveList();
+        ActionStateChunk actionStateChunk = new ActionStateChunk(actionStateStorage.getDst(), actionState);
+        //if(actionStateStorage.getAdvanced() == 0) {
+            //logger.info("send the states in the list directly");
+        //    threadPool.submit(actionStateChunk);
+        //}else{
+            //only for prads in advanced mode
+            //logger.info("store the states in the list");
+            actionStateStorage.getStatesList().add(actionStateChunk);
+        //}
 
         //showFWActionState(actionState);
-        //logger.info("action receive state current time "+actionState.getCxid());
-        //&& (receiveCount < 36)(receiveCount > 20)&&
 
-        //if((actionState.getHash() == 7074) || (actionState.getHash() == 7330)) {
-            ActionStateChunk actionStateChunk = new ActionStateChunk(actionStateStorage.getDst(), actionState);
-            threadPool.submit(actionStateChunk);
-            //showActionState(actionState);
-        //}
     }
 
     public void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg) {
 
         totalnum = actionGetPerflowAckMsg.getCount();
-        logger.info("getPerflowAck action totalnum:"+ totalnum);
+        //logger.info("getPerflowAck action totalnum:"+ totalnum);
         //logger.info("getPerflowAck action count:"+ count);
         if(totalnum == count){
             setActionStateStorageAck();
@@ -100,7 +103,7 @@ public class ActionMsgProcessor extends ActionProcessPerflow {
         //showAckList();
         //logger.info("conn putperflow ack current time"+System.currentTimeMillis());
         //logger.info("action put perflow cxid"+ actionPutPerflowAckMsg.getCxid());
-        logger.info("action put perflow count"+ count);
+        //logger.info("action put perflow count"+ count);
         //logger.info("action put perflow totalnum"+totalnum);
         if(totalnum == count){
             setActionStateStorageAck();

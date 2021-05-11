@@ -30,7 +30,7 @@ public class ShareStateChunk implements Callable<Boolean> {
                         newBuilder().setShareState(this.shareState).build())
                 .build();
 
-        logger.info("send a action putPerflowMsg actionState"+ shareState.getHash());
+        //logger.info("send a action putPerflowMsg actionState"+ shareState.getHash());
         this.dst.getActionChannel().sendMessage(putPerflowMessage);
 
         return true;

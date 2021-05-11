@@ -64,7 +64,7 @@ public class ConnStateStorage {
 
 
     public void setAck(){
-        logger.info("set a conn stateStorage ack");
+        //logger.info("set a conn stateStorage ack");
         try {
             if(!this.ack)
             {

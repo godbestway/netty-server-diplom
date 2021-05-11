@@ -8475,6 +8475,34 @@ public final class MyActionMessageProto {
      * @return The hash.
      */
     int getHash();
+
+    /**
+     * <code>optional fixed32 nat_hash = 26;</code>
+     * @return Whether the natHash field is set.
+     */
+    boolean hasNatHash();
+    /**
+     * <code>optional fixed32 nat_hash = 26;</code>
+     * @return The natHash.
+     */
+    int getNatHash();
+
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @return A list containing the etherSrc.
+     */
+    java.util.List<java.lang.Integer> getEtherSrcList();
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @return The count of etherSrc.
+     */
+    int getEtherSrcCount();
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @param index The index of the element to return.
+     * @return The etherSrc at the given index.
+     */
+    int getEtherSrc(int index);
   }
   /**
    * Protobuf type {@code ShareState}
@@ -8490,6 +8518,7 @@ public final class MyActionMessageProto {
     }
     private ShareState() {
       fwstate_ = 1;
+      etherSrc_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -8671,6 +8700,32 @@ public final class MyActionMessageProto {
               hash_ = input.readFixed32();
               break;
             }
+            case 213: {
+              bitField0_ |= 0x02000000;
+              natHash_ = input.readFixed32();
+              break;
+            }
+            case 221: {
+              if (!((mutable_bitField0_ & 0x04000000) != 0)) {
+                etherSrc_ = newIntList();
+                mutable_bitField0_ |= 0x04000000;
+              }
+              etherSrc_.addInt(input.readFixed32());
+              break;
+            }
+            case 218: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x04000000) != 0) && input.getBytesUntilLimit() > 0) {
+                etherSrc_ = newIntList();
+                mutable_bitField0_ |= 0x04000000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                etherSrc_.addInt(input.readFixed32());
+              }
+              input.popLimit(limit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -8686,6 +8741,9 @@ public final class MyActionMessageProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x04000000) != 0)) {
+          etherSrc_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -9289,6 +9347,52 @@ public final class MyActionMessageProto {
       return hash_;
     }
 
+    public static final int NAT_HASH_FIELD_NUMBER = 26;
+    private int natHash_;
+    /**
+     * <code>optional fixed32 nat_hash = 26;</code>
+     * @return Whether the natHash field is set.
+     */
+    @java.lang.Override
+    public boolean hasNatHash() {
+      return ((bitField0_ & 0x02000000) != 0);
+    }
+    /**
+     * <code>optional fixed32 nat_hash = 26;</code>
+     * @return The natHash.
+     */
+    @java.lang.Override
+    public int getNatHash() {
+      return natHash_;
+    }
+
+    public static final int ETHER_SRC_FIELD_NUMBER = 27;
+    private com.google.protobuf.Internal.IntList etherSrc_;
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @return A list containing the etherSrc.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+        getEtherSrcList() {
+      return etherSrc_;
+    }
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @return The count of etherSrc.
+     */
+    public int getEtherSrcCount() {
+      return etherSrc_.size();
+    }
+    /**
+     * <code>repeated fixed32 ether_src = 27;</code>
+     * @param index The index of the element to return.
+     * @return The etherSrc at the given index.
+     */
+    public int getEtherSrc(int index) {
+      return etherSrc_.getInt(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9377,6 +9481,12 @@ public final class MyActionMessageProto {
       }
       if (((bitField0_ & 0x01000000) != 0)) {
         output.writeFixed32(25, hash_);
+      }
+      if (((bitField0_ & 0x02000000) != 0)) {
+        output.writeFixed32(26, natHash_);
+      }
+      for (int i = 0; i < etherSrc_.size(); i++) {
+        output.writeFixed32(27, etherSrc_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -9486,6 +9596,16 @@ public final class MyActionMessageProto {
       if (((bitField0_ & 0x01000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFixed32Size(25, hash_);
+      }
+      if (((bitField0_ & 0x02000000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed32Size(26, natHash_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 4 * getEtherSrcList().size();
+        size += dataSize;
+        size += 2 * getEtherSrcList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9626,6 +9746,13 @@ public final class MyActionMessageProto {
         if (getHash()
             != other.getHash()) return false;
       }
+      if (hasNatHash() != other.hasNatHash()) return false;
+      if (hasNatHash()) {
+        if (getNatHash()
+            != other.getNatHash()) return false;
+      }
+      if (!getEtherSrcList()
+          .equals(other.getEtherSrcList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9743,6 +9870,14 @@ public final class MyActionMessageProto {
       if (hasHash()) {
         hash = (37 * hash) + HASH_FIELD_NUMBER;
         hash = (53 * hash) + getHash();
+      }
+      if (hasNatHash()) {
+        hash = (37 * hash) + NAT_HASH_FIELD_NUMBER;
+        hash = (53 * hash) + getNatHash();
+      }
+      if (getEtherSrcCount() > 0) {
+        hash = (37 * hash) + ETHER_SRC_FIELD_NUMBER;
+        hash = (53 * hash) + getEtherSrcList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9937,6 +10072,10 @@ public final class MyActionMessageProto {
         bitField0_ = (bitField0_ & ~0x00800000);
         hash_ = 0;
         bitField0_ = (bitField0_ & ~0x01000000);
+        natHash_ = 0;
+        bitField0_ = (bitField0_ & ~0x02000000);
+        etherSrc_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x04000000);
         return this;
       }
 
@@ -10073,6 +10212,15 @@ public final class MyActionMessageProto {
           result.hash_ = hash_;
           to_bitField0_ |= 0x01000000;
         }
+        if (((from_bitField0_ & 0x02000000) != 0)) {
+          result.natHash_ = natHash_;
+          to_bitField0_ |= 0x02000000;
+        }
+        if (((bitField0_ & 0x04000000) != 0)) {
+          etherSrc_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x04000000);
+        }
+        result.etherSrc_ = etherSrc_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10196,6 +10344,19 @@ public final class MyActionMessageProto {
         }
         if (other.hasHash()) {
           setHash(other.getHash());
+        }
+        if (other.hasNatHash()) {
+          setNatHash(other.getNatHash());
+        }
+        if (!other.etherSrc_.isEmpty()) {
+          if (etherSrc_.isEmpty()) {
+            etherSrc_ = other.etherSrc_;
+            bitField0_ = (bitField0_ & ~0x04000000);
+          } else {
+            ensureEtherSrcIsMutable();
+            etherSrc_.addAll(other.etherSrc_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11364,6 +11525,124 @@ public final class MyActionMessageProto {
       public Builder clearHash() {
         bitField0_ = (bitField0_ & ~0x01000000);
         hash_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int natHash_ ;
+      /**
+       * <code>optional fixed32 nat_hash = 26;</code>
+       * @return Whether the natHash field is set.
+       */
+      @java.lang.Override
+      public boolean hasNatHash() {
+        return ((bitField0_ & 0x02000000) != 0);
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 26;</code>
+       * @return The natHash.
+       */
+      @java.lang.Override
+      public int getNatHash() {
+        return natHash_;
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 26;</code>
+       * @param value The natHash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNatHash(int value) {
+        bitField0_ |= 0x02000000;
+        natHash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed32 nat_hash = 26;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNatHash() {
+        bitField0_ = (bitField0_ & ~0x02000000);
+        natHash_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.IntList etherSrc_ = emptyIntList();
+      private void ensureEtherSrcIsMutable() {
+        if (!((bitField0_ & 0x04000000) != 0)) {
+          etherSrc_ = mutableCopy(etherSrc_);
+          bitField0_ |= 0x04000000;
+         }
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @return A list containing the etherSrc.
+       */
+      public java.util.List<java.lang.Integer>
+          getEtherSrcList() {
+        return ((bitField0_ & 0x04000000) != 0) ?
+                 java.util.Collections.unmodifiableList(etherSrc_) : etherSrc_;
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @return The count of etherSrc.
+       */
+      public int getEtherSrcCount() {
+        return etherSrc_.size();
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @param index The index of the element to return.
+       * @return The etherSrc at the given index.
+       */
+      public int getEtherSrc(int index) {
+        return etherSrc_.getInt(index);
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @param index The index to set the value at.
+       * @param value The etherSrc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEtherSrc(
+          int index, int value) {
+        ensureEtherSrcIsMutable();
+        etherSrc_.setInt(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @param value The etherSrc to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEtherSrc(int value) {
+        ensureEtherSrcIsMutable();
+        etherSrc_.addInt(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @param values The etherSrc to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllEtherSrc(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureEtherSrcIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, etherSrc_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated fixed32 ether_src = 27;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEtherSrc() {
+        etherSrc_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x04000000);
         onChanged();
         return this;
       }
@@ -25802,7 +26081,7 @@ public final class MyActionMessageProto {
       "Asset\022%\n\007fwstate\030\021 \001(\0162\024.ActionState.fwS" +
       "tate\022\023\n\013external_ip\030\022 \001(\007\022\025\n\rexternal_po" +
       "rt\030\023 \001(\007\022\020\n\010nat_hash\030\024 \001(\007\"\037\n\007fwState\022\010\n" +
-      "\004OPEN\020\001\022\n\n\006CLOSED\020\002\"\221\004\n\nShareState\022\022\n\nst" +
+      "\004OPEN\020\001\022\n\n\006CLOSED\020\002\"\266\004\n\nShareState\022\022\n\nst" +
       "art_time\030\001 \001(\006\022\025\n\rlast_pkt_time\030\002 \001(\006\022\014\n" +
       "\004cxid\030\003 \001(\006\022\020\n\010reversed\030\004 \001(\r\022\n\n\002af\030\005 \001(" +
       "\007\022\020\n\010hw_proto\030\006 \001(\005\022\r\n\005proto\030\007 \001(\005\022\014\n\004s_" +
@@ -25814,43 +26093,44 @@ public final class MyActionMessageProto {
       "\005check\030\023 \001(\r\022\027\n\007c_asset\030\024 \001(\0132\006.Asset\022\027\n" +
       "\007s_asset\030\025 \001(\0132\006.Asset\022$\n\007fwstate\030\026 \001(\0162" +
       "\023.ShareState.fwState\022\023\n\013external_ip\030\027 \001(" +
-      "\007\022\025\n\rexternal_port\030\030 \001(\007\022\014\n\004hash\030\031 \001(\007\"\037" +
-      "\n\007fwState\022\010\n\004OPEN\020\001\022\n\n\006CLOSED\020\002\"E\n\023Actio" +
-      "nGetPerflowMsg\022\020\n\010hw_proto\030\001 \001(\005\022\r\n\005prot" +
-      "o\030\002 \001(\005\022\r\n\005share\030\003 \001(\005\"\'\n\026ActionGetPerfl" +
-      "owAckMsg\022\r\n\005count\030\001 \001(\007\"T\n\023ActionPutPerf" +
-      "lowMsg\022\033\n\005state\030\001 \001(\0132\014.ActionState\022 \n\013s" +
-      "hare_state\030\002 \001(\0132\013.ShareState\"4\n\026ActionP" +
-      "utPerflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 " +
-      "\001(\007\"\027\n\025ActionGetMultiflowMsg\")\n\030ActionGe" +
-      "tMultiflowAckMsg\022\r\n\005count\030\001 \001(\007\"/\n\020Actio" +
-      "nMultiState\022\033\n\013multi_state\030\001 \001(\0132\006.Asset" +
-      "\"?\n\025ActionPutMultiflowMsg\022&\n\013multi_state" +
-      "\030\001 \001(\0132\021.ActionMultiState\"\032\n\030ActionPutMu" +
-      "ltiflowAckMsg\"\025\n\023ActionGetAllflowMsg\"\'\n\026" +
-      "ActionGetAllflowAckMsg\022\r\n\005count\030\001 \001(\007\"#\n" +
-      "\016ActionAllState\022\021\n\tall_state\030\001 \001(\t\"9\n\023Ac" +
-      "tionPutAllflowMsg\022\"\n\tall_state\030\001 \001(\0132\017.A" +
-      "ctionAllState\"\030\n\026ActionPutAllflowAckMsg\"" +
-      "\236\001\n\005Asset\022\022\n\nfirst_seen\030\001 \001(\006\022\021\n\tlast_se" +
-      "en\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\n\n\002af\030\004 \001(\007" +
-      "\022\014\n\004vlan\030\005 \001(\r\022\014\n\004s_ip\030\006 \001(\007\022\034\n\010services" +
-      "\030\007 \001(\0132\n.ServAsset\022\024\n\002os\030\010 \001(\0132\010.OsAsset" +
-      "\"\313\001\n\tServAsset\022\022\n\nfirst_seen\030\001 \001(\006\022\021\n\tla" +
-      "st_seen\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\r\n\005pro" +
-      "to\030\004 \001(\r\022\014\n\004port\030\005 \001(\r\022\013\n\003ttl\030\006 \001(\r\022\032\n\010b" +
-      "service\030\007 \001(\0132\010.Bstring\022\036\n\014bapplication\030" +
-      "\010 \001(\0132\010.Bstring\022\014\n\004role\030\t \001(\007\022\017\n\007unknown" +
-      "\030\n \001(\007\"\237\002\n\007OsAsset\022\022\n\nfirst_seen\030\001 \001(\006\022\021" +
-      "\n\tlast_seen\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\031\n" +
-      "\007bvendor\030\004 \001(\0132\010.Bstring\022\025\n\003bos\030\005 \001(\0132\010." +
-      "Bstring\022\021\n\tdetection\030\006 \001(\r\022\030\n\006raw_fp\030\007 \001" +
-      "(\0132\010.Bstring\022\034\n\nmatched_fp\030\010 \001(\0132\010.Bstri" +
-      "ng\022\020\n\010match_os\030\t \001(\t\022\022\n\nmatch_desc\030\n \001(\t" +
-      "\022\014\n\004port\030\013 \001(\r\022\013\n\003mtu\030\014 \001(\r\022\013\n\003ttl\030\r \001(\r" +
-      "\022\016\n\006uptime\030\016 \001(\r\"3\n\007Bstring\022\014\n\004mlen\030\001 \001(" +
-      "\007\022\014\n\004slen\030\002 \001(\007\022\014\n\004data\030\003 \001(\tB\030B\024MyActio" +
-      "nMessageProtoH\001"
+      "\007\022\025\n\rexternal_port\030\030 \001(\007\022\014\n\004hash\030\031 \001(\007\022\020" +
+      "\n\010nat_hash\030\032 \001(\007\022\021\n\tether_src\030\033 \003(\007\"\037\n\007f" +
+      "wState\022\010\n\004OPEN\020\001\022\n\n\006CLOSED\020\002\"E\n\023ActionGe" +
+      "tPerflowMsg\022\020\n\010hw_proto\030\001 \001(\005\022\r\n\005proto\030\002" +
+      " \001(\005\022\r\n\005share\030\003 \001(\005\"\'\n\026ActionGetPerflowA" +
+      "ckMsg\022\r\n\005count\030\001 \001(\007\"T\n\023ActionPutPerflow" +
+      "Msg\022\033\n\005state\030\001 \001(\0132\014.ActionState\022 \n\013shar" +
+      "e_state\030\002 \001(\0132\013.ShareState\"4\n\026ActionPutP" +
+      "erflowAckMsg\022\014\n\004hash\030\001 \001(\007\022\014\n\004cxid\030\002 \001(\007" +
+      "\"\027\n\025ActionGetMultiflowMsg\")\n\030ActionGetMu" +
+      "ltiflowAckMsg\022\r\n\005count\030\001 \001(\007\"/\n\020ActionMu" +
+      "ltiState\022\033\n\013multi_state\030\001 \001(\0132\006.Asset\"?\n" +
+      "\025ActionPutMultiflowMsg\022&\n\013multi_state\030\001 " +
+      "\001(\0132\021.ActionMultiState\"\032\n\030ActionPutMulti" +
+      "flowAckMsg\"\025\n\023ActionGetAllflowMsg\"\'\n\026Act" +
+      "ionGetAllflowAckMsg\022\r\n\005count\030\001 \001(\007\"#\n\016Ac" +
+      "tionAllState\022\021\n\tall_state\030\001 \001(\t\"9\n\023Actio" +
+      "nPutAllflowMsg\022\"\n\tall_state\030\001 \001(\0132\017.Acti" +
+      "onAllState\"\030\n\026ActionPutAllflowAckMsg\"\236\001\n" +
+      "\005Asset\022\022\n\nfirst_seen\030\001 \001(\006\022\021\n\tlast_seen\030" +
+      "\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\n\n\002af\030\004 \001(\007\022\014\n" +
+      "\004vlan\030\005 \001(\r\022\014\n\004s_ip\030\006 \001(\007\022\034\n\010services\030\007 " +
+      "\001(\0132\n.ServAsset\022\024\n\002os\030\010 \001(\0132\010.OsAsset\"\313\001" +
+      "\n\tServAsset\022\022\n\nfirst_seen\030\001 \001(\006\022\021\n\tlast_" +
+      "seen\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\r\n\005proto\030" +
+      "\004 \001(\r\022\014\n\004port\030\005 \001(\r\022\013\n\003ttl\030\006 \001(\r\022\032\n\010bser" +
+      "vice\030\007 \001(\0132\010.Bstring\022\036\n\014bapplication\030\010 \001" +
+      "(\0132\010.Bstring\022\014\n\004role\030\t \001(\007\022\017\n\007unknown\030\n " +
+      "\001(\007\"\237\002\n\007OsAsset\022\022\n\nfirst_seen\030\001 \001(\006\022\021\n\tl" +
+      "ast_seen\030\002 \001(\006\022\022\n\ni_attempts\030\003 \001(\r\022\031\n\007bv" +
+      "endor\030\004 \001(\0132\010.Bstring\022\025\n\003bos\030\005 \001(\0132\010.Bst" +
+      "ring\022\021\n\tdetection\030\006 \001(\r\022\030\n\006raw_fp\030\007 \001(\0132" +
+      "\010.Bstring\022\034\n\nmatched_fp\030\010 \001(\0132\010.Bstring\022" +
+      "\020\n\010match_os\030\t \001(\t\022\022\n\nmatch_desc\030\n \001(\t\022\014\n" +
+      "\004port\030\013 \001(\r\022\013\n\003mtu\030\014 \001(\r\022\013\n\003ttl\030\r \001(\r\022\016\n" +
+      "\006uptime\030\016 \001(\r\"3\n\007Bstring\022\014\n\004mlen\030\001 \001(\007\022\014" +
+      "\n\004slen\030\002 \001(\007\022\014\n\004data\030\003 \001(\tB\030B\024MyActionMe" +
+      "ssageProtoH\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25879,7 +26159,7 @@ public final class MyActionMessageProto {
     internal_static_ShareState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ShareState_descriptor,
-        new java.lang.String[] { "StartTime", "LastPktTime", "Cxid", "Reversed", "Af", "HwProto", "Proto", "SIp", "DIp", "SPort", "DPort", "STotalPkts", "STotalBytes", "DTotalPkts", "DTotalBytes", "STcpFlags", "Pad", "DTcpFlags", "Check", "CAsset", "SAsset", "Fwstate", "ExternalIp", "ExternalPort", "Hash", });
+        new java.lang.String[] { "StartTime", "LastPktTime", "Cxid", "Reversed", "Af", "HwProto", "Proto", "SIp", "DIp", "SPort", "DPort", "STotalPkts", "STotalBytes", "DTotalPkts", "DTotalBytes", "STcpFlags", "Pad", "DTcpFlags", "Check", "CAsset", "SAsset", "Fwstate", "ExternalIp", "ExternalPort", "Hash", "NatHash", "EtherSrc", });
     internal_static_ActionGetPerflowMsg_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_ActionGetPerflowMsg_fieldAccessorTable = new

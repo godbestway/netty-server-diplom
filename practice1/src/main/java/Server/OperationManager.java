@@ -67,7 +67,7 @@ public class OperationManager {
     public void parseConfigFile(){
         Properties prop = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
+            FileInputStream fileInputStream = new FileInputStream("/home/sharestate/config.properties");
             prop.load(fileInputStream);
             this.onlyFramework = Integer.parseInt(prop.getProperty("OnlyFramework"));
             logger.info("only framework"+this.onlyFramework);

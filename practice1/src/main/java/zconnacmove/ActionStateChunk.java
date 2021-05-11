@@ -36,7 +36,7 @@ public class ActionStateChunk implements Callable<Boolean> {
                         newBuilder().setState(this.actionState).build())
                 .build();
 
-        //logger.info("send a action putPerflowMsg actionState"+actionState.getData());
+        //logger.info("send a action putPerflowMsg actionState"+actionState.getHash());
         this.dst.getActionChannel().sendMessage(putPerflowMessage);
 
         return true;

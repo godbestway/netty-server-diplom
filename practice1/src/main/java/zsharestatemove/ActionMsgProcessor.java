@@ -42,7 +42,7 @@ public class ActionMsgProcessor extends ActionProcessShareStatePerflow {
     @Override
     public void getActionPerflowAck(MyActionMessageProto.ActionGetPerflowAckMsg actionGetPerflowAckMsg) {
         totalnum = actionGetPerflowAckMsg.getCount();
-        logger.info("getPerflowAck action totalnum:"+ totalnum);
+        //logger.info("getPerflowAck action totalnum:"+ totalnum);
         //logger.info("getPerflowAck action count:"+ count);
         if(totalnum == count){
             setActionStateStorageAck();
@@ -54,7 +54,7 @@ public class ActionMsgProcessor extends ActionProcessShareStatePerflow {
         count++;
         //ackCxidList.add(actionPutPerflowAckMsg.getHash());
         //showAckList();
-        logger.info("putPerflowAck count:"+ count);
+        //logger.info("putPerflowAck count:"+ count);
         if(totalnum == count){
             setActionStateStorageAck();
         }
@@ -83,13 +83,16 @@ public class ActionMsgProcessor extends ActionProcessShareStatePerflow {
             logger.info("move start from action processor"+ MoveProcessControl.movestart);
         }
 
-        //receiveCount++;
+        receiveCount++;
         //logger.info("action receive:"+ receiveCount);
 
         //showNATActionState(actionState);
         //showFWActionState(actionState);
         //showReceiveList();
         //showShareState(shareState);
+        if(totalnum == receiveCount){
+            logger.info("receive all the states"+ (System.currentTimeMillis() - MoveProcessControl.movestart));
+        }
 
         //if((actionState.getHash() == 7074) || (actionState.getHash() == 7330)) {
         ShareStateChunk shareStateChunk = new ShareStateChunk(actionStateStorage.getDst(),shareState);

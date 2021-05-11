@@ -42,6 +42,10 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     private int traceNumPkts;
     private int operationDelay;
     private int stopDelay;
+    private String switchid;
+    private int replayPort;
+    private int srcPort;
+    private int dstPort;
 
     public MoveProcessControl() {
         parseConfigFile();
@@ -58,7 +62,7 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     public void parseConfigFile(){
         Properties prop = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
+            FileInputStream fileInputStream = new FileInputStream("/home/sharestate/config.properties");
             prop.load(fileInputStream);
             this.traceSwitchPort = Short.parseShort(prop.getProperty("TraceReplaySwitchPort"));
             this.traceHost = prop.getProperty("TraceReplayHost");
@@ -69,6 +73,11 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
             this.operationDelay= Integer.parseInt(prop.getProperty("OperationDelay"));
             logger.info("operationdelay"+operationDelay);
             this.stopDelay= Integer.parseInt(prop.getProperty("StopDelay"));
+            this.switchid = prop.getProperty("Switchid");
+            logger.info("switchid"+switchid);
+            this.replayPort = Integer.parseInt(prop.getProperty("TraceReplaySwitchPort"));
+            this.srcPort = Integer.parseInt(prop.getProperty("TraceReplaySrcPort"));
+            this.dstPort = Integer.parseInt(prop.getProperty("TraceReplayDstPort"));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -141,8 +150,9 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
     }
 
     public void initialForwarding(){
-        String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
-                "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=2\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
+        String curl_cmd = "{\"switch\":\""+this.switchid+"\",\"name\":\"flow-mod-1\",\"in_port\":\""+this.replayPort+"\",\"active\":\"true\", \"actions\":\"output="+this.srcPort+"\"}";
+        String[] cmd={"curl","-X", "POST","-d", curl_cmd,"http://127.0.0.1:8080/wm/staticflowpusher/json"};
+
         System.out.println(execCurl(cmd));
     }
 
@@ -156,10 +166,10 @@ public class MoveProcessControl implements ProcessControl, ProcessCondition, Run
         long movetime = System.currentTimeMillis() - this.movestart;
 
         logger.info("begin to change forward direction");
-        String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
-                "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=3\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
-        System.out.println(execCurl(cmd));
-        //logger.info("total move time"+movetime);
+        String curl_cmd = "{\"switch\":\""+this.switchid+"\",\"name\":\"flow-mod-1\",\"in_port\":\""+this.replayPort+"\",\"active\":\"true\", \"actions\":\"output="+this.dstPort+"\"}";
+        String[] cmd={"curl","-X", "POST","-d", curl_cmd,"http://127.0.0.1:8080/wm/staticflowpusher/json"};
+
+        System.out.println(execCurl(cmd));//logger.info("total move time"+movetime);
         logger.info(String.format("[MOVE_TIME] elapse=%d ", movetime));
     }
 

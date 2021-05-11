@@ -59,7 +59,7 @@ public class MoveStatelessControl implements ProcessControl, ProcessCondition, R
     public void parseConfigFile(){
         Properties prop = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
+            FileInputStream fileInputStream = new FileInputStream("/home/sharestate/config.properties");
             prop.load(fileInputStream);
             this.traceSwitchPort = Short.parseShort(prop.getProperty("TraceReplaySwitchPort"));
             this.traceHost = prop.getProperty("TraceReplayHost");
@@ -94,7 +94,10 @@ public class MoveStatelessControl implements ProcessControl, ProcessCondition, R
         }
 
         if (firstNumInstances == this.runNFs.size())
-        { this.executeStep(0); }
+        {
+            logger.info("excute step 0");
+            this.executeStep(0);
+        }
 
         if (secondNumInstances == this.runNFs.size())
         {
@@ -115,7 +118,6 @@ public class MoveStatelessControl implements ProcessControl, ProcessCondition, R
     }
 
     public void startMove(){
-
         this.movestart = System.currentTimeMillis();
         runNFs.get("nf1").getPid();
 
@@ -123,6 +125,7 @@ public class MoveStatelessControl implements ProcessControl, ProcessCondition, R
 
 
     public void initialForwarding(){
+        System.out.println("initialForwarding");
         String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
                 "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=2\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
         System.out.println(execCurl(cmd));
