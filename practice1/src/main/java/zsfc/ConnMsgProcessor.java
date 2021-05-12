@@ -38,6 +38,11 @@ public class ConnMsgProcessor extends ConnProcessSfc implements UnlockSfc {
         //step 2: send connstate to NF2
         //System.out.println(connState.getCxid());
         logger.info("receive the conn state perflow");
+        if(connStateStorage == null){
+            logger.info("not the kind of conn state");
+            return;
+        }
+
         connStateStorage.getStateMap().put(connState.getCxid(),connState);
         logger.info("connstate cxid"+connState.getCxid());
         logger.info("connstate hash"+connState.getHash());

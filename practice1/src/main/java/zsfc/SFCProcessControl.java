@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SFCProcessControl implements ProcessControl, ProcessCondition, Runnable {
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private final int numInstances = 3;
+    private final int numInstances = 2;
     private Map<String, NetworkFunction> runNFs;
     private OperationManager operationManager;
     public static boolean isFirstRecv = false;
@@ -34,6 +34,14 @@ public class SFCProcessControl implements ProcessControl, ProcessCondition, Runn
     private String traceFile;
     private int traceRate;
     private int traceNumPkts;
+    private String switchid;
+    private int replayPort;
+    private int NF1Input;
+    private int NF1Output;
+    private int NF2Input;
+    private int NF2Output;
+    private int NF3Input;
+
 
 
     public SFCProcessControl(){
@@ -50,13 +58,26 @@ public class SFCProcessControl implements ProcessControl, ProcessCondition, Runn
     public void parseConfigFile(){
         Properties prop = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("/home/godbestway/IdeaProjects/practice1/src/main/java/traceload/config.properties");
+            FileInputStream fileInputStream = new FileInputStream("/home/sharestate/sfc-config.properties");
             prop.load(fileInputStream);
             this.traceSwitchPort = Short.parseShort(prop.getProperty("TraceReplaySwitchPort"));
             this.traceHost = prop.getProperty("TraceReplayHost");
             this.traceFile = prop.getProperty("TraceReplayFile");
             this.traceRate = Short.parseShort(prop.getProperty("TraceReplayRate"));
             this.traceNumPkts  = Integer.parseInt(prop.getProperty("TraceReplayNumPkts"));
+            this.switchid = prop.getProperty("Switchid");
+            logger.info("switchid"+switchid);
+            this.replayPort = Integer.parseInt(prop.getProperty("TraceReplaySwitchPort"));
+            this.NF1Input = Integer.parseInt(prop.getProperty("TraceReplayNF1Input"));
+            logger.info("nf1 input"+NF1Input);
+            this.NF1Output = Integer.parseInt(prop.getProperty("TraceReplayNF1Output"));
+            logger.info("nf1 output"+NF1Output);
+            this.NF2Input= Integer.parseInt(prop.getProperty("TraceReplayNF2Input"));
+            logger.info("nf2 input"+NF2Input);
+            this.NF2Output = Integer.parseInt(prop.getProperty("TraceReplayNF2Output"));
+            logger.info("nf2 output"+NF2Output);
+            this.NF3Input = Integer.parseInt(prop.getProperty("TraceReplayNF3Input"));
+            logger.info("nf3 input"+NF3Input);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -96,17 +117,32 @@ public class SFCProcessControl implements ProcessControl, ProcessCondition, Runn
     }
 
     public void startMove(){
-        ConnStateStorage connStateStorage = ConnStateStorage.getInstance(this.runNFs,this);
-        ((ConnMsgProcessor)operationManager.getConnMsgProcessors()).addConnStateStorage(connStateStorage);
         //ActionStateStorage actionStateStorage = ActionStateStorage.getInstance(runNFs.get("nf2"), this);
         //((ActionMsgProcessor)operationManager.getActionMsgProcessors()).addActionStateStorage(actionStateStorage);
+        ConnStateStorage connStateStorage = ConnStateStorage.getInstance(this.runNFs,this);
+        ((ConnMsgProcessor)operationManager.getConnMsgProcessors()).addConnStateStorage(connStateStorage);
 
     }
 
     public void initialForwarding(){
-        String[] cmd={"curl","-X", "POST","-d", "{\"switch\":\"00:00:00:00:00:00:00:01\",\"name\":\"flow-mod-1\"," +
-                "\"in_port\":\"1\",\"active\":\"true\", \"actions\":\"output=2\"}","http://127.0.0.1:8080/wm/staticflowpusher/json"};
-        System.out.println(execCurl(cmd));
+        String curl_cmd1 = "{\"switch\":\""+this.switchid+"\",\"name\":\"flow-mod-1\",\"in_port\":\""+this.replayPort+"\",\"active\":\"true\", \"actions\":\"output="+this.NF1Input+"\"}";
+        String[] cmd1={"curl","-X", "POST","-d", curl_cmd1,"http://127.0.0.1:8080/wm/staticflowpusher/json"};
+
+        System.out.println(cmd1);
+
+        System.out.println(execCurl(cmd1));
+
+        String curl_cmd2 = "{\"switch\":\""+this.switchid+"\",\"name\":\"flow-mod-2\",\"in_port\":\""+this.NF1Output+"\",\"active\":\"true\", \"actions\":\"output="+this.NF2Input+"\"}";
+        String[] cmd2={"curl","-X", "POST","-d", curl_cmd2,"http://127.0.0.1:8080/wm/staticflowpusher/json"};
+
+        System.out.println(cmd2);
+        System.out.println(execCurl(cmd2));
+
+        String curl_cmd3 = "{\"switch\":\""+this.switchid+"\",\"name\":\"flow-mod-3\",\"in_port\":\""+this.NF2Output+"\",\"active\":\"true\", \"actions\":\"output="+this.NF3Input+"\"}";
+        String[] cmd3={"curl","-X", "POST","-d", curl_cmd3,"http://127.0.0.1:8080/wm/staticflowpusher/json"};
+
+        System.out.println(cmd3);
+        System.out.println(execCurl(cmd3));
     }
 
     public static String execCurl(String[] cmds) {
